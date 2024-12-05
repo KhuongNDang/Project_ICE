@@ -1,0 +1,17 @@
+@startuml
+
+!pragma layout smetana
+
+Main *-- Game
+Game *-- Player
+Game *-- Creature
+Game *-- NPC
+Game *-- Combat
+Game *-- Dialog
+Game *-- Narrator
+Game *-- Tavern
+Game *-- Sidequest
+Game *-- Miniquest
+
+
+@enduml
