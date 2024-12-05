@@ -2,16 +2,31 @@
 
 !pragma layout smetana
 
-Main *-- Game
-Game *-- Player
-Game *-- Creature
-Game *-- NPC
-Game *-- Combat
-Game *-- Dialog
-Game *-- Narrator
-Game *-- Tavern
-Game *-- Sidequest
-Game *-- Miniquest
+
+Object GameDialogue
+Object Player
+Object Creature
+Object NPC
+Object Combat
+Object Quest
+Object Items
+
+
+
+
+Player --* Items: has a
+Creature --* Items: has a
+GameDialogue --* Items: has a
+Quest --* Items: has a
+GameDialogue --* NPC: has a
+NPC --* Quest: has a
+Player --* Combat: has a
+Creature --* Combat: has a
+NPC --* Combat: has a
+Creature --* GameDialogue: has a
+NPC --* Creature: is a
+GameDialogue --* Player: has a
+NPC --* Items: has a
 
 
 @enduml
