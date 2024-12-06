@@ -1,0 +1,72 @@
+Funktioinelle Krav:
+
+GameDialog
+Spillet skal understøtte dialog mellem spilleren og NPC'er med multiple-choice svar.
+Dialogvalg skal påvirke historien eller spillets progression.
+Der skal være mulighed for at inkludere tekstvisning.
+Dialogsystemet skal tillade forskellige udfald baseret på spillernes valg.
+En fortæller skal introducere spillets setting og vigtige begivenheder.
+Fortælleren skal kunne give baggrundsoplysninger i tekst.
+Spilleren skal kunne gemme spillets status på ethvert tidspunkt.
+Spilleren skal kunne tage valg, der påvirker spillets historie eller mekanikker.
+Valgmuligheder skal føre til forskellige udgange og konsekvenser
+Historien skal udvikle sig gennem quests, dialog.
+En klar start, midte og slutning skal være defineret.
+Spillet skal inkludere minigames som alternativ underholdning eller sidequests.
+Minigames skal belønne spilleren med valuta, items eller XP.
+Der skal være variation i minigames (fx puslespil, færdighedsbaserede udfordringer).
+
+
+
+Combat
+Kamp skal understøtte turbaseret.
+Spilleren skal kunne bruge våben eller items under kamp.
+Fjender skal have livspoint og angrebsstatistik.
+Kampresultater skal påvirke spillerens progression og ressourcer.
+RNG skal anvendes til at bestemme udfald i kampe, loot.
+Kampen skal være opdelt i ture
+Spilleren skal kunne planlægge deres handlinger strategisk.
+
+
+Player
+Opnåelse af niveauer skal give adgang til nye statistikforbedringer.
+Et leveling-system skal afspejle spillerens præstationer.
+Spillet skal have en valuta, som spilleren kan bruge i butikker og til handler.
+Valuta skal kunne optjenes via quests, kampe eller salg af items.
+Spilleren skal kunne købe og sælge items i butikker.
+Spilleren skal kunne optjene erfaring (XP) og stige i niveau.
+
+
+Item
+Spilleren skal kunne samle, bruge og sælge genstande.
+Hver genstand skal have en unik beskrivelse og attributter  (værdi, effekt).
+Items kan opdeles i kategorier som våben, rustning, potions.
+
+
+Creature
+Spillet skal indeholde forskellige væsner med unikke evner og svagheder.
+Væsner skal kunne interagere med spilleren gennem kamp eller quests.
+Der skal være en variation i væsnernes typer, som passer til miljøet.
+
+
+NPC
+NPC'er skal kunne give quests, handle varer eller deltage i dialog.
+Der skal være forskellige typer NPC'er (venlige, neutrale, fjendtlige).
+*NPC'ers handlinger kan ændre sig baseret på spillerens valg eller progression.
+
+
+Extra Features
+*Der skal være slots til flere gemte spil.
+*Autosave-funktion skal aktivere ved bestemte begivenheder.
+*Der skal være en grænse for, hvor meget valuta en spiller kan bære.
+*Spilleren skal kunne påvirke historiens retning via deres valg.
+*Priser i butikker kan påvirkes af spillerens færdigheder eller quests
+*Spillet skal have flere områder med unikke design og udfordringer.
+*Lokationer skal være udforskbare og kunne indeholde skjulte genstande eller hemmeligheder.
+*Spilleren skal kunne rekruttere ledsagere til at hjælpe i kamp og quests.
+*Ledsagere skal have unikke evner og personligheder.
+*En turordning skal beregnes baseret på spillerens og fjendernes statistik.
+
+
+
+
