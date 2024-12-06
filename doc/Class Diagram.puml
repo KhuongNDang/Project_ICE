@@ -23,10 +23,11 @@ class Player{
 - int health
 - int currency
 - int xp
+- <list>Inventory
 +equipItem()
 +levelUp()
-+inventory()
-+constructor()
++displayInventory()
++getPlayer()
 +getName()
 +setName()
 }
@@ -39,7 +40,7 @@ class Creature{
 - int health
 - int currency
 - <List> items
-+ constructor()
++ createCreature()
 + getCreature()
 + setCreature()
 }
