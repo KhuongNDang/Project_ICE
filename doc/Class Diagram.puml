@@ -17,12 +17,12 @@ class GameDialogue{
 }
 
 class Player{
-- name
-- attack
-- defence
-- health
-- currency
-- xp
+- String name
+- int attack
+- int defence
+- int health
+- int currency
+- int xp
 +equipItem()
 +levelUp()
 +inventory()
@@ -33,12 +33,12 @@ class Player{
 
 
 class Creature{
-- name
-- attack
-- defence
-- health
-- currency
-- items
+- String name
+- int attack
+- int defence
+- int health
+- int currency
+- <List> items
 + constructor()
 + getCreature()
 + setCreature()
@@ -46,12 +46,12 @@ class Creature{
 
 
 class  NPC{
-- currency
-- health
-- attack
-- defence
-- name
-- items
+- int currency
+- int health
+- int attack
+- int defence
+- String name
+- <List> items
 + createCreature()
 + sellItem()
 + buyItem()
@@ -61,21 +61,21 @@ class  NPC{
 
 
 class  Combat{
-- attack
-- defence
-- health
-+ HeavyAttack()
-+ LightAttack()
+- int attack
+- int defence
+- int health
++ heavyAttack()
++ lightAttack()
 + consume()
 + flee()
 }
 
 
 class  Quest{
-- currency
-- Items
-- xp
-+ constructor()
+- int currency
+- int items
+- int xp
++ createQuest()
 + getQuest()
 + setQuest()
 + viewQuest()
