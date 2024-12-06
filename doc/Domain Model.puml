@@ -13,7 +13,6 @@ Object Items
 
 
 
-
 Player --* Items: has a
 Creature --* Items: has a
 GameDialogue --* Items: has a
@@ -27,6 +26,5 @@ Creature --* GameDialogue: has a
 NPC --* Creature: is a
 GameDialogue --* Player: has a
 NPC --* Items: has a
-
 
 @enduml

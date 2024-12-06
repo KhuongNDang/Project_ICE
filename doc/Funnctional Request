@@ -1,5 +1,6 @@
 Funktioinelle Krav:
 
+
 GameDialog
 Spillet skal understøtte dialog mellem spilleren og NPC'er med multiple-choice svar.
 Dialogvalg skal påvirke historien eller spillets progression.

@@ -1,0 +1,126 @@
+@startuml
+
+!pragma layout smetana
+
+
+class Main{
++ static void main(String[] args)
++ runGame()
+
+}
+
+
+class GameDialogue{
++ storyPart1()
++ storyPart2()
++ storyPart3()
+}
+
+class Player{
+- name
+- attack
+- defence
+- health
+- currency
+- xp
++equipItem()
++levelUp()
++inventory()
++constructor()
++getName()
++setName()
+}
+
+
+class Creature{
+- name
+- attack
+- defence
+- health
+- currency
+- items
++ constructor()
++ getCreature()
++ setCreature()
+}
+
+
+class  NPC{
+- currency
+- health
+- attack
+- defence
+- name
+- items
++ createCreature()
++ sellItem()
++ buyItem()
++ getter()
++ setter()
+}
+
+
+class  Combat{
+- attack
+- defence
+- health
++ HeavyAttack()
++ LightAttack()
++ consume()
++ flee()
+}
+
+
+class  Quest{
+- currency
+- Items
+- xp
++ constructor()
++ getQuest()
++ setQuest()
++ viewQuest()
++ completeQuest()
+}
+
+
+class  Items{
+- name
+- addAttack
+- addDefend
+- addhealth
+- currency
+- <List>Items
++ getItem()
++ sortItem()
++ sellItem()
++ equipItem()
+
+}
+
+
+Main --* GameDialogue
+Player --* Items: has a
+Creature --* Items: has a
+GameDialogue --* Items: has a
+Quest --* Items: has a
+GameDialogue --* NPC: has a
+NPC --* Quest: has a
+Player --* Combat: has a
+Creature --* Combat: has a
+NPC --* Combat: has a
+Creature --* GameDialogue: has a
+NPC --* Creature: is a
+GameDialogue --* Player: has a
+NPC --* Items: has a
+
+@enduml
+
+
+Combat Class;
+Attributter:
+
+attack
+deffence
+health
+Metoder:
+
