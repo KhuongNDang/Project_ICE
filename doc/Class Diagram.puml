@@ -53,9 +53,7 @@ class  NPC{
 - int defence
 - String name
 - <List> items
-+ createCreature()
-+ sellItem()
-+ buyItem()
++ createNPC()
 + getter()
 + setter()
 }
@@ -92,9 +90,9 @@ class  Items{
 - currency
 - <List>Items
 + getItem()
-+ sortItem()
 + sellItem()
 + equipItem()
++ buyItem()
 
 }
 

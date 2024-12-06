@@ -1,18 +1,18 @@
 Combat:
 
-heavyAttack():
+heavyAttack()
 skader mere end "light attack", men der er mindre chance for at ramme.
 kun udregning og ikke noget der viser status over kampen.
 
-lightAttack():
+lightAttack()
 skader mindre end heavy attack, men større chance for at ramme
 kun udregning og ikke noget der viser status over kampen.
 
-consume():
+consume()
 man bruger et item fra sit inventory
 kun udregning og ikke noget der viser status over kampen.
 
-flee():
+flee()
 går væk fra kamp (exit)
 kun udregning og ikke noget der viser status over kampen.
 
@@ -21,11 +21,8 @@ kun udregning og ikke noget der viser status over kampen.
 
 Player:
 
-createPlayer():
+createPlayer()
 laver en ny spiller
-
-equipItem()
-tilføjer item til spillerens attributer (attack, defense, health)
 
 levelUp()
 holder styr på spillerens xp, og hvis spilleren skal level op, tilføj attributes.
@@ -35,10 +32,61 @@ Viser hvilke items spilleren har
 
 
 
-Creature
+
+Creature:
+
 createCreature()
+laver en ny monster fra en liste
 
 
- + getCreature()
- + setCreature()
+
+
+Item:
+
+sellItem()
+fjerner et item fra spilleren og tilføjer currency. kan kun bruges i shop
+
+buyItem()
+tilføjer et item til spillerens inventory og fjerner noget currency fra spilleren
+
+getItem()
+Tilføjer et item til spillerens inventory
+
+equipItem()
+tilføjer item til spillerens attributer (attack, defense, health)
+
+
+
+Quest:
+
+createQuest()
+string dialog, boolean check item, int currency, int xp
+
+viewQuest()
+viser en liste over aktive quests
+
+completeQuest()
+spilleren får belønning
+
+
+
+NPC:
+
+createNPC()
+laver en ny NPC
+
+
+
+GameDialogue:
+
+storyPart1
+indeholder hele historien, alt dialog, og retningen historien skrider frem.
+
+storyPart2
+indeholder hele historien, alt dialog, og retningen historien skrider frem.
+
+
+
+
+
 
