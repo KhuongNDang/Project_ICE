@@ -1,28 +1,28 @@
+
 import java.util.ArrayList;
+package java;
+
 
 public class Items {
 
     private String name;
-    private int addAttack;
-    private int addDefend;
+    private int addAttck;
     private int addHealth;
+    private int addDefend;
     private int currency;
-    private ArrayList<Items> items;
+    ArrayList<String> items;
 
 
-    public void getItem() {
+    public void createItem(){}
 
-    }
+    public void getItem(){}
 
-    public void sellItem() {
+    public void sellItem(){}
 
-    }
+    public void equipItem(){}
 
-    public void equipItem() {
+    public void buyItem(){}
 
-    }
 
-    public void buyItem() {
-
-    }
 }
+
