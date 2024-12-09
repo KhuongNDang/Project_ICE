@@ -1,14 +1,29 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+        //Todo: tilføj stien til din .db fil
+        String url = "jdbc:sqlite:creature.db";
+        DBConnector dbConnector = new DBConnector();
 
-        Player player1 = new Player("David", 10,100,5, 10);
+        dbConnector.connect(url);
 
-        Creature creature1 = new Creature("Ayman", 20, 10,5,100);
+        ArrayList<String> data = dbConnector.selectPlayers();
 
+        printData(data);
 
+    }
 
-
+    private static void printData(ArrayList<String> data) {
+        for (String s:data
+        ) {
+            System.out.println(s);
+        }
     }
 }
