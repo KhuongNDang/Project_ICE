@@ -3,7 +3,7 @@ public class Combat {
     private int defense;
     private int health;
 
-    public Combat();{
+
         public void heavyAttack(){}
 
         public void lightAttack(){}
@@ -14,8 +14,4 @@ public class Combat {
 
 
 
-
-
-
-    }
 }
