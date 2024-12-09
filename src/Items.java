@@ -1,7 +1,5 @@
 
 import java.util.ArrayList;
-package java;
-
 
 public class Items {
 

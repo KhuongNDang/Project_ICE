@@ -1,3 +1,4 @@
+
 public class Combat {
     private int attack;
     private int defense;
