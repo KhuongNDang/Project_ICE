@@ -7,7 +7,8 @@ public class Combat {
 
         public void heavyAttack(){}
 
-        public void lightAttack(){}
+        public void lightAttack(){
+        }
 
         public void consume(){}
 

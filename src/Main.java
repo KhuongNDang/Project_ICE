@@ -3,8 +3,9 @@
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Test");
+        Player player1 = new Player("David", 10,100,5, 10);
 
+        Creature creature1 = new Creature("Ayman", 20, 10,5,100);
 
 
 

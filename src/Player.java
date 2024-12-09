@@ -7,31 +7,35 @@ public class Player {
     private int health;
     private int xp;
 
-    public Player(String name, int attack, int health, int xp) {
+    public Player(String name, int attack, int defense, int health, int xp) {
         this.name = name;
+        this.defense = defense;
         this.health = health;
         this.attack = attack;
         this.xp = xp;
 
-        public void createPlayer() {
+
+//        public void equipItem () {
+//        }
+//
         }
 
-        public void equipItem() {
-
-        }
-        public String getName() {
-            return name;
-
-        }
-
-        public String setName() {
-            return name;
-        }
-
-        public int getPlayer() {
-            return Player;
-            //lavede en player attribut fordi det havde vi ikke så kunne ikke lave en getter
-
-        }
+    public int getAttack() {
+        return attack;
     }
+
+    public int getDefense() {
+        return defense;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+}
+
 
