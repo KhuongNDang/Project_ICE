@@ -12,23 +12,20 @@ public class Main {
 
         dbConnector.connect(url);
 
-        ArrayList<String> data = dbConnector.selectPlayers();
-
-        printData(data);
-
-        Player player1 = new Player("Player", 10,100,100, 10);
-
-        Creature creature1 = new Creature("Creature", 20, 10,100,100);
-
-        Combat combat = new Combat();
-        combat.fight(player1, creature1);
-
-    }
-
-    private static void printData(ArrayList<String> data) {
-        for (String s:data
-        ) {
-            System.out.println(s);
+        Creature creature = dbConnector.getCreatureById(1);
+        if (creature == null) {
+            System.out.println("Unable to start fight. Creature not found.");
+            return;
         }
+
+        // Create a Player object
+        Player player = new Player("Player1", 5, 3, 20, 10);
+
+        // Create a Combat instance and start the fight
+        Combat combat = new Combat();
+        combat.fight(player, creature);
     }
-}
+
+    }
+
+
