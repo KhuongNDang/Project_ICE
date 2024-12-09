@@ -6,10 +6,11 @@ public class NPC {
     private int attack;
     private int defense;
     private String name;
-    private <List> items;
+  //  private <List> items;
 
 
-        public createNPC() {
+        public void createNPC() {
+            return;
         }
 
         public String getName() {
