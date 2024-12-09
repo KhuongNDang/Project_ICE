@@ -32,11 +32,15 @@ public class Player {
         return health;
     }
 
+    public int setHealth() {return health;}
+
     public int getXp() {
         return xp;
     }
 
     public String getName() {return name;}
+
+
 }
 
 

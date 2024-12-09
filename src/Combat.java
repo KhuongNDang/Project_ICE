@@ -8,26 +8,30 @@ public class Combat {
 
     public void fight(Player player, Creature creature) {
 
+        for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
+            System.out.println(player.getName() + " and " + creature.getName() + " will now fight");
 
-        System.out.println(player.getName() + " and " + creature.getName() + " will now fight");
+            int playerAttack = player.getAttack();
+            int creatureAttack = creature.getAttack();
 
-        int playerAttack = player.getAttack();
-        int creatureAttack = creature.getAttack();
-        System.out.println(player.getName() + " attacks with " + playerAttack);
-        System.out.println(creature.getName() + " attacks with " + creatureAttack);
 
-        if (playerAttack > creatureAttack || playerAttack < creatureAttack) {
-            System.out.println(creature.getName() + " is damages by " + playerAttack + " points");
-           playerAttack -= creature.health;
-            System.out.println(player.getName() + " is damaged by " + creatureAttack + " points");
-            creatureAttack -= player.health;
-        }
-         else {
-            System.out.println("It is a tie! Nobody is damaged");
+            System.out.println(player.getName() + " attacks with " + playerAttack);
+            System.out.println(creature.getName() + " attacks with " + creatureAttack);
 
-        }
+            player.health -= creatureAttack;
+            creature.health -= playerAttack;
+
+            System.out.println(player.getHealth());
+            System.out.println(creature.getHealth());
+
+            System.out.println();
+            System.out.println();
+
         }
     }
+}
+
+
 /*
         public void heavyAttack(){}
 
