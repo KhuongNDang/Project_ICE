@@ -4,7 +4,7 @@ public class Player {
     private String name;
     private int attack;
     private int defense;
-    private int health;
+    public int health;
     private int xp;
 
     public Player(String name, int attack, int defense, int health, int xp) {
@@ -32,9 +32,14 @@ public class Player {
         return health;
     }
 
+    public int setHealth() {return health;}
+
     public int getXp() {
         return xp;
     }
+
+    public String getName() {return name;}
+
 
 }
 

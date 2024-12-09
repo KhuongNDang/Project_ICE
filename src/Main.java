@@ -18,6 +18,13 @@ public class Main {
 
         printData(data);
 
+        Player player1 = new Player("Player", 10,100,100, 10);
+
+        Creature creature1 = new Creature("Creature", 20, 10,100,100);
+
+        Combat combat = new Combat();
+        combat.fight(player1, creature1);
+
     }
 
     private static void printData(ArrayList<String> data) {

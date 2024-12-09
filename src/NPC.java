@@ -8,9 +8,6 @@ public class NPC {
     private String name;
 
 
-        public void createNPC() {
-        }
-
         public String getName() {
             return name;
         }
