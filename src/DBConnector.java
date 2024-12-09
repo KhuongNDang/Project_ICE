@@ -44,4 +44,30 @@ public class DBConnector {
         return data;
     }
 
+    public Creature getCreatureById(int id) {
+        String query = "SELECT * FROM Creature WHERE id = " + id;
+
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
+            if (rs.next()) {
+                // Create and return a Creature object
+                return new Creature(
+                        rs.getString("name"),
+                        rs.getInt("attack"),
+                        rs.getInt("defense"),
+                        rs.getInt("health"),
+                        rs.getInt("currency")
+                );
+            } else {
+                System.out.println("No creature found with ID " + id);
+                return null;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+            return null;
+        }
+    }
+
 }
