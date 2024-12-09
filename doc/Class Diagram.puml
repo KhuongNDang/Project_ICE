@@ -1,4 +1,4 @@
-@startuml
+¢@startuml
 
 !pragma layout smetana
 
@@ -83,12 +83,12 @@ class  Quest{
 
 
 class  Items{
-- name
-- addAttack
-- addDefend
-- addhealth
-- currency
-- <List>Items
+- String name
+- int addAttack
+- int addDefend
+- int addhealth
+- int currency
+- ArrayList <List>Items
 + createItem()
 + getItem()
 + sellItem()
