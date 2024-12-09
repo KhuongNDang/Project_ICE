@@ -11,13 +11,7 @@ CREATE TABLE Creature
 );
 
 
-INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Hero',1,2,3,4);
-INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Hero',1,2,3,4);
-INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Hero',1,2,3,4);
-INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Hero',1,2,3,4);
-INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Hero',1,2,3,4);
-INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Hero',1,2,3,4);
-INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Hero',1,2,3,4);INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Shadow Reaper', 6, 3, 30, 10);
+INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Shadow Reaper', 6, 3, 30, 10);
 INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Frost Warden', 4, 5, 40, 15);
 INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Inferno Drake', 8, 2, 25, 12);
 INSERT INTO Creature (name, attack, defense, health, currency) VALUES ('Stormbringer', 5, 4, 35, 8);
