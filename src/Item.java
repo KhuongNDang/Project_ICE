@@ -1,78 +1,100 @@
-
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Item {
 
-    private int id; // Primary key for the database
+
     private String name;
-    private Integer addAttack; // Using Integer to allow null values
-    private Integer addDefense;
-    private Integer addHealth;
-    private Integer addXP;
+    private int addAttack; // Using Integer to allow null values
+    private int addDefense;
+    private int addHealth;
+    private int addXP;
+    private int addCurrency;
 
 
-    public Item(int id, String name, Integer addAttack, Integer addDefense, Integer addHealth, Integer addXP) {
-        this.id = id;
+
+    public Item(String name, int addAttack, int addDefense, int addHealth, int addXP, int addCurrency) {
         this.name = name;
         this.addAttack = addAttack;
         this.addDefense = addDefense;
         this.addHealth = addHealth;
         this.addXP = addXP;
+        this.addCurrency = addCurrency;
     }
 
 
-    // Reset all attributes to null so that only one is set
-    private void resetAttributes() {
-        this.addAttack = null;
-        this.addDefense = null;
-        this.addHealth = null;
-        this.addXP = null;
+    public static Item getPotionId(int id) {
+
+        Connection conn = null;
+
+        String query = "SELECT * FROM Item WHERE id = " + id;
+
+        try (Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
+            if (rs.next()) {
+                // Create and return a Creature object
+                return new Item(
+                        rs.getString("name"),
+                        rs.getInt("addAttack"),
+                        rs.getInt("addDefense"),
+                        rs.getInt("addHealth"),
+                        rs.getInt("addXp"),
+                        rs.getInt("addCurrency")
+                );
+            } else {
+                System.out.println("No creature found with ID " + id);
+                return null;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+            return null;
+        }
     }
 
 
     // Getters
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
     }
 
-    public Integer getAddAttack() {
+    public int getAddAttack() {
         return addAttack;
     }
 
     // Setters (only one of these should be used)
     public void setAddAttack(int value) {
-        resetAttributes();
         this.addAttack = value;
     }
 
 
-    public Integer getAddDefense() {
+    public int getAddDefense() {
         return addDefense;
     }
 
     public void setAddDefense(int value) {
-        resetAttributes();
         this.addDefense = value;
     }
 
-    public Integer getAddHealth() {
+    public int getAddHealth() {
         return addHealth;
     }
 
     public void setAddHealth(int value) {
-        resetAttributes();
+
         this.addHealth = value;
     }
 
-    public Integer getAddXP() {
+    public int getAddXP() {
         return addXP;
     }
 
     public void setAddXP(int value) {
-        resetAttributes();
+
         this.addXP = value;
     }
 }
