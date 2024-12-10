@@ -6,17 +6,21 @@ public class Creature {
     private int attack;
     private int defense;
     public int health;
+    public int xp;
     private int currency;
 
 // final
 
-    public Creature(String name, int attack, int defense, int health, int currency) {
+    public Creature(String name, int attack, int defense, int health, int xp, int currency) {
         this.name = name;
         this.attack = attack;
         this.defense = defense;
         this.health = health;
+        this.xp = xp;
         this.currency = currency;
     }
+
+    public String getName() {return name;}
 
     public int getAttack() {
         return attack;
@@ -30,11 +34,12 @@ public class Creature {
         return health;
     }
 
+    public int getXp() { return xp; }
+
     public int getCurrency() {
         return currency;
     }
 
-    public String getName() {return name;}
 
 }
 

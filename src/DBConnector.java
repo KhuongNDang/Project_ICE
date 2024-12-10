@@ -23,7 +23,7 @@ public class DBConnector {
         // initialize a List to return the selected data as string elements
         ArrayList<String> data = new ArrayList<>();
         // make the query string
-        String sql = "SELECT id, name, health, attack, defense, currency FROM Creature";
+        String sql = "SELECT id, name, health, attack, defense, xp, currency FROM Creature";
 
         try {
             Statement stmt = conn.createStatement();
@@ -57,6 +57,7 @@ public class DBConnector {
                         rs.getInt("attack"),
                         rs.getInt("defense"),
                         rs.getInt("health"),
+                        rs.getInt("xp"),
                         rs.getInt("currency")
                 );
             } else {

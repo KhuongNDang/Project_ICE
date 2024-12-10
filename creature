@@ -15,10 +15,10 @@ CREATE TABLE Item
 (
     id          INTEGER      primary key autoincrement,
     name        varchar(20)  not null,
-    attack      INTEGER      default 0,
-    defense     INTEGER      default 1,
-    health      INTEGER      default 0,
-    currency    INTEGER      default 0
+    addAttack      INTEGER      default 0,
+    addDefense     INTEGER      default 0,
+    addHealth      INTEGER      default 0,
+    addCurrency    INTEGER      default 0
 );
 
 
