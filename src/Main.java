@@ -19,7 +19,7 @@ public class Main {
         }
 
         // Create a Player object
-        Player player = new Player("Player1", 5, 3, 20, 10);
+        Player player = new Player("Player1", 15, 3, 20, 10, 10);
 
         // Create a Combat instance and start the fight
         Combat combat = new Combat();

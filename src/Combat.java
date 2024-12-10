@@ -11,21 +11,32 @@ public class Combat {
         for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
             System.out.println(player.getName() + " and " + creature.getName() + " will now fight");
 
+
             int playerAttack = player.getAttack();
             int creatureAttack = creature.getAttack();
 
+            int playerDefense = player.getDefense();
+            int creatureDefense = creature.getDefense();
 
             System.out.println(player.getName() + " attacks with " + playerAttack);
             System.out.println(creature.getName() + " attacks with " + creatureAttack);
 
-            player.health -= creatureAttack;
-            creature.health -= playerAttack;
 
-            System.out.println(player.getHealth());
+            player.health -= creatureAttack - playerDefense;
+            creature.health -= playerAttack - creatureDefense;
+
+
+
             System.out.println(creature.getHealth());
+            System.out.println(player.getHealth());
+
 
             System.out.println();
             System.out.println();
+
+
+
+
 
         }
     }
