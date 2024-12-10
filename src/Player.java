@@ -19,7 +19,6 @@ public class Player {
 
 //        public void equipItem () {
 //        }
-//
         }
 
     public int getAttack() {

@@ -26,7 +26,6 @@ public class Combat {
             creature.health -= playerAttack - creatureDefense;
 
 
-
             System.out.println(creature.getHealth());
             System.out.println(player.getHealth());
 
