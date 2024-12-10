@@ -1,13 +1,8 @@
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 public class Item {
 
 
     private String name;
-    private int addAttack; // Using Integer to allow null values
+    private int addAttack;
     private int addDefense;
     private int addHealth;
     private int addXP;
@@ -27,8 +22,6 @@ public class Item {
 
 
 
-    // Getters
-
     public String getName() {
         return name;
     }
@@ -37,35 +30,18 @@ public class Item {
         return addAttack;
     }
 
-    // Setters (only one of these should be used)
-    public void setAddAttack(int value) {
-        this.addAttack = value;
-    }
-
-
     public int getAddDefense() {
         return addDefense;
-    }
-
-    public void setAddDefense(int value) {
-        this.addDefense = value;
     }
 
     public int getAddHealth() {
         return addHealth;
     }
 
-    public void setAddHealth(int value) {
-
-        this.addHealth = value;
-    }
-
     public int getAddXp() {
         return addXP;
     }
 
-    public void setAddXP(int value) {
+    public int getAddCurrency(){return addCurrency;}
 
-        this.addXP = value;
-    }
 }
