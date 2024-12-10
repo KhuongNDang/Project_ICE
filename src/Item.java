@@ -25,35 +25,6 @@ public class Item {
     }
 
 
-    public static Item getPotionId(int id) {
-
-        Connection conn = null;
-
-        String query = "SELECT * FROM Item WHERE id = " + id;
-
-        try (Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(query)) {
-
-            if (rs.next()) {
-                // Create and return a Creature object
-                return new Item(
-                        rs.getString("name"),
-                        rs.getInt("addAttack"),
-                        rs.getInt("addDefense"),
-                        rs.getInt("addHealth"),
-                        rs.getInt("addXp"),
-                        rs.getInt("addCurrency")
-                );
-            } else {
-                System.out.println("No creature found with ID " + id);
-                return null;
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
-            return null;
-        }
-    }
 
 
     // Getters
@@ -89,7 +60,7 @@ public class Item {
         this.addHealth = value;
     }
 
-    public int getAddXP() {
+    public int getAddXp() {
         return addXP;
     }
 

@@ -9,6 +9,7 @@ public class Combat {
 
     public void fight(Player player, Creature creature) {
 
+
         for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
             ui.Msg(player.getName() + " and " + creature.getName() + " will now fight");
             ArrayList<String> options = new ArrayList<>();
@@ -24,7 +25,7 @@ public class Combat {
                     proceedTofight(player, creature);
                     break;
                 case 2:
-                   // consume(player);
+                    player.consume(player);
                     break;
                 case 3:
                    // flee(player, creature);
@@ -55,8 +56,8 @@ public class Combat {
         creature.health -= playerAttack - creatureDefense;
 
 
-        System.out.println(creature.getHealth());
         System.out.println(player.getHealth());
+        System.out.println(creature.getHealth());
 
 
         System.out.println();

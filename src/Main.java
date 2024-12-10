@@ -22,11 +22,13 @@ public class Main {
             return;
         }
 
-        Creature creature1 = dbConnector.getCreatureById(11);
+        Creature creature1 = dbConnector.getCreatureById(10);
         if (creature1 == null) {
             System.out.println("Unable to start fight. Creature not found.");
             return;
         }
+
+
 
 
         // Create a Player object
