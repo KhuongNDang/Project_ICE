@@ -6,18 +6,19 @@ public class Player {
     private int defense;
     public int health;
     private int xp;
+    private int currency;
 
-    public Player(String name, int attack, int defense, int health, int xp) {
+    public Player(String name, int attack, int defense, int health, int xp, int currency) {
         this.name = name;
         this.defense = defense;
         this.health = health;
         this.attack = attack;
         this.xp = xp;
+        this.currency = currency;
 
 
 //        public void equipItem () {
 //        }
-//
         }
 
     public int getAttack() {
@@ -32,13 +33,15 @@ public class Player {
         return health;
     }
 
-    public int setHealth() {return health;}
+    public int setHealth() {
+        return health;}
 
     public int getXp() {
         return xp;
     }
 
-    public String getName() {return name;}
+    public String getName() {
+        return name;}
 
 
 }
