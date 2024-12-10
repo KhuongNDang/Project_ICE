@@ -6,6 +6,10 @@ import java.util.ArrayList;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
+
+
+
+
         //Todo: tilføj stien til din .db fil
         String url = "jdbc:sqlite:creature.db";
         DBConnector dbConnector = new DBConnector();
@@ -28,7 +32,8 @@ public class Main {
         // Create a Player object
         Player player = new Player("Player1", 15, 3, 20, 10, 10);
 
-         Combat combat = new Combat();
+
+        Combat combat = new Combat();
         combat.fight(player, creature);
 
 
