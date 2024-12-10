@@ -24,6 +24,8 @@ public class Main {
         // Create a Combat instance and start the fight
         Combat combat = new Combat();
         combat.fight(player, creature);
+
+
     }
 
     }
