@@ -47,16 +47,19 @@ public class Player {
 
             }
             if (item.getAddAttack() > 0) {
-                player.setAttack(player.getAttack() + item.getAddAttack());
+                player.attack += item.getAddAttack();
                 ui.Msg("Player's attack increased by " + item.getAddAttack() + ".");
+                ui.Msg("Player's new attack is: " + player.attack);
             }
             if (item.getAddDefense() > 0) {
-                player.setDefense(player.getDefense() + item.getAddDefense());
+                player.defense += item.getAddDefense();
                 ui.Msg("Player's defense increased by " + item.getAddDefense() + ".");
+                ui.Msg("Player's new defense is: " + player.defense);
             }
             if (item.getAddXp() > 0) {
-                player.setXp(player.getXp() + item.getAddXp());
+                player.xp += item.getAddXp();
                 ui.Msg("Player's XP increased by " + item.getAddXp() + ".");
+                ui.Msg("Player's new XP is: " + player.xp);
             }
 
         } else {
