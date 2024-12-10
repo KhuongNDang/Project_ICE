@@ -1,10 +1,14 @@
+
+
 public class Item {
+
     private int id; // Primary key for the database
     private String name;
     private Integer addAttack; // Using Integer to allow null values
     private Integer addDefense;
     private Integer addHealth;
     private Integer addXP;
+
 
     public Item(int id, String name, Integer addAttack, Integer addDefense, Integer addHealth, Integer addXP) {
         this.id = id;
@@ -15,6 +19,7 @@ public class Item {
         this.addXP = addXP;
     }
 
+
     // Reset all attributes to null so that only one is set
     private void resetAttributes() {
         this.addAttack = null;
@@ -22,6 +27,7 @@ public class Item {
         this.addHealth = null;
         this.addXP = null;
     }
+
 
     // Getters
     public int getId() {
@@ -41,6 +47,7 @@ public class Item {
         resetAttributes();
         this.addAttack = value;
     }
+
 
     public Integer getAddDefense() {
         return addDefense;
