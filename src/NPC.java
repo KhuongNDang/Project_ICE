@@ -1,5 +1,3 @@
-
-
 public class NPC {
     private int currency;
     private int health;
