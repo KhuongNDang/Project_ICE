@@ -20,6 +20,8 @@ public class Creature {
         this.currency = currency;
     }
 
+
+
     public String getName() {return name;}
 
     public int getAttack() {
@@ -30,8 +32,14 @@ public class Creature {
         return defense;
     }
 
-    public int getHealth() {
-        return health;
+    public int getHealth() {return health;}
+
+    public void setHealth(int health) {
+        if (health >= 0) { // Ensures health never goes negative
+            this.health = health;
+        } else {
+            this.health = 0; // Set health to 0 if it goes negative
+        }
     }
 
     public int getXp() { return xp; }
