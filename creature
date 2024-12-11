@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS Potion;
-DROP TABLE IF EXISTS Creatures;
+DROP TABLE IF EXISTS Creature;
 DROP TABLE IF EXISTS Gear;
 
 
@@ -13,15 +13,15 @@ CREATE TABLE IF NOT EXISTS Potion
 );
 
 
-CREATE TABLE Creatures
+CREATE TABLE Creature
 (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
     name        varchar(20) NOT NULL,
     attack      INTEGER     NOT NULL,
     defense     INTEGER     NOT NULL,
     health      INTEGER     NOT NULL,
-    exp_awarded INTEGER     NOT NULL,
-    drop_chance TEXT
+    xp          INTEGER     NOT NULL,
+    currency    TEXT        NOT NULL
 );
 
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS Gear
 );
 
 
-INSERT INTO Creatures (name, attack, defense, health, exp_awarded, drop_chance)
+INSERT INTO Creature (name, attack, defense, health, xp, currency)
 VALUES ('Rat Scout', 15, 10, 50, 20, '30% (Coins, basic gear)'),
        ('Frenzied Wolf', 20, 12, 80, 35, '25% (wolf pelts, potions)'),
        ('Forest Troll', 30, 25, 200, 100, '50% (Troll booger, Gem)'),
@@ -56,7 +56,7 @@ VALUES ('Rat Scout', 15, 10, 50, 20, '30% (Coins, basic gear)'),
        ('Owl Mage', 50, 35, 150, 150, '45% (Mana Crystals, Owl feathers)'),
        ('Royal Rat Guard', 30, 25, 130, 120, '40% (Steel, Gear)'),
        ('King Rat', 60, 40, 300, 500, '100% (Rat Crown)'),
-       ('Mouse Assassin', 20, 20, 100, 100, NULL);
+       ('Mouse Assassin', 20, 20, 100, 100, 0);
 
 
 

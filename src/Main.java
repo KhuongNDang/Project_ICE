@@ -21,21 +21,9 @@ public class Main {
             Creature creature1 = creatures.get(1); // Get first creature from the list
             Creature creature2 = creatures.get(2); // Get second creature from the list
 
-//        Creature creature = dbConnector.getCreatureById(1);
-//        if (creature == null) {
-//            System.out.println("Unable to start fight. Creature not found.");
-//            return;
-//        }
-//
-//        Creature creature1 = dbConnector.getCreatureById(10);
-//        if (creature1 == null) {
-//            System.out.println("Unable to start fight. Creature not found.");
-//            return;
-//        }
-
 
         // Create a Player object
-        Player player = new Player("Player1", 15, 3, 20, 10, 10);
+        Player player = new Player("Player1", 15, 3, 20, 10);
 
 
         Combat combat = new Combat();
