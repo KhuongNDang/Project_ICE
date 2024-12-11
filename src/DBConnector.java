@@ -47,12 +47,12 @@ public class DBConnector {
     }
 
 
-    public static Item getPotionId(int id) {
+    public static Potion getPotionId(int id) {
         // Connection string to the database (update the database name, user, and password)
         String url = "jdbc:sqlite:C:\\Users\\khnda\\IdeaProjects\\Project_ICE\\creature.db";
 
         // SQL query to fetch the item
-        String query = "SELECT * FROM Item WHERE id = ?";
+        String query = "SELECT * FROM Potion WHERE id = ?";
 
         try (Connection conn = DriverManager.getConnection(url);
              PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -63,13 +63,11 @@ public class DBConnector {
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     // Create and return an Item object using data from the database
-                    return new Item(
+                    return new Potion(
                             rs.getString("name"),
-                            rs.getInt("addAttack"),
-                            rs.getInt("addDefense"),
-                            rs.getInt("addHealth"),
-                            rs.getInt("addXp"),
-                            rs.getInt("addCurrency")
+                            rs.getInt("attack"),
+                            rs.getInt("defense"),
+                            rs.getInt("health")
                     );
                 } else {
                     System.out.println("No item found with ID " + id);
