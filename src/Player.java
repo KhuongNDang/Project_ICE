@@ -30,6 +30,7 @@ public class Player {
 
 
 
+
     public void consume(Player player) {
         // Prompt the user to choose an item ID to consume
         int itemId = ui.promptNumeric("Enter the ID of the item you want to consume:");
@@ -90,17 +91,6 @@ public class Player {
         return defense;
     }
 
-    public int getHealth() {
-
-          return this.health = health;
-    }
-    public int getMaxHealth(){
-        return  maxHealth;
-    }
-    public int getLevel(){
-        return level;
-    }
-
     public int getCurrency(){
         return currency;
     }
@@ -113,7 +103,7 @@ public class Player {
 
     public int setDefense(int i){ return defense; }
 
-    public int setHealth(int i){ return health; }
+    public int setHealth(){ return health; }
 
     public int setCurrency(){return currency; }
 
