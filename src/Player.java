@@ -4,6 +4,7 @@ public class Player {
     private int attack;
     private int defense;
     public int health = 100;
+    public int nextLevelUp = 50;
     public int xp;
     private int currency;
     public int maxHealth =100;
@@ -70,16 +71,15 @@ public class Player {
             ui.Msg("No item with ID " + itemId + " found.");
         }
     }
-    public void levelUp(Player player) {
+    public void levelUp() {
 
-        if(player.xp >= 50) {
+        if(xp >= 50) {
             level += 1;
             xp -= 50;
-            maxHealth += 10;
             health = maxHealth;
             ui.Msg("You have level " + getLevel() + ".");
             ui.Msg("ur max health has risen to" + getMaxHealth() + ".");
-        } else if (getXp() <= 50) {
+        } else{
             ui.Msg("u did not level up");
         }
     }
@@ -111,7 +111,7 @@ public class Player {
 
     public int setCurrency(){return currency; }
 
-    public int setXp(int i){ return xp; }
+    public void setXp(int i){ xp = i; }
 
     public int getMaxHealth(){ return maxHealth; }
 

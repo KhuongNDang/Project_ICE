@@ -23,12 +23,11 @@ public class Main {
 
 
         // Create a Player object
-        Player player = new Player("Player1", 15, 3, 20, 10);
+        Player player = new Player("Player1", 1000, 3, 49, 10);
 
 
         Combat combat = new Combat();
         combat.fight(player, creature1);
-        combat.fight(player, creature2);
 
 
     }

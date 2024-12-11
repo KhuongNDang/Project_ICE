@@ -37,7 +37,14 @@ public class Combat {
             ui.Msg(player.getName() + " has been defeated.");
         } else if (creature.getHealth() <= 0) {
             ui.Msg(creature.getName() + " has been defeated.");
+            int playerXp = player.getXp();
+            player.setXp(playerXp + creature.getXp()) ;
+            ui.Msg("ur currrent xp is now:" + player.getXp());
+
+
         }
+        System.out.println(player.getXp());
+        player.levelUp();
     }
 
 
