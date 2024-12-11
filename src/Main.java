@@ -23,7 +23,8 @@ public class Main {
 
 
         // Create a Player object
-        Player player = new Player("Player1", 1000, 3, 49, 10);
+        Player player = new Player("Player1", 20, 3, 49, 10);
+        
 
 
         Combat combat = new Combat();
