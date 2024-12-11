@@ -11,7 +11,6 @@ public class Combat {
 
         for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
             System.out.println();
-            ui.Msg(player.getName() + " hits " + creature.getName());
 
             ArrayList<String> options = new ArrayList<>();
             options.add("Proceed to fight");
