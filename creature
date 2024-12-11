@@ -37,5 +37,7 @@ INSERT INTO Creature (name, attack, defense, health, xp, currency) VALUES ('Void
 
 
 
-INSERT INTO Item (name, addAttack, addDefense, addHealth, addXP, addCurrency) VALUES ('Health Potion', 0,0,5,0, 0);
-INSERT INTO Item (name, addAttack, addDefense, addHealth, addXP, addCurrency) VALUES ('Greater Health Potion', 0,0,10,0, 0);
+INSERT INTO Item (name, addAttack, addDefense, addHealth, addXP, addCurrency) VALUES ('Health Potion', 0,0,100,0, 0);
+INSERT INTO Item (name, addAttack, addDefense, addHealth, addXP, addCurrency) VALUES ('Attack Potion', 100,0,0,0, 0);
+INSERT INTO Item (name, addAttack, addDefense, addHealth, addXP, addCurrency) VALUES ('Defense Potion', 0,100,0,0, 0);
+INSERT INTO Item (name, addAttack, addDefense, addHealth, addXP, addCurrency) VALUES ('XP Potion', 0,0,0,100, 0);

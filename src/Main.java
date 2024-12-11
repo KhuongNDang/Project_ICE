@@ -1,9 +1,3 @@
-
-import java.util.ArrayList;
-
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
 
@@ -22,11 +16,13 @@ public class Main {
             return;
         }
 
-        Creature creature1 = dbConnector.getCreatureById(11);
+        Creature creature1 = dbConnector.getCreatureById(10);
         if (creature1 == null) {
             System.out.println("Unable to start fight. Creature not found.");
             return;
         }
+
+
 
 
         // Create a Player object
