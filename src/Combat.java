@@ -6,12 +6,14 @@ public class Combat {
     private int health;
     TextUI ui = new TextUI();
 
+
     public void fight(Player player, Creature creature) {
 
 
         for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
             ui.Msg(player.getName() + " and " + creature.getName() + " will now fight");
             ArrayList<String> options = new ArrayList<>();
+
             options.add("proceed to Fight");
             options.add("consume Item");
             options.add("Flee");
@@ -36,7 +38,13 @@ public class Combat {
             ui.Msg(player.getName() + " has been defeated.");
         } else if (creature.getHealth() <= 0) {
             ui.Msg(creature.getName() + " has been defeated.");
+            int playerXp = player.getXp();
+            playerXp += creature.getXp();
+            ui.Msg("ur currrent xp is now:" + playerXp);
+            player.levelUp(player);
         }
+
+
     }
 
 

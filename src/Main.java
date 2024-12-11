@@ -26,7 +26,7 @@ public class Main {
 
 
         // Create a Player object
-        Player player = new Player("Player1", 15, 3, 20, 10, 10);
+        Player player = new Player("Player1", 15, 3, 45, 10);
 
 
         Combat combat = new Combat();

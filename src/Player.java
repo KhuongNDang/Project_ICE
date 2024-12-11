@@ -3,17 +3,18 @@ public class Player {
     private String name;
     private int attack;
     private int defense;
-    public int health;
-    private int xp;
+    public int health = 100;
+    public int xp;
     private int currency;
-
+    public int maxHealth =100;
+    public int level = 1;
     TextUI ui = new TextUI();
 
 
-    public Player(String name, int attack, int defense, int health, int xp, int currency) {
+    public Player(String name, int attack, int defense, int xp, int currency) {
         this.name = name;
         this.defense = defense;
-        this.health = health;
+
         this.attack = attack;
         this.xp = xp;
         this.currency = currency;
@@ -66,6 +67,19 @@ public class Player {
             ui.Msg("No item with ID " + itemId + " found.");
         }
     }
+    public void levelUp(Player player) {
+
+        if(player.xp >= 50) {
+            level += 1;
+            xp -= 50;
+            maxHealth += 10;
+            health = maxHealth;
+            ui.Msg("You have level " + getLevel() + ".");
+            ui.Msg("ur max health has risen to" + getMaxHealth() + ".");
+        } else if (getXp() <= 50) {
+            ui.Msg("u did not level up");
+        }
+    }
 
 
     public int getAttack() {
@@ -79,6 +93,12 @@ public class Player {
     public int getHealth() {
 
           return this.health = health;
+    }
+    public int getMaxHealth(){
+        return  maxHealth;
+    }
+    public int getLevel(){
+        return level;
     }
 
     public int getCurrency(){
