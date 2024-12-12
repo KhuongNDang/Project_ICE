@@ -2,6 +2,7 @@ import java.sql.*;
 
 public class DBConnector {
     Connection conn;
+
     public void connect(String url) {
 
 
@@ -17,7 +18,7 @@ public class DBConnector {
         }
 
     }
-    
+
 
     public Creature getCreatureById(int id) {
         String query = "SELECT * FROM Creature WHERE id = " + id;
@@ -72,6 +73,29 @@ public class DBConnector {
                 } else {
                     System.out.println("No item found with ID " + id);
                     return null;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Ascii getAsciiById(int id) {
+        String query = "SELECT * FROM Ascii WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    // Assuming Ascii is a subclass of Creature
+                    return new Ascii(
+                            rs.getString("picture")
+                    );
+                } else {
+                    System.out.println("No creature found with ID " + id);
+                    return null; // Optionally return Optional.empty() instead
                 }
             }
         } catch (SQLException e) {
