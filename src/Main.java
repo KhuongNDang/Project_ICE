@@ -2,11 +2,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+            Player player = new Player("FartMaster2000", 10, 5, 100, 0, 50); // Eksempel på spilleroprettelse
+            GameDialogue dialogue = new GameDialogue();
+            dialogue.storyPart1(player);
+        }
+    }
 
 
-        //Todo: tilføj stien til din .db fil
+/*
+
         String url = "jdbc:sqlite:creature.db";
         DBConnector dbConnector = new DBConnector();
 
@@ -45,6 +53,6 @@ public class Main {
 
     }
     }
-
+*/
 
 
