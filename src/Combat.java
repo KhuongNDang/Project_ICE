@@ -47,12 +47,10 @@ public class Combat {
             ui.Msg("your currrent xp is now: " + player.getXp());
 
 
-
-
         }
 
+        player.levelUp();
 
-    }
 
 
     public void proceedTofight(Player player, Creature creature) {

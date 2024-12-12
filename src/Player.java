@@ -33,8 +33,9 @@ public class Player {
         return name;
 
     }
-
-
+  
+  
+  
     public void consume(Player player) {
         // Prompt the user to choose an item ID to consume
         int potionId = ui.promptNumeric("Enter the ID of the item you want to consume:");
