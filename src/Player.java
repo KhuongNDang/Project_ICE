@@ -3,15 +3,14 @@ import java.util.Scanner;
 public class Player {
 
     private String name;
-    private int attack;
-    private int defense;
+    public int attack;
+    public int defense;
     public int health = 100;
-    public int nextLevelUp = 50;
     public int xp;
-    private int currency;
+    public int currency;
     public int maxHealth = 100;
     public int level = 1;
-    private int xpLimit = 50;
+    public int xpLimit = 50;
      TextUI ui = new TextUI();
 
 

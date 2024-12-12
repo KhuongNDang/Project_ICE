@@ -28,17 +28,17 @@ public class Combat {
                     player.consume(player);
                     break;
                 case 3:
-                   // flee(player, creature);
+                    // flee(player, creature);
                     return;
             }
 
         }
-        if(player.getHealth() <= 0) {
+        if (player.getHealth() <= 0) {
             ui.Msg(player.getName() + " has been defeated.");
         } else if (creature.getHealth() <= 0) {
             ui.Msg(creature.getName() + " has been defeated.");
             ui.Msg(" ");
-            ui.Msg("you have gained "+ creature.getXp() + " XP.");
+            ui.Msg("you have gained " + creature.getXp() + " XP.");
             int playerXp = player.getXp();
             player.setXp(playerXp + creature.getXp());
             ui.Msg(" ");
@@ -50,40 +50,43 @@ public class Combat {
         }
 
         player.levelUp();
+    }
 
 
+        public void proceedTofight (Player player, Creature creature){
+            int playerAttack = player.getAttack();
+            int creatureAttack = creature.getAttack();
 
-    public void proceedTofight(Player player, Creature creature) {
-        int playerAttack = player.getAttack();
-        int creatureAttack = creature.getAttack();
+            int playerDefense = player.getDefense();
+            int creatureDefense = creature.getDefense();
 
-        int playerDefense = player.getDefense();
-        int creatureDefense = creature.getDefense();
+            int playerHealth = player.getHealth();
 
-        System.out.println(player.getName() + " attacks with " + playerAttack + " attack ");
-        System.out.println();
-        System.out.println(creature.getName() + " attacks with " + creatureAttack + " attack " + "and " + player.getName() + " blocks with " + player.getDefense() + " defense ");
+            System.out.println(player.getName() + " attacks with " + playerAttack + " attack ");
+            System.out.println();
+            System.out.println(creature.getName() + " attacks with " + creatureAttack + " attack " + "and " + player.getName() + " blocks with " + player.getDefense() + " defense ");
 // pænere med player defence tekst
-        System.out.println();
-        player.health -= creatureAttack - playerDefense;
-        creature.health -= playerAttack - creatureDefense;
+            System.out.println();
+            playerHealth -= creatureAttack - playerDefense;
+            creature.health -= playerAttack - creatureDefense;
 
 // betydning af tal
-      //  System.out.println("Remaning health: ");
-        System.out.println("player's remaning health: ");
-       System.out.println(player.getHealth());
-       //System.out.println("Remaning health: ");
-        System.out.println("Enemy's remaning health:  ");
-       System.out.println(creature.getHealth());
-       //System.out.println("Enemys remaning health:  ");
+            //  System.out.println("Remaning health: ");
+            System.out.println("player's remaning health: ");
+            System.out.println(player.getHealth());
+            //System.out.println("Remaning health: ");
+            System.out.println("Enemy's remaning health:  ");
+            System.out.println(creature.getHealth());
+            //System.out.println("Enemys remaning health:  ");
 
 
-        System.out.println();
-        System.out.println();
-        //System.out.println();
-
+            System.out.println();
+            System.out.println();
+            //System.out.println();
+        }
     }
-}
+
+
 /*
     public void heavyAttack() {
     }
