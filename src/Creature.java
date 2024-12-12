@@ -2,12 +2,12 @@
 
 public class Creature {
 
-    private String name;
-    private int attack;
-    private int defense;
+    public String name;
+    public int attack;
+    public int defense;
     public int health;
     public int xp;
-    private int currency;
+    public int currency;
 
 // final
 
