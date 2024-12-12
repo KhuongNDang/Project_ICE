@@ -33,7 +33,6 @@ public class Player {
 
 
 
-
     public void consume(Player player) {
         // Prompt the user to choose an item ID to consume
         int potionId = ui.promptNumeric("Enter the ID of the item you want to consume:");
@@ -75,12 +74,12 @@ public class Player {
 
         if(xp >= 50) {
             level += 1;
-            xp -= 50;
+            xp = 0;
+            maxHealth += 10;
             health = maxHealth;
-            ui.Msg("You have level " + getLevel() + ".");
-            ui.Msg("ur max health has risen to" + getMaxHealth() + ".");
-        } else{
-            ui.Msg("u did not level up");
+            ui.Msg("You have reached level " + getLevel() + ".");
+            ui.Msg("Player xp " + getXp());
+            ui.Msg("Your max health has risen to " + getMaxHealth() + ".");
         }
     }
 

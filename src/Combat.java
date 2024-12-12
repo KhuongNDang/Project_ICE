@@ -43,7 +43,6 @@ public class Combat {
 
 
         }
-        System.out.println(player.getXp());
         player.levelUp();
     }
 
