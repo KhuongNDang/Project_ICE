@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Player {
 
     private String name;
@@ -7,12 +9,13 @@ public class Player {
     public int nextLevelUp = 50;
     public int xp;
     private int currency;
-    public int maxHealth =100;
+    public int maxHealth = 100;
     public int level = 1;
-    TextUI ui = new TextUI();
+    private int xpLimit = 50;
+     TextUI ui = new TextUI();
 
 
-    public Player(String name, int attack, int defense, int xp, int currency) {
+    public Player(String name,int health, int attack, int defense, int xp, int currency) {
         this.name = name;
         this.defense = defense;
 
@@ -20,7 +23,7 @@ public class Player {
         this.xp = xp;
         this.currency = currency;
 
-        }
+    }
 
 
     //        public void equipItem () { }
@@ -30,9 +33,9 @@ public class Player {
         return name;
 
     }
-
-
-
+  
+  
+  
     public void consume(Player player) {
         // Prompt the user to choose an item ID to consume
         int potionId = ui.promptNumeric("Enter the ID of the item you want to consume:");
@@ -70,18 +73,35 @@ public class Player {
             ui.Msg("No item with ID " + potionId + " found.");
         }
     }
+
     public void levelUp() {
 
-        if(xp >= 50) {
+        while (xp >= xpLimit) {
             level += 1;
-            xp = 0;
+            xp -= xpLimit;
             maxHealth += 10;
             health = maxHealth;
+
+            xpLimit *= 1.1;
+
             ui.Msg("You have reached level " + getLevel() + ".");
-            ui.Msg("Player xp " + getXp());
-            ui.Msg("Your max health has risen to " + getMaxHealth() + ".");
+            ui.Msg(" ");
+            ui.Msg("your max Health has risen to " + getMaxHealth() + ".");
+            ui.Msg(" ");
+            ui.Msg("you have to reach " + xpLimit + " XP to reach next level!");
+
         }
+
     }
+    public void createUsername () {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("type your username: ");
+        this.name = scanner.nextLine(); // Sætter brugerens input som spillernavn
+        System.out.println("welcome, " + name + "!");
+    }
+
+
+
 
 
     public int getAttack() {

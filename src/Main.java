@@ -19,7 +19,21 @@ public class Main {
         for (int i = 1; i <= 10; i++) {
             Creature creature = dbConnector.getCreatureById(i);
             creatures.put(i, creature);
-        }
+          
+
+        // Create a Player object
+
+       Player player = new Player("",100, 200, 3, 49, 10);
+        player.createUsername();
+
+
+
+        Combat combat = new Combat();
+        combat.fight(player, creature1);
+        combat.fight(player, creature2);
+        combat.fight(player, creature3);
+        combat.fight(player, creature4);
+
 
         Creature creature1 = creatures.get(1); // Get first creature from the list
         Creature creature2 = creatures.get(2); // Get second creature from the list
@@ -56,20 +70,7 @@ public class Main {
         System.out.println(ascii4);
         System.out.println(asciiGear);
 
-
-
-
-        // Create a Player object
-        Player player = new Player("Player1", 200, 3, 49, 10);
         
-
-
-//        Combat combat = new Combat();
-//        combat.fight(player, creature1);
-//        combat.fight(player, creature2);
-//        combat.fight(player, creature3);
-//        combat.fight(player, creature4);
-
 
 
     }
