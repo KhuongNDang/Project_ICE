@@ -30,14 +30,32 @@ public class Main {
         Map<Integer, Ascii> asciis = new HashMap<>();
 
         for (int i = 1; i <= 10; i++) {
-            Ascii ascii = dbConnector.getAsciiById(i);
+            Ascii ascii = dbConnector.getCreatureAsciiById(i);
             if (ascii != null) {
                 asciis.put(i, ascii);
             }
         }
 
+        Map<Integer, Ascii> asciisGear = new HashMap<>();
+
+        for (int i = 1; i <= 10; i++) {
+            Ascii ascii = dbConnector.getAsciiGearById(i);
+            if (ascii != null) {
+                asciisGear.put(i, ascii);
+            }
+        }
+
         Ascii ascii1 = asciis.get(1);
-            System.out.println(ascii1);
+        Ascii ascii2 = asciis.get(2);
+        Ascii ascii3 = asciis.get(3);
+        Ascii ascii4 = asciis.get(4);
+        Ascii asciiGear = asciisGear.get(1);
+        System.out.println(ascii1);
+        System.out.println(ascii2);
+        System.out.println(ascii3);
+        System.out.println(ascii4);
+        System.out.println(asciiGear);
+
 
 
 
