@@ -1,4 +1,4 @@
-public class Item {
+public class Potion {
 
 
     private String name;
@@ -10,13 +10,11 @@ public class Item {
 
 
 
-    public Item(String name, int addAttack, int addDefense, int addHealth, int addXP, int addCurrency) {
+    public Potion(String name, int addAttack, int addDefense, int addHealth) {
         this.name = name;
         this.addAttack = addAttack;
         this.addDefense = addDefense;
         this.addHealth = addHealth;
-        this.addXP = addXP;
-        this.addCurrency = addCurrency;
     }
 
 

@@ -10,13 +10,14 @@ public class Combat {
 
 
         for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
-            ui.Msg(player.getName() + " and " + creature.getName() + " will now fight");
+            System.out.println();
+
             ArrayList<String> options = new ArrayList<>();
-            options.add("proceed to Fight");
-            options.add("consume Item");
+            options.add("Proceed to fight");
+            options.add("Consume item");
             options.add("Flee");
 
-            int choice = ui.promptNumericChoice(options, "what`s your next Move?");
+            int choice = ui.promptNumericChoice(options, "What's your next move?");
 
             switch (choice) {
 
@@ -36,7 +37,14 @@ public class Combat {
             ui.Msg(player.getName() + " has been defeated.");
         } else if (creature.getHealth() <= 0) {
             ui.Msg(creature.getName() + " has been defeated.");
+            int playerXp = player.getXp();
+            player.setXp(playerXp + creature.getXp()) ;
+            ui.Msg("ur currrent xp is now:" + player.getXp());
+
+
         }
+        System.out.println(player.getXp());
+        player.levelUp();
     }
 
 
@@ -47,21 +55,27 @@ public class Combat {
         int playerDefense = player.getDefense();
         int creatureDefense = creature.getDefense();
 
-        System.out.println(player.getName() + " attacks with " + playerAttack);
-        System.out.println(creature.getName() + " attacks with " + creatureAttack);
-
-
+        System.out.println(player.getName() + " attacks with " + playerAttack + " attack ");
+        System.out.println();
+        System.out.println(creature.getName() + " attacks with " + creatureAttack + " attack " + "and " + player.getName() + " blocks with " + player.getDefense() + " defense ");
+// pænere med player defence tekst
+        System.out.println();
         player.health -= creatureAttack - playerDefense;
         creature.health -= playerAttack - creatureDefense;
 
-
-        System.out.println(player.getHealth());
-        System.out.println(creature.getHealth());
+// betydning af tal
+      //  System.out.println("Remaning health: ");
+        System.out.println("player's remaning health: ");
+       System.out.println(player.getHealth());
+       //System.out.println("Remaning health: ");
+        System.out.println("Enemy's remaning health:  ");
+       System.out.println(creature.getHealth());
+       //System.out.println("Enemys remaning health:  ");
 
 
         System.out.println();
         System.out.println();
-
+        //System.out.println();
 
     }
 }

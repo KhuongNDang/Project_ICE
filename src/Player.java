@@ -3,17 +3,19 @@ public class Player {
     private String name;
     private int attack;
     private int defense;
-    public int health;
-    private int xp;
+    public int health = 100;
+    public int nextLevelUp = 50;
+    public int xp;
     private int currency;
-
+    public int maxHealth =100;
+    public int level = 1;
     TextUI ui = new TextUI();
 
 
-    public Player(String name, int attack, int defense, int health, int xp, int currency) {
+    public Player(String name, int attack, int defense, int xp, int currency) {
         this.name = name;
         this.defense = defense;
-        this.health = health;
+
         this.attack = attack;
         this.xp = xp;
         this.currency = currency;
@@ -25,45 +27,60 @@ public class Player {
 
 
     public String getName() {
-        return name;}
+        return name;
+
+    }
+
 
 
 
     public void consume(Player player) {
         // Prompt the user to choose an item ID to consume
-        int itemId = ui.promptNumeric("Enter the ID of the item you want to consume:");
+        int potionId = ui.promptNumeric("Enter the ID of the item you want to consume:");
 
         // Get the item from the database
-        Item item = DBConnector.getPotionId(itemId);
+        Potion potion = DBConnector.getPotionId(potionId);
 
-        if (item != null) {
-            ui.Msg("You consumed " + item.getName() + ".");
+        if (potion != null) {
+            ui.Msg("You consumed " + potion.getName() + ".");
 
             // Check which attribute the item adds and apply it to the player
-            if (item.getAddHealth() > 0) {
-                player.health += item.getAddHealth();
-                ui.Msg("Player's health increased by " + item.getAddHealth() + ".");
+            if (potion.getAddHealth() > 0) {
+                player.health += potion.getAddHealth();
+                ui.Msg("Player's health increased by " + potion.getAddHealth() + ".");
                 ui.Msg("Player's new health is: " + player.health);
 
             }
-            if (item.getAddAttack() > 0) {
-                player.attack += item.getAddAttack();
-                ui.Msg("Player's attack increased by " + item.getAddAttack() + ".");
+            if (potion.getAddAttack() > 0) {
+                player.attack += potion.getAddAttack();
+                ui.Msg("Player's attack increased by " + potion.getAddAttack() + ".");
                 ui.Msg("Player's new attack is: " + player.attack);
             }
-            if (item.getAddDefense() > 0) {
-                player.defense += item.getAddDefense();
-                ui.Msg("Player's defense increased by " + item.getAddDefense() + ".");
+            if (potion.getAddDefense() > 0) {
+                player.defense += potion.getAddDefense();
+                ui.Msg("Player's defense increased by " + potion.getAddDefense() + ".");
                 ui.Msg("Player's new defense is: " + player.defense);
             }
-            if (item.getAddXp() > 0) {
-                player.xp += item.getAddXp();
-                ui.Msg("Player's XP increased by " + item.getAddXp() + ".");
+            if (potion.getAddXp() > 0) {
+                player.xp += potion.getAddXp();
+                ui.Msg("Player's XP increased by " + potion.getAddXp() + ".");
                 ui.Msg("Player's new XP is: " + player.xp);
             }
 
         } else {
-            ui.Msg("No item with ID " + itemId + " found.");
+            ui.Msg("No item with ID " + potionId + " found.");
+        }
+    }
+    public void levelUp() {
+
+        if(xp >= 50) {
+            level += 1;
+            xp -= 50;
+            health = maxHealth;
+            ui.Msg("You have level " + getLevel() + ".");
+            ui.Msg("ur max health has risen to" + getMaxHealth() + ".");
+        } else{
+            ui.Msg("u did not level up");
         }
     }
 
@@ -76,11 +93,6 @@ public class Player {
         return defense;
     }
 
-    public int getHealth() {
-
-          return this.health = health;
-    }
-
     public int getCurrency(){
         return currency;
     }
@@ -89,17 +101,21 @@ public class Player {
         return xp;
     }
 
+    public int getHealth() {return health;}
+
     public int setAttack(int i){ return attack; }
 
     public int setDefense(int i){ return defense; }
 
-    public int setHealth(int i){ return health; }
+    public int setHealth(){ return health; }
 
     public int setCurrency(){return currency; }
 
-    public int setXp(int i){ return xp; }
+    public void setXp(int i){ xp = i; }
 
+    public int getMaxHealth(){ return maxHealth; }
 
+    public int getLevel() {return level;}
 }
 
 
