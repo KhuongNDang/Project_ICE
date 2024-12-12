@@ -20,15 +20,23 @@ public class Main {
         }
             Creature creature1 = creatures.get(1); // Get first creature from the list
             Creature creature2 = creatures.get(2); // Get second creature from the list
+            Creature creature3 = creatures.get(3); // Get first creature from the list
+            Creature creature4 = creatures.get(4); // Get second creature from the list
 
 
         // Create a Player object
-        Player player = new Player("Player1", 20, 3, 49, 10);
-        
+
+       Player player = new Player("",100, 200, 3, 49, 10);
+        player.createUsername();
+
 
 
         Combat combat = new Combat();
         combat.fight(player, creature1);
+        combat.fight(player, creature2);
+        combat.fight(player, creature3);
+        combat.fight(player, creature4);
+
 
 
     }
