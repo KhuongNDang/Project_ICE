@@ -25,7 +25,6 @@ public class Player {
     }
 
 
-    //        public void equipItem () { }
 
 
     public String getName() {
