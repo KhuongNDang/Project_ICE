@@ -3,17 +3,58 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GameDialogue {
+       TextUI ui = new TextUI();
+       Scanner input = new Scanner(System.in);
 
        public void storyPart1(Player player) {
-        TextUI ui = new TextUI();
-        Scanner input = new Scanner(System.in);
 
         for (int i = 1; i <= 6; i++) {
          Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
          ui.Msg(String.valueOf(dialog));
          System.out.println("Press enter to continue...");
-         input.nextLine(); // Vent på brugerens input for at fortsætte til næste dialog
+         input.nextLine();
         }
+       }
+
+        public void storyPart2(Player player){
+
+         for (int i = 7; i <= 13; i++) {
+          Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+          ui.Msg(String.valueOf(dialog));
+          System.out.println("Press enter to continue...");
+          input.nextLine();
+         }
+         ArrayList<String> options = new ArrayList<>();
+         options.add("Yes - I'll go to the market");
+         options.add("No - Do it yourself, oldie!");
+         int choice = ui.promptNumericChoice(options, "what`s your next Move?");
+         switch (choice) {
+          case 1:
+           for (int i = 14; i <= 17; i++) {
+            Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+            ui.Msg(String.valueOf(dialog));
+            System.out.println("Press enter to continue...");
+            input.nextLine();
+           }
+           break;
+          case 2:
+           Dialog dialogNo = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 149, player);
+           ui.Msg(String.valueOf(dialogNo));
+           System.out.println("Press enter to continue...");
+           input.nextLine();
+           for (int i = 15; i <= 17; i++) {
+            Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+            ui.Msg(String.valueOf(dialog));
+            System.out.println("Press enter to continue...");
+            input.nextLine();
+           }
+           break;
+         }
+
+        }
+
+        public void storyPart3(Player player){}
+
 
   /*
         Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 1, player);
@@ -40,9 +81,5 @@ public class GameDialogue {
         ui.Msg(String.valueOf(dialog6));
 */
         }
-        public void storyPart2(){
-        }
-        public void storyPart3(){
-        }
 
-}
+

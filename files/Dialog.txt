@@ -146,3 +146,4 @@
 146|"No, this can’t be happening! I’m supposed to be invincible!" |Rat King
 147|"YOU HAVE DEFEATED ME! BUT THIS IS NOT OVER! I WILL RETURN!" |Rat King
 148|"You have won, mouse. I was too prideful, too foolish. Take what you came for. Leave, and never return!" |Rat King
+149|"Im sure you meant to say 'Yes'."|Ben

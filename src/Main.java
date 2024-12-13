@@ -8,7 +8,13 @@ public class Main {
     public static void main(String[] args) {
             Player player = new Player("FartMaster2000", 10, 5, 100, 0, 50); // Eksempel på spilleroprettelse
             GameDialogue dialogue = new GameDialogue();
+            // Opret player()
             dialogue.storyPart1(player);
+            //Titel screen
+            // Main Menu
+            dialogue.storyPart2(player); //Samtale med Uncle Ben
+
+
         }
     }
 
