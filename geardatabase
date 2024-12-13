@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS Potion;
 DROP TABLE IF EXISTS Creature;
-DROP TABLE IF EXISTS Gear;
+DROP TABLE IF EXISTS Item;
 DROP TABLE IF EXISTS Ascii;
 
 
@@ -69,13 +69,13 @@ VALUES ('Rat Scout', 15, 10, 50, 20, '30% (Coins, basic gear)'),
        ('Killer Kitten', 25, 13, 90, 70, '60% (Cat Fur)'),
        ('Storm Crow', 50, 30, 130, 110, '50% (Crow Eye)'),
        ('Owl Mage', 50, 35, 150, 150, '45% (Mana Crystals, Owl feathers)'),
-       ('Royal Rat Guard', 30, 25, 130, 120, '40% (Steel, Gear)'),
+       ('Royal Rat Guard', 30, 25, 130, 120, '40% (Steel, Item)'),
        ('King Rat', 60, 40, 300, 500, '100% (Rat Crown)'),
        ('Mouse Assassin', 20, 20, 100, 100, 0);
 
 
 
-INSERT INTO Gear (name, attack, defense, health)
+INSERT INTO Item (name, attack, defense, health)
 VALUES ('Uncle Shield', 0, 15, 0),
        ('Uncle Sword', 20, 0, 0),
        ('Leather Cap', 0, 5, 0),

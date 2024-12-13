@@ -15,29 +15,33 @@ public class Main {
         Map<Integer, Creature> creatures = new HashMap<>();
 
 
-        for (int i = 1; i <= 10; i++) {
-            Creature creature = dbConnector.getCreatureById(i);
-            creatures.put(i, creature);
 
-            // Create a Player object
+//        for (int i = 1; i <= 10; i++) {
+//            Creature creature = dbConnector.getCreatureById(i);
+//            creatures.put(i, creature);
+//
+//            // Create a Player object
+//
+//            Player player = new Player("", 100, 200, 3, 49, 10);
+//            player.createUsername();
+//
+//
+//            Creature creature1 = creatures.get(1); // Get first creature from the list
+//            Creature creature2 = creatures.get(2); // Get second creature from the list
+//            Creature creature3 = creatures.get(3); // Get second creature from the list
+//            Creature creature4 = creatures.get(4); // Get second creature from the list
+//
+//
+//            Combat combat = new Combat();
+//            combat.fight(player, creature1);
+//            combat.fight(player, creature2);
+//            combat.fight(player, creature3);
+//            combat.fight(player, creature4);
+//
+//
+//        }
+        Map<Integer, Ascii> asciis = new HashMap<>();
 
-            Player player = new Player("", 100, 200, 3, 49, 10);
-            player.createUsername();
-
-
-            Creature creature1 = creatures.get(1); // Get first creature from the list
-            Creature creature2 = creatures.get(2); // Get second creature from the list
-            Creature creature3 = creatures.get(3); // Get second creature from the list
-            Creature creature4 = creatures.get(4); // Get second creature from the list
-
-
-            Combat combat = new Combat();
-            combat.fight(player, creature1);
-            combat.fight(player, creature2);
-            combat.fight(player, creature3);
-            combat.fight(player, creature4);
-
-            Map<Integer, Ascii> asciis = new HashMap<>();
 
             for (int i = 1; i <= 10; i++) {
                 Ascii ascii = dbConnector.getCreatureAsciiById(i);
@@ -59,17 +63,18 @@ public class Main {
             Ascii ascii2 = asciis.get(2);
             Ascii ascii3 = asciis.get(3);
             Ascii ascii4 = asciis.get(4);
+            Ascii ascii22 = asciis.get(22);
             Ascii asciiGear = asciisGear.get(1);
             System.out.println(ascii1);
             System.out.println(ascii2);
             System.out.println(ascii3);
             System.out.println(ascii4);
-            System.out.println(asciiGear);
+            System.out.println(ascii22);
+
 
 
         }
     }
-}
 
 
 
