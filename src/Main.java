@@ -15,6 +15,7 @@ public class Main {
         Map<Integer, Creature> creatures = new HashMap<>();
 
 
+
         for (int i = 1; i <= 10; i++) {
             Creature creature = dbConnector.getCreatureById(i);
             creatures.put(i, creature);
@@ -37,39 +38,41 @@ public class Main {
             combat.fight(player, creature3);
             combat.fight(player, creature4);
 
-            Map<Integer, Ascii> asciis = new HashMap<>();
 
-            for (int i = 1; i <= 10; i++) {
-                Ascii ascii = dbConnector.getCreatureAsciiById(i);
-                if (ascii != null) {
-                    asciis.put(i, ascii);
-                }
-            }
-
-            Map<Integer, Ascii> asciisGear = new HashMap<>();
-
-            for (int i = 1; i <= 10; i++) {
-                Ascii ascii = dbConnector.getAsciiGearById(i);
-                if (ascii != null) {
-                    asciisGear.put(i, ascii);
-                }
-            }
-
-            Ascii ascii1 = asciis.get(1);
-            Ascii ascii2 = asciis.get(2);
-            Ascii ascii3 = asciis.get(3);
-            Ascii ascii4 = asciis.get(4);
-            Ascii asciiGear = asciisGear.get(1);
-            System.out.println(ascii1);
-            System.out.println(ascii2);
-            System.out.println(ascii3);
-            System.out.println(ascii4);
-            System.out.println(asciiGear);
-
+        }
+//        Map<Integer, Ascii> asciis = new HashMap<>();
+//
+//
+//            for (int i = 1; i <= 10; i++) {
+//                Ascii ascii = dbConnector.getCreatureAsciiById(i);
+//                if (ascii != null) {
+//                    asciis.put(i, ascii);
+//                }
+//            }
+//
+//            Map<Integer, Ascii> asciisGear = new HashMap<>();
+//
+//            for (int i = 1; i <= 10; i++) {
+//                Ascii ascii = dbConnector.getAsciiGearById(i);
+//                if (ascii != null) {
+//                    asciisGear.put(i, ascii);
+//                }
+//            }
+//
+//            Ascii ascii1 = asciis.get(1);
+//            Ascii ascii2 = asciis.get(2);
+//            Ascii ascii3 = asciis.get(3);
+//            Ascii ascii4 = asciis.get(4);
+//            Ascii asciiGear = asciisGear.get(1);
+//            System.out.println(ascii1);
+//            System.out.println(ascii2);
+//            System.out.println(ascii3);
+//            System.out.println(ascii4);
+//            System.out.println(asciiGear);
+//
 
         }
     }
-}
 
 
 
