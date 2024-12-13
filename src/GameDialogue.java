@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
+
+import static java.lang.Math.random;
 
 public class GameDialogue {
  TextUI ui = new TextUI();
@@ -71,6 +74,7 @@ public class GameDialogue {
   switch (Vendors) {
    case 1:
     ChoiceVendor1(player);
+    break;
    case 2:
     ChoiceVendor2(player);
     break;
@@ -138,7 +142,7 @@ public class GameDialogue {
    case 1:
     Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 32, player);
     ui.Msg(String.valueOf(dialog1));
-    //Tag penge
+    // todo Tag penge
     break;
    case 2:
     ui.Msg("The vendor shrugs and says, 'Suit yourself.'");
@@ -169,8 +173,9 @@ public class GameDialogue {
      ui.Msg(String.valueOf(dialog));
      System.out.println("Press enter to continue...");
      input.nextLine();
-     combat.fight(player, dbConnector.getCreatureById(21)); //Ændre creature
+     combat.fight(player, dbConnector.getCreatureById(21)); // todo Ændre creature
     }
+    break;
    case 2:
     for (int i = 41; i <= 43; i++) {
      Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
@@ -204,7 +209,7 @@ public class GameDialogue {
    System.out.println("Press enter to continue...");
    input.nextLine();
   }
-  //Potentiel tjekke om Quest Item er til stede
+  //todo: Potentiel tjekke om Quest Item er til stede
 
   for (int i = 49; i <= 72; i++) { //Billeder af Fontina, Village i brænd osv.
    Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
@@ -220,7 +225,8 @@ public class GameDialogue {
    case 1:
     Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 73, player);
     ui.Msg(String.valueOf(dialog));
-    combat.fight(player, dbConnector.getCreatureById(21));
+    combat.fight(player, dbConnector.getCreatureById(21)); //todo: tjek creature
+    break;
    case 2:
     Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 74, player);
     ui.Msg(String.valueOf(dialog2));
@@ -243,21 +249,45 @@ public class GameDialogue {
   ArrayList<String> options = new ArrayList<>();
   options.add("Go to the Tavern");
   options.add("Go to the Barracks");
+  options.add("Go to the Potion Shop");
   options.add("Go to the Sewer Gate");
   options.add("Go to the road out of town");
   int choice = ui.promptNumericChoice(options, "What would like to do?");
   switch (choice) {
    case 1:
-
+    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 79, player);
+    ui.Msg(String.valueOf(dialog1));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    swTavern(player);
     break;
    case 2:
-
+    Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 82, player);
+    ui.Msg(String.valueOf(dialog2));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    fwBarracks(player);
     break;
    case 3:
+    Dialog dialog3 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 81, player);
+    ui.Msg(String.valueOf(dialog3));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    wdShop(player);
     break;
    case 4:
+    Dialog dialog4 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 80, player);
+    ui.Msg(String.valueOf(dialog4));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    sewerGate(player);
     break;
-
+    case 5:Dialog dialog5 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 84, player);
+     ui.Msg(String.valueOf(dialog5));
+     System.out.println("Press enter to continue...");
+     input.nextLine();
+     roadOut(player);
+     break;
    default:
     ui.Msg("Where do you think your going?");
   }
@@ -265,18 +295,109 @@ public class GameDialogue {
 
  public void swTavern(Player player) {
 
+  Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 85, player);
+  ui.Msg(String.valueOf(dialog));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+
+  ArrayList<String> options = new ArrayList<>();
+  options.add("HEY! I'm 8 months old - which is 42 in human years ");
+  options.add("Im not - but im not here to drink");
+  int choice = ui.promptNumericChoice(options, "Snifflesworth: Aren’t you a little young to be in here?");
+  switch (choice) {
+   case 1:
+    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 87, player);
+    ui.Msg(String.valueOf(dialog1));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    break;
+   case 2:
+    Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 88, player);
+    ui.Msg(String.valueOf(dialog2));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    break;
+   default:
+    ui.Msg("You mumble something incomprehensible");
+  }
+  ArrayList<String> optionsTwo = new ArrayList<>();
+  optionsTwo.add("Tell Snifflesworth everything that happened.");
+  optionsTwo.add("Order something from the bar");
+  int choice2 = ui.promptNumericChoice(optionsTwo, "Snifflesworth: Aren’t you a little young to be in here?");
+  switch (choice2) {
+   case 1:
+    for (int i = 91; i <= 94; i++) { //Giver map om Fontina sværdet
+     Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+     ui.Msg(String.valueOf(dialog1));
+     System.out.println("Press enter to continue...");
+     input.nextLine();
+    }
+    break;
+   case 2:
+    ui.Msg("Narrator: You really dont have time for that right now...");
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    for (int i = 91; i <= 94; i++) { //Giver map om Fontina sværdet
+     Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+     ui.Msg(String.valueOf(dialog1));
+     System.out.println("Press enter to continue...");
+     input.nextLine();
+    }
+    break;
+   default:
+    ui.Msg("The cute mouse at the end of the bar  - does not exist");
+  }
+
+
+ }
+ public void swTavernFight(Player player) {
+  Combat combat = new Combat();
+  DBConnector dbConnector = new DBConnector();
+  for (int i = 95; i <= 97; i++) {
+   Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+   ui.Msg(String.valueOf(dialog1));
+   System.out.println("Press enter to continue...");
+   input.nextLine();
+  }
+  combat.fight(player, dbConnector.getCreatureById(21)); //todo Ændre creature til Snifflesworth
+
+  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 98, player);
+  ui.Msg(String.valueOf(dialog1));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+  cheeseCity(player);
  }
 
- public void fwBarracks(Player player) {
 
+ public void fwBarracks(Player player) {
+  //todo: tjek efter quest items
+  // hvis ingen Quest items - så intro snak
+  // hvis type af Quest Item så give Quest til næste quest Item
  }
 
  public void sewerGate(Player player) {
+  //todo: lav en if statement til at tjekke efter QUEST item - eller fontina
+   Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 150, player);
+   ui.Msg(String.valueOf(dialog1));
+   System.out.println("Press enter to continue...");
+   input.nextLine();
+  cheeseCity(player);
 
  }
 
  public void wdShop(Player player) {
-
+   Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 99, player);
+   ui.Msg(String.valueOf(dialog1));
+   System.out.println("Press enter to continue...");
+   input.nextLine();
+   //Todo: Indsæt Potion shop metode potentiel switch case
+  Random random = new Random();
+  int randomId = 99 + random.nextInt(4);
+  Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), randomId, player);
+  ui.Msg(String.valueOf(dialog2));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+  cheeseCity(player);
  }
 
  public void roadOut(Player player) {

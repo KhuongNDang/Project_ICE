@@ -88,7 +88,7 @@
 88|"Hmm—I can’t serve you anything. Anything else I can do for you?" |Snifflesworth
 89|"Tell Snifflesworth everything that happened." |Choice
 90|"Order something from the bar." |Choice
-91|"Oh my! I knew Ben—he once saved me from the Rat King!" |Snifflesworth
+91|"Oh my! I knew Ben — He once saved me from the Rat King!" |Snifflesworth
 92|"I see he gave you your parents’ gear. Sorry, but you don’t look quite ready yet. Maybe head over to the Barracks—Fuzzy Wumpus could train you." |Snifflesworth
 93|"Before you go, I have this map! It might lead to your dad’s legendary sword—Fontina. They say it’s hidden in the swamp ruins, guarded by an ancient dragon." |Snifflesworth
 94|"When you find Fontina, bring it back to me!" |Snifflesworth
@@ -147,3 +147,4 @@
 147|"YOU HAVE DEFEATED ME! BUT THIS IS NOT OVER! I WILL RETURN!" |Rat King
 148|"You have won, mouse. I was too prideful, too foolish. Take what you came for. Leave, and never return!" |Rat King
 149|"Im sure you meant to say 'Yes'."|Ben
+150|"Its a gate - you cant really do much at the moment. Go become a great warrior before venturing to 'Rat King City'."|Narrator
