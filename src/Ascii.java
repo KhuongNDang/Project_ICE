@@ -37,10 +37,6 @@ public class Ascii {
 
     @Override
     public String toString() {
-        return "Ascii{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", picture=\n" + picture +
-                '}';
+        return this.picture;
     }
 }

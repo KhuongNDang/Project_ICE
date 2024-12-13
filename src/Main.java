@@ -43,7 +43,7 @@ public class Main {
         Map<Integer, Ascii> asciis = new HashMap<>();
 
 
-            for (int i = 1; i <= 10; i++) {
+            for (int i = 1; i <= 24; i++) {
                 Ascii ascii = dbConnector.getCreatureAsciiById(i);
                 if (ascii != null) {
                     asciis.put(i, ascii);
@@ -52,7 +52,7 @@ public class Main {
 
             Map<Integer, Ascii> asciisGear = new HashMap<>();
 
-            for (int i = 1; i <= 10; i++) {
+            for (int i = 1; i <= 21; i++) {
                 Ascii ascii = dbConnector.getAsciiGearById(i);
                 if (ascii != null) {
                     asciisGear.put(i, ascii);
@@ -64,12 +64,14 @@ public class Main {
             Ascii ascii3 = asciis.get(3);
             Ascii ascii4 = asciis.get(4);
             Ascii ascii22 = asciis.get(22);
+            Ascii ascii23 = asciis.get(23);
             Ascii asciiGear = asciisGear.get(1);
             System.out.println(ascii1);
             System.out.println(ascii2);
             System.out.println(ascii3);
             System.out.println(ascii4);
             System.out.println(ascii22);
+            System.out.println(ascii23);
 
 
 
