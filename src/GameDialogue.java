@@ -149,6 +149,8 @@ public class GameDialogue {
  }
 
  public void storyPartDarkAlley(Player player) {
+  Combat combat = new Combat();
+  DBConnector dbConnector = new DBConnector();
 
   for (int i = 34; i <= 36; i++) {
    Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
@@ -167,6 +169,7 @@ public class GameDialogue {
      ui.Msg(String.valueOf(dialog));
      System.out.println("Press enter to continue...");
      input.nextLine();
+     combat.fight(player, dbConnector.getCreatureById(21)); //Ændre creature
     }
    case 2:
     for (int i = 41; i <= 43; i++) {
@@ -174,6 +177,7 @@ public class GameDialogue {
      ui.Msg(String.valueOf(dialog));
      System.out.println("Press enter to continue...");
      input.nextLine();
+     combat.fight(player, dbConnector.getCreatureById(21));
     }
     break;
    default:
@@ -201,6 +205,7 @@ public class GameDialogue {
    input.nextLine();
   }
   //Potentiel tjekke om Quest Item er til stede
+
   for (int i = 49; i <= 72; i++) { //Billeder af Fontina, Village i brænd osv.
    Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
    ui.Msg(String.valueOf(dialog));
@@ -223,9 +228,74 @@ public class GameDialogue {
    default:
     ui.Msg("Where do you think your going?");
   }
+ }
+
+ public void arrivalCheeseCity(Player player) {
+  for (int i = 75; i <= 78; i++) {
+   Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+   ui.Msg(String.valueOf(dialog));
+   System.out.println("Press enter to continue...");
+   input.nextLine();
+  }
+ }
+
+ public void cheeseCity(Player player) {
+  ArrayList<String> options = new ArrayList<>();
+  options.add("Go to the Tavern");
+  options.add("Go to the Barracks");
+  options.add("Go to the Sewer Gate");
+  options.add("Go to the road out of town");
+  int choice = ui.promptNumericChoice(options, "What would like to do?");
+  switch (choice) {
+   case 1:
+
+    break;
+   case 2:
+
+    break;
+   case 3:
+    break;
+   case 4:
+    break;
+
+   default:
+    ui.Msg("Where do you think your going?");
+  }
+ }
+
+ public void swTavern(Player player) {
+
+ }
+
+ public void fwBarracks(Player player) {
+
+ }
+
+ public void sewerGate(Player player) {
+
+ }
+
+ public void wdShop(Player player) {
+
+ }
+
+ public void roadOut(Player player) {
+
+ }
+
+ public void forrest(Player player) {
+
+ }
+
+ public void dessert(Player player) {
+
+ }
+
+ public void swamp(Player player) {
 
  }
 }
+
 
   /*
         Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 1, player);

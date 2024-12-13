@@ -14,8 +14,9 @@ public class Main {
             // Main Menu
             dialogue.storyPartUncleBen(player); //Samtale med Uncle Ben
             dialogue.storyPartMarket(player);
+            //En save metode her
             dialogue.storyPartDarkAlley(player);
-            //Battle med bandit
+
             dialogue.storyPartDarkAlleyResult(player);
 
 
