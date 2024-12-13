@@ -6,17 +6,17 @@ import java.sql.Statement;
 
 
 
-    public class Gear {
+    public class Item {
         private int id;
         private String name;
-        private String slot;
         private int attack;
         private int defense;
         private int health;
+        private String slot;
         private Connection conn;
 
 
-        public Gear(String name, int attack, int defense, int health, String slot) {
+        public Item(String name, int attack, int defense, int health, String slot) {
             this.id = id;
             this.name = name;
             this.slot = slot;
@@ -26,15 +26,15 @@ import java.sql.Statement;
 
         }
 
-        public Gear loadGearById (int id){
-            String query = "SELECT * FROM Gear WHERE id = " + id;
+        public Item loadItemById (int id){
+            String query = "SELECT * FROM Item WHERE id = " + id;
 
             try (Statement stmt = conn.createStatement();
                  ResultSet rs = stmt.executeQuery(query)) {
 
                 if (rs.next()) {
                     // Create and return a Creature object
-                    return new Gear(
+                    return new Item(
                             rs.getString("name"),
                             rs.getInt("attack"),
                             rs.getInt("defence"),
@@ -59,4 +59,4 @@ import java.sql.Statement;
 
 
 
-}
+
