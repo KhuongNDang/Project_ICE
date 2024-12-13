@@ -108,7 +108,30 @@ public class DBConnector {
                             rs.getString("picture")
                     );
                 } else {
-                    System.out.println("No creature found with ID " + id);
+                    System.out.println("No gear found with ID " + id);
+                    return null; // Optionally return Optional.empty() instead
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Ascii getAsciiLocationById(int id) {
+        String query = "SELECT * FROM AsciiLocation WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    // Assuming Ascii is a subclass of Creature
+                    return new Ascii(
+                            rs.getString("picture")
+                    );
+                } else {
+                    System.out.println("No gear found with ID " + id);
                     return null; // Optionally return Optional.empty() instead
                 }
             }
