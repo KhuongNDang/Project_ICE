@@ -49,7 +49,7 @@
 49|"Uncle Ben, scooped up two portions of the dish and waddled over to the table."|Narrator
 50|"He placed two bowls on an old worn down table."|Narrator
 51|"Sounds like you ran into trouble out there. Maybe you need something to protect yourself."|Ben
-52|"It's dangerous to go alone. Here, take this SWORD ITEM and SHIELD ITEM."|Ben
+52|"It's dangerous to go alone. Here, take this (SWORD ITEM) and (SHIELD ITEM)."|Ben
 53|"They belonged to your mom and dad, you know."|Ben
 54|"Your mom was the finest shield-maiden in all of Cheese City."|Ben
 55|"And your dad—my brother—was a master swordsman."|Ben
@@ -71,7 +71,7 @@
 71|"As (PLAYER NAME) neared the village’s edge, they saw the dark, looming shapes of the Rat King's army advancing fast."|Narrator
 72|"A large, mangy rat blocked their path, snarling menacingly."|Narrator
 73|"(PLAYER NAME) gripped their sword tightly and charged at the rat. With a swift, decisive strike, they took it down. Breathing heavily, they dashed toward the forest that marked the path to safety."|Narrator
-74|"(PLAYER NAME) tried to fight back, but the rat was too quick and ferocious. They barely managed to fend it off before stumbling away, battered but still alive. They continued their flight, determined to reach Cheese City."|Narrator
+74|"(PLAYER NAME) tried to flee the fight, but the rat was too quick and ferocious. (PLAYER NAME) barely managed to fend it off before stumbling away, battered but still alive. They continued their flight, determined to reach Cheese City."|Narrator
 75|"The journey through the forest was treacherous, but (PLAYER NAME) finally emerged on the outskirts of Cheese City."|Narrator
 76|"A sense of relief washed over them as they saw the familiar skyline—an old city wall, gates flanked by wooden watchtowers, and the scent of melted cheese in the air."|Narrator
 77|"Welcome to Cheese City—a bustling, maze-like city filled with cheese vendors, and all sorts of colorful characters. It’s the heart of this region, and you’re here just in time."|Narrator

@@ -9,10 +9,15 @@ public class Main {
             Player player = new Player("FartMaster2000", 10, 5, 100, 0, 50); // Eksempel på spilleroprettelse
             GameDialogue dialogue = new GameDialogue();
             // Opret player()
-            dialogue.storyPart1(player);
-            //Titel screen
+            dialogue.storyPartIntro(player);
+            //Titelscreen
             // Main Menu
-            dialogue.storyPart2(player); //Samtale med Uncle Ben
+            dialogue.storyPartUncleBen(player); //Samtale med Uncle Ben
+            dialogue.storyPartMarket(player);
+            dialogue.storyPartDarkAlley(player);
+            //Battle med bandit
+            dialogue.storyPartDarkAlleyResult(player);
+
 
 
         }
