@@ -6,75 +6,53 @@ public class Main {
     public static void main(String[] args) {
 
 
-        //Todo: tilføj stien til din .db fil
-        String url = "jdbc:sqlite:creature.db";
+        String url = "jdbc:sqlite:database/database";
         DBConnector dbConnector = new DBConnector();
-
         dbConnector.connect(url);
 
-        Map<Integer, Creature> creatures = new HashMap<>();
+        Inventory inventory = new Inventory();
+        TextUI textUI = new TextUI();
+
+
+        Player player = new Player("David",10,10,10,0,0);
+        Bag bag = new Bag(dbConnector, inventory, textUI, player);
+
+
+        bag.addItemFromDB(1);
+        bag.addItemFromDB(20);
+        bag.addItemFromDB(3);
+        bag.addPotionFromDB(1);
+        bag.addPotionFromDB(5);
+        Creature creature1 = dbConnector.getCreatureById(1);
+        Creature creature2 = dbConnector.getCreatureById(2);
+        Creature creature3 = dbConnector.getCreatureById(3);
+
+
+        bag.displayBag();
+
+        Combat combat = new Combat(bag);
+        combat.fight(player, creature1, bag);
+
+        System.out.println();
+        System.out.println();
+
+        bag.useBag();
+        player.displayStats();
+
+
+        System.out.println();
+        System.out.println();
+
+        inventory.displayInventory();
+
+        System.out.println();
+        System.out.println();
 
 
 
-//        for (int i = 1; i <= 10; i++) {
-//            Creature creature = dbConnector.getCreatureById(i);
-//            creatures.put(i, creature);
-//
-//            // Create a Player object
-//
-//            Player player = new Player("", 100, 200, 3, 49, 10);
-//            player.createUsername();
-//
-//
-//            Creature creature1 = creatures.get(1); // Get first creature from the list
-//            Creature creature2 = creatures.get(2); // Get second creature from the list
-//            Creature creature3 = creatures.get(3); // Get second creature from the list
-//            Creature creature4 = creatures.get(4); // Get second creature from the list
-//
-//
-//            Combat combat = new Combat();
-//            combat.fight(player, creature1);
-//            combat.fight(player, creature2);
-//            combat.fight(player, creature3);
-//            combat.fight(player, creature4);
-//
-//
-//        }
-        Map<Integer, Ascii> asciis = new HashMap<>();
 
-
-            for (int i = 1; i <= 10; i++) {
-                Ascii ascii = dbConnector.getCreatureAsciiById(i);
-                if (ascii != null) {
-                    asciis.put(i, ascii);
-                }
-            }
-
-            Map<Integer, Ascii> asciisGear = new HashMap<>();
-
-            for (int i = 1; i <= 10; i++) {
-                Ascii ascii = dbConnector.getAsciiGearById(i);
-                if (ascii != null) {
-                    asciisGear.put(i, ascii);
-                }
-            }
-
-            Ascii ascii1 = asciis.get(1);
-            Ascii ascii2 = asciis.get(2);
-            Ascii ascii3 = asciis.get(3);
-            Ascii ascii4 = asciis.get(4);
-            Ascii ascii22 = asciis.get(22);
-            Ascii asciiGear = asciisGear.get(1);
-            System.out.println(ascii1);
-            System.out.println(ascii2);
-            System.out.println(ascii3);
-            System.out.println(ascii4);
-            System.out.println(ascii22);
-
-
-
-        }
     }
+}
 
 
 

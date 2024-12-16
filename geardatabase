@@ -100,7 +100,7 @@ VALUES ('Uncle Shield', 0, 15, 0),
 
 
 
-INSERT INTO Potion (name, attack, defense, health)
+INSERT INTO Potion (name, addAttack, addDefense, addHealth)
 VALUES ('Minor Health Potion', 0, 0, 10),
        ('Health Potion', 0, 0, 25),
        ('Greater Health Potion', 0, 0, 60),
