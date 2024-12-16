@@ -135,7 +135,12 @@ VALUES ('Uncle Shield', 0, 15, 0, 'shield'),
        ('Spear', 35, 0, 0, 'weapon'),
        ('Rapier', 28, 0, 0, 'weapon'),
        ('Dagger', 15, 0, 0, 'weapon'),
-       ('Twin Blades', 25, 0, 0, 'weapon');
+       ('Twin Blades', 25, 0, 0, 'weapon'),
+       ('Fontina',40,10,20,'weapon'),
+       ('Forest Essence',0,0,0,0),
+       ('Magic Moss', 0, 0,0,0),
+       ('Oasis Water',0,0,0,0);
+
 
 
 
