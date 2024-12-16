@@ -18,6 +18,7 @@ public class Potion{
 
     }
 
+
     public int getId() {
         return id;
     }
