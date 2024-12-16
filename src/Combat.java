@@ -15,11 +15,8 @@ public class Combat {
 
     public void fight(Player player, Creature creature, Bag bag) {
 
-
         for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
             System.out.println();
-
-
 
             ArrayList<String> options = new ArrayList<>();
             options.add("Proceed to fight");

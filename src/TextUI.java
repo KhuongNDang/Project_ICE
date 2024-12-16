@@ -44,9 +44,7 @@ private Scanner scan = new Scanner(System.in);
     }
 
     public void displayList(ArrayList<String> options,String msg) {
-        System.out.println();
         System.out.println(msg);
-        System.out.println();
         int i = 1;
 
         for(String option : options) {
