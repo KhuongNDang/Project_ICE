@@ -456,7 +456,11 @@ public class GameDialogue {
     swampExplore(player);
     break;
    case 2:
-
+    Dialog dialogReturn = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 154, player);
+    ui.Msg(String.valueOf(dialogReturn));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    cheeseCity(player);
     break;
    default:
     ui.Msg("The swamp gasses must have gotten to your mouse brain. You cant do that silly.");
@@ -494,6 +498,8 @@ public class GameDialogue {
  public void ruins(Player player) {
   TextUI ui = new TextUI();
   Scanner input = new Scanner(System.in);
+  Combat combat = new Combat();
+  DBConnector dbConnector = new DBConnector();
   for (int i = 119; i <= 120; i++) {
    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
    ui.Msg(String.valueOf(dialog1));
@@ -506,13 +512,32 @@ public class GameDialogue {
   int choice2 = ui.promptNumericChoice(optionsDragon, "What do you want to do?");
   switch (choice2) {
    case 1:
-
+    Dialog dialogDragon1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 121, player);
+    ui.Msg(String.valueOf(dialogDragon1));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    combat.fight(player, dbConnector.getCreatureById(23));
+    for (int i = 122; i <= 123; i++) {
+     Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+     ui.Msg(String.valueOf(dialog1));
+     System.out.println("Press enter to continue...");
+     input.nextLine();
+    }
+    Dialog dialogReturn = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 154, player);
+    ui.Msg(String.valueOf(dialogReturn));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    cheeseCity(player);
     break;
    case 2:
-
+    Dialog dialogFlee = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 155, player);
+    ui.Msg(String.valueOf(dialogFlee));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    cheeseCity(player);
     break;
    default:
-    ui.Msg("Ancient Dragon: Oh, brilliant. A true master of the art of aimless button pressing. Tell me, do you stumble through life with the same grace, or is this incompetence reserved for me?");
+    ui.Msg("Ancient Dragon: Oh, brilliant. A true master of the art of aimless button pressing.\n Tell me, do you stumble through life with the same grace, or is this incompetence reserved for me?");
   }
  }
 
