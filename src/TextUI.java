@@ -32,7 +32,6 @@ private Scanner scan = new Scanner(System.in);
     }
 
     public int promptNumericChoice(ArrayList<String> options, String msg) {
-        this.displayList(options, msg);
         System.out.println(); //h
         int choice = this.promptNumeric("Choose an option (1-" + options.size() + "):");
         System.out.println();

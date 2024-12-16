@@ -16,7 +16,7 @@ import java.sql.Statement;
         private Connection conn;
 
 
-        public Item(String name, int attack, int defense, int health, String slot) {
+        public Item(int id, String name, int attack, int defense, int health, String slot) {
             this.id = id;
             this.name = name;
             this.slot = slot;
@@ -26,34 +26,28 @@ import java.sql.Statement;
 
         }
 
-        public Item loadItemById (int id){
-            String query = "SELECT * FROM Item WHERE id = " + id;
-
-            try (Statement stmt = conn.createStatement();
-                 ResultSet rs = stmt.executeQuery(query)) {
-
-                if (rs.next()) {
-                    // Create and return a Creature object
-                    return new Item(
-                            rs.getString("name"),
-                            rs.getInt("attack"),
-                            rs.getInt("defence"),
-                            rs.getInt("health"),
-                            rs.getString("slot")
-                    );
-
-                } else {
-                    System.out.println("No gear found with ID " + id);
-                    return null;
-                }
-
-            } catch (SQLException e) {
-                System.out.println("Error: " + e.getMessage());
-                return null;
-            }
+        public int getId() {
+            return id;
         }
 
+        public String getName() {
+            return name;
+        }
+        public int getAttack(){
+            return attack;
+        }
 
+        public int getDefense() {
+            return defense;
+        }
+
+        public int getHealth() {
+            return health;
+        }
+
+        public String getSlot() {
+            return slot;
+        }
     }
 
 

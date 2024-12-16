@@ -1,45 +1,61 @@
-public class Potion {
+import java.io.Serializable;
 
+public class Potion{
 
+    private int id; // Add an ID field
     private String name;
-    private int addAttack;
-    private int addDefense;
-    private int addHealth;
-    private int addXP;
-    private int addCurrency;
+    private int attack;
+    private int defense;
+    private int health;
 
 
-
-    public Potion(String name, int addAttack, int addDefense, int addHealth) {
+    public Potion(String name, int attack, int defense, int health) {
+        this.id = id;
         this.name = name;
-        this.addAttack = addAttack;
-        this.addDefense = addDefense;
-        this.addHealth = addHealth;
+        this.attack = attack;
+        this.defense = defense;
+        this.health = health;
+
     }
 
-
-
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
     }
 
+
+    public int getAttack() {
+        return 0;
+    }
+
+
+    public int getDefense() {
+        return 0;
+    }
+
+
+    public int getHealth() {
+        return 0;
+    }
+
+
+    public String getSlot() {
+        return "";
+    }
+
     public int getAddAttack() {
-        return addAttack;
+        return attack;
     }
 
     public int getAddDefense() {
-        return addDefense;
+        return defense;
     }
 
     public int getAddHealth() {
-        return addHealth;
+        return health;
     }
-
-    public int getAddXp() {
-        return addXP;
-    }
-
-    public int getAddCurrency(){return addCurrency;}
 
 }

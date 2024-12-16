@@ -17,61 +17,26 @@ public class Player {
     public Player(String name,int health, int attack, int defense, int xp, int currency) {
         this.name = name;
         this.defense = defense;
-
+        this.health = health;
         this.attack = attack;
         this.xp = xp;
         this.currency = currency;
 
     }
 
-
-    //        public void equipItem () { }
+    public void displayStats() {
+        System.out.println("Player Stats:");
+        System.out.println("Health: " + health);
+        System.out.println("Attack: " + attack);
+        System.out.println("Defense: " + defense);
+    }       public void equipItem () { }
 
 
     public String getName() {
         return name;
 
     }
-  
-  
-  
-    public void consume(Player player) {
-        // Prompt the user to choose an item ID to consume
-        int potionId = ui.promptNumeric("Enter the ID of the item you want to consume:");
 
-        // Get the item from the database
-        Potion potion = DBConnector.getPotionId(potionId);
-
-        if (potion != null) {
-            ui.Msg("You consumed " + potion.getName() + ".");
-
-            // Check which attribute the item adds and apply it to the player
-            if (potion.getAddHealth() > 0) {
-                player.health += potion.getAddHealth();
-                ui.Msg("Player's health increased by " + potion.getAddHealth() + ".");
-                ui.Msg("Player's new health is: " + player.health);
-
-            }
-            if (potion.getAddAttack() > 0) {
-                player.attack += potion.getAddAttack();
-                ui.Msg("Player's attack increased by " + potion.getAddAttack() + ".");
-                ui.Msg("Player's new attack is: " + player.attack);
-            }
-            if (potion.getAddDefense() > 0) {
-                player.defense += potion.getAddDefense();
-                ui.Msg("Player's defense increased by " + potion.getAddDefense() + ".");
-                ui.Msg("Player's new defense is: " + player.defense);
-            }
-            if (potion.getAddXp() > 0) {
-                player.xp += potion.getAddXp();
-                ui.Msg("Player's XP increased by " + potion.getAddXp() + ".");
-                ui.Msg("Player's new XP is: " + player.xp);
-            }
-
-        } else {
-            ui.Msg("No item with ID " + potionId + " found.");
-        }
-    }
 
     public void levelUp() {
 
@@ -102,7 +67,6 @@ public class Player {
 
 
 
-
     public int getAttack() {
         return attack;
     }
@@ -111,23 +75,27 @@ public class Player {
         return defense;
     }
 
-    public int getCurrency(){
-        return currency;
-    }
 
     public int getXp() {
         return xp;
     }
 
-    public int getHealth() {return health;}
+    public int getHealth() {
+        return health;
+    }
 
-    public int setAttack(int i){ return attack; }
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
 
-    public int setDefense(int i){ return defense; }
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
 
-    public int setHealth(){ return health; }
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
-    public int setCurrency(){return currency; }
 
     public void setXp(int i){ xp = i; }
 

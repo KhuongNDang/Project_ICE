@@ -47,7 +47,7 @@ public class DBConnector {
         }
     }
 
-    public static Potion getPotionId(int id) {
+    public static Potion getPotionById(int id) {
         String query = "SELECT * FROM Potion WHERE id = ?";
 
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -72,6 +72,35 @@ public class DBConnector {
             return null;
         }
     }
+
+    public Item getItemById(int id) {
+        String query = "SELECT * FROM Item WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    // Create and return an Item object
+                    return new Item(
+                            rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getInt("attack"),
+                            rs.getInt("defense"),
+                            rs.getInt("health"),
+                            rs.getString("slot")
+                    );
+                } else {
+                    System.out.println("No item found with ID " + id);
+                    return null;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
     public Ascii getCreatureAsciiById(int id) {
         String query = "SELECT * FROM AsciiCreature WHERE id = ?";
@@ -141,5 +170,7 @@ public class DBConnector {
             return null;
         }
     }
-
+    public Connection getConnection() {
+        return conn;
+    }
 }
