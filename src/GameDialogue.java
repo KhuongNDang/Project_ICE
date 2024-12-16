@@ -266,7 +266,9 @@ public class GameDialogue {
     ui.Msg(String.valueOf(dialog1));
     System.out.println("Press enter to continue...");
     input.nextLine();
-    swTavern(player);
+    // todo if(Player.getItemID == fontina)
+    //swTavernFight
+    //else swTavern(player);
     break;
    case 2:
     Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 82, player);
@@ -386,11 +388,48 @@ public class GameDialogue {
 
  public void sewerGate(Player player) {
   //todo: lav en if statement til at tjekke efter QUEST item - eller fontina
-  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 150, player);
-  ui.Msg(String.valueOf(dialog1));
+  Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 150, player);
+  ui.Msg(String.valueOf(dialog));
   System.out.println("Press enter to continue...");
   input.nextLine();
-  cheeseCity(player);
+// If(player.getItemID == FW Potion
+  ArrayList<String> optionsTwo = new ArrayList<>();
+  optionsTwo.add("Throw Elexir on the gate");
+  optionsTwo.add("Go back");
+  int choice1 = ui.promptNumericChoice(optionsTwo, "What do you want to do");
+  switch (choice1) {
+   case 1:
+    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 125, player);
+    ui.Msg(String.valueOf(dialog1));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    sewerEntrance(player);
+    break;
+   case 2:
+    cheeseCity(player);
+    break;
+   default:
+    ui.Msg("This is not the time to be a silly mouse.");
+  } //else if (player.getItemID == Fontina){
+  //ArrayList<String> optionsFontina = new ArrayList<>();
+  //optionsFontina.add("Strike the gate with Fontina");
+  //optionsFontina.add("Go back");
+  //int choice2 = ui.promptNumericChoice(optionsFontina, "What do you want to do");
+  switch (choice2) {
+   case 1:
+    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 126, player);
+    ui.Msg(String.valueOf(dialog1));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    sewerEntrance(player);
+    break;
+   case 2:
+    cheeseCity(player);
+    break;
+   default:
+    ui.Msg("This is not the time to be a silly mouse.");
+  }
+  // else{cheeseCity(player);}
 
  }
 
@@ -425,7 +464,7 @@ public class GameDialogue {
    case 3:
     swamp(player);
    default:
-    ui.Msg("The cute mouse at the end of the bar  - does not exist");
+    ui.Msg("This is not the time to be a coward.");
   }
  }
 
@@ -474,12 +513,12 @@ public class GameDialogue {
   Combat combat = new Combat();
   DBConnector dbConnector = new DBConnector();
 
-  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 117, player);
-  ui.Msg(String.valueOf(dialog1));
+  Dialog dialogDesert = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 117, player);
+  ui.Msg(String.valueOf(dialogDesert));
   System.out.println("Press enter to continue...");
   input.nextLine();
   ArrayList<String> optionsTwo = new ArrayList<>();
-  optionsTwo.add("Explore the forest");
+  optionsTwo.add("Explore the desert");
   optionsTwo.add("Return to Cheese City");
   optionsTwo.add("Check your inventory");
   int choice2 = ui.promptNumericChoice(optionsTwo, "What do you want to do?");
@@ -668,6 +707,7 @@ public class GameDialogue {
      int sewerCreatureID = creatureID[randomCreatureID];
      combat.fight(player, dbConnector.getCreatureById(sewerCreatureID));
     }
+    ratKingCity(player);
     break;
    case 2:
     cheeseCity(player);
@@ -685,7 +725,6 @@ public class GameDialogue {
   Scanner input = new Scanner(System.in);
   Combat combat = new Combat();
   DBConnector dbConnector = new DBConnector();
-  Random random = new Random();
 
   Dialog dialogRTCIntro = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 132, player);
   ui.Msg(String.valueOf(dialogRTCIntro));
