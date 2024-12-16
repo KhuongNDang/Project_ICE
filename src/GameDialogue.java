@@ -408,19 +408,21 @@ public class GameDialogue {
   int choice2 = ui.promptNumericChoice(optionsTwo, "Where do you want to explore?");
   switch (choice2) {
    case 1:
-    GameDialogue.forrest(player);
+    forrest(player);
     break;
    case 2:
-    GameDialogue.dessert(player);
+    dessert(player);
     break;
    case 3:
-    GameDialogue.swamp(player);
+    swamp(player);
    default:
     ui.Msg("The cute mouse at the end of the bar  - does not exist");
   }
  }
 
  public void forrest(Player player) {
+  TextUI ui = new TextUI();
+  Scanner input = new Scanner(System.in);
   Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 151, player);
   ui.Msg(String.valueOf(dialog1));
   System.out.println("Press enter to continue...");
@@ -428,6 +430,8 @@ public class GameDialogue {
  }
 
  public void dessert(Player player) {
+  TextUI ui = new TextUI();
+  Scanner input = new Scanner(System.in);
   Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 117, player);
   ui.Msg(String.valueOf(dialog1));
   System.out.println("Press enter to continue...");
@@ -435,13 +439,50 @@ public class GameDialogue {
  }
 
  public void swamp(Player player) {
+  TextUI ui = new TextUI();
+  Scanner input = new Scanner(System.in);
   Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 118, player);
   ui.Msg(String.valueOf(dialog1));
   System.out.println("Press enter to continue...");
   input.nextLine();
+  ArrayList<String> optionsTwo = new ArrayList<>();
+  optionsTwo.add("Explore the swamp");
+  optionsTwo.add("Return to Cheese City");
+  int choice2 = ui.promptNumericChoice(optionsTwo, "What do you want to do?");
+  switch (choice2) {
+   case 1:
+    swampExplore(player);
+    break;
+   case 2:
+
+    break;
+   default:
+    ui.Msg("The swamp gasses must have gotten to your mouse brain. You cant do that silly.");
+  }
+ }
+
+ public void swampExplore(Player player) {
+  TextUI ui = new TextUI();
+  Scanner input = new Scanner(System.in);
+  Random random = new Random();
+  Combat combat = new Combat();
+  DBConnector dbConnector = new DBConnector();
+  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 152, player);
+  ui.Msg(String.valueOf(dialog1));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+  int chance = random.nextInt(100);
+  int [] creatureID = {12,4,18};
+  int randomCreatureID = random.nextInt(creatureID.length);
+  int swampCreatureID = creatureID[randomCreatureID];
+  if(chance < 80) {
+   combat.fight(player, dbConnector.getCreatureById(swampCreatureID));
+  }else{ruins(player);}
  }
 
  public void ruins(Player player) {
+  TextUI ui = new TextUI();
+  Scanner input = new Scanner(System.in);
   Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 119, player);
   ui.Msg(String.valueOf(dialog1));
   System.out.println("Press enter to continue...");
