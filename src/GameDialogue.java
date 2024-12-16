@@ -66,6 +66,9 @@ public class GameDialogue {
    System.out.println("Press enter to continue...");
    input.nextLine();
   }
+  storyVendor(player);
+ }
+ public void storyVendor(Player player) {
   ArrayList<String> options = new ArrayList<>();
   options.add("Vendor nr 1");
   options.add("Vendor nr 2");
@@ -74,12 +77,15 @@ public class GameDialogue {
   switch (Vendors) {
    case 1:
     ChoiceVendor1(player);
+    storyVendor(player);
     break;
    case 2:
     ChoiceVendor2(player);
+    storyVendor(player);
     break;
    case 3:
     ChoiceVendor3(player);
+    storyPartDarkAlley(player);
     break;
    default:
     ui.Msg("Where do you think your going?");
@@ -173,8 +179,8 @@ public class GameDialogue {
      ui.Msg(String.valueOf(dialog));
      System.out.println("Press enter to continue...");
      input.nextLine();
-     combat.fight(player, dbConnector.getCreatureById(21)); // todo Ændre creature
     }
+    combat.fight(player, dbConnector.getCreatureById(21)); // todo Ændre creature
     break;
    case 2:
     for (int i = 41; i <= 43; i++) {
@@ -182,8 +188,8 @@ public class GameDialogue {
      ui.Msg(String.valueOf(dialog));
      System.out.println("Press enter to continue...");
      input.nextLine();
-     combat.fight(player, dbConnector.getCreatureById(21));
     }
+    combat.fight(player, dbConnector.getCreatureById(21));
     break;
    default:
     ui.Msg("Where do you think your going?");
@@ -404,7 +410,7 @@ public class GameDialogue {
 
  public void roadOut(Player player) {
   ArrayList<String> optionsTwo = new ArrayList<>();
-  optionsTwo.add("Explore the forrest");
+  optionsTwo.add("Explore the forest");
   optionsTwo.add("Explore the dessert");
   optionsTwo.add("Explore the swamp");
   int choice2 = ui.promptNumericChoice(optionsTwo, "Where do you want to explore?");
@@ -425,19 +431,77 @@ public class GameDialogue {
  public void forrest(Player player) {
   TextUI ui = new TextUI();
   Scanner input = new Scanner(System.in);
-  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 151, player);
-  ui.Msg(String.valueOf(dialog1));
+  Random random = new Random();
+  DBConnector dbConnector = new DBConnector();
+  Combat combat = new Combat();
+  Dialog dialogForest = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 151, player);
+  ui.Msg(String.valueOf(dialogForest));
   System.out.println("Press enter to continue...");
   input.nextLine();
+  ArrayList<String> optionsTwo = new ArrayList<>();
+  optionsTwo.add("Explore the forest");
+  optionsTwo.add("Return to Cheese City");
+  optionsTwo.add("Check your inventory");
+  int choice2 = ui.promptNumericChoice(optionsTwo, "What do you want to do?");
+  switch (choice2) {
+   case 1:
+    int[] creatureID = {5, 9, 10,11};
+    int randomCreatureID = random.nextInt(creatureID.length);
+    int forestCreatureID = creatureID[randomCreatureID];
+     combat.fight(player, dbConnector.getCreatureById(forestCreatureID));
+
+    break;
+   case 2:
+    Dialog dialogReturn = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 154, player);
+    ui.Msg(String.valueOf(dialogReturn));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    cheeseCity(player);
+    break;
+    case 3:
+     //Check your gear
+     break;
+   default:
+    ui.Msg("The forest is too dense - just like your brain.");
+  }
  }
 
  public void dessert(Player player) {
   TextUI ui = new TextUI();
   Scanner input = new Scanner(System.in);
+  Random random = new Random();
+  Combat combat = new Combat();
+  DBConnector dbConnector = new DBConnector();
+
   Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 117, player);
   ui.Msg(String.valueOf(dialog1));
   System.out.println("Press enter to continue...");
   input.nextLine();
+  ArrayList<String> optionsTwo = new ArrayList<>();
+  optionsTwo.add("Explore the forest");
+  optionsTwo.add("Return to Cheese City");
+  optionsTwo.add("Check your inventory");
+  int choice2 = ui.promptNumericChoice(optionsTwo, "What do you want to do?");
+  switch (choice2) {
+   case 1:
+    int[] creatureID = {2,7,8,13,17};
+    int randomCreatureID = random.nextInt(creatureID.length);
+    int desertCreatureID = creatureID[randomCreatureID];
+    combat.fight(player, dbConnector.getCreatureById(desertCreatureID));
+    break;
+   case 2:
+    Dialog dialogReturn = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 154, player);
+    ui.Msg(String.valueOf(dialogReturn));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    cheeseCity(player);
+    break;
+   case 3:
+    //Check your gear
+    break;
+   default:
+    ui.Msg("If you do that, you might end up in quicksand");
+  }
  }
 
  public void swamp(Player player) {
@@ -450,6 +514,7 @@ public class GameDialogue {
   ArrayList<String> optionsTwo = new ArrayList<>();
   optionsTwo.add("Explore the swamp");
   optionsTwo.add("Return to Cheese City");
+  optionsTwo.add("Check your inventory");
   int choice2 = ui.promptNumericChoice(optionsTwo, "What do you want to do?");
   switch (choice2) {
    case 1:
@@ -461,6 +526,9 @@ public class GameDialogue {
     System.out.println("Press enter to continue...");
     input.nextLine();
     cheeseCity(player);
+    break;
+   case 3:
+    //Check inventory
     break;
    default:
     ui.Msg("The swamp gasses must have gotten to your mouse brain. You cant do that silly.");
@@ -494,7 +562,6 @@ public class GameDialogue {
   }
  }
 
-
  public void ruins(Player player) {
   TextUI ui = new TextUI();
   Scanner input = new Scanner(System.in);
@@ -527,6 +594,7 @@ public class GameDialogue {
     ui.Msg(String.valueOf(dialogReturn));
     System.out.println("Press enter to continue...");
     input.nextLine();
+    //todo Add Fontina
     cheeseCity(player);
     break;
    case 2:
