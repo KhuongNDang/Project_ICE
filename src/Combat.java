@@ -39,8 +39,8 @@ public class Combat {
                     bag.useBag();
                     break;
                 case 3:
-                    // flee(player, creature);
-                    return;
+                    flee(player);
+                    break;
             }
 
         }
@@ -107,9 +107,11 @@ public class Combat {
 
     public void consume(Player player) {
     }
-
-    public void flee() {
-    }
 */
+    public void flee(Player player) {
+
+    }
+
+
 
 
