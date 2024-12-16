@@ -150,3 +150,4 @@
 150|"Its a gate - you cant really do much at the moment. Go become a great warrior before venturing to 'Rat King City'."|Narrator
 151|"The forest outside Cheese City is a shadowy maze of towering trees and thick undergrowth. Sunlight barely pierces the canopy, leaving an air of mystery. The hum of strange life and whispers of old secrets make it clear this is no ordinary woodland."| Narrator
 152|"As you venture deeper into the swamp, the air grows heavy, and the ground shifts beneath your feet. The thick mist coils around gnarled trees, and strange calls echo in the distance. Somewhere ahead lies the ruins... or perhaps something lurking, ready to strike."|Narrator
+153|"Who dares stumble into my swamp? Tiny thing, you smell of fear... and lunch."|
