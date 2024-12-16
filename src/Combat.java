@@ -5,8 +5,15 @@ public class Combat {
     private int defense;
     private int health;
     TextUI ui = new TextUI();
+    private Bag bag;
 
-    public void fight(Player player, Creature creature) {
+
+    // Update constructor to accept a Bag
+    public Combat(Bag bag) {
+        this.bag = bag;  // Initialize the bag
+    }
+
+    public void fight(Player player, Creature creature, Bag bag) {
 
 
         for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
@@ -25,7 +32,7 @@ public class Combat {
                     proceedTofight(player, creature);
                     break;
                 case 2:
-                    player.consume(player);
+                    bag.useBag();
                     break;
                 case 3:
                     // flee(player, creature);

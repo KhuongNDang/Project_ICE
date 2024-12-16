@@ -21,19 +21,6 @@ public class Ascii {
         return picture;
     }
 
-    // Setters (optional if you want to modify these attributes)
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
 
     @Override
     public String toString() {
