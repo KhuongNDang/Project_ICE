@@ -18,7 +18,7 @@ public class Main {
             //dialogue.storyPartDarkAlley(player);
 
             //dialogue.storyPartDarkAlleyResult(player);
-        dialogue.swamp(player);
+            dialogue.cheeseCity(player);
 
 
         }

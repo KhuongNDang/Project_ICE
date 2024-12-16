@@ -138,13 +138,13 @@
 138|"Ah, so it’s a battle of wits, is it? Very well. Show me what you’ve got, mouse." |Rat King
 139|"Impressive, (PLAYER NAME). I didn’t expect a mouse to stand up to me. But this is MY city, and you’ll have to pry it from my cold, dead paws!" |Rat King
 140|"I have prepared for this moment! You won’t leave here alive—no one does." |Rat King
-141|"I am the Rat King! You will bow to me or die trying!" |Rat King
-142|"No, you can’t take my city! I’ll destroy it myself before I let you have it!" |Rat King
-143|"You are strong, mouse, but you’re not strong enough. I’ll rip you to shreds!" |Rat King
+141|"I am the Rat King Demon! You will bow to me or die trying!" |Rat King Demon
+142|"No, you can’t take my city! I’ll destroy it myself before I let you have it!" |Rat King Demon
+143|"You are strong, mouse, but you’re not strong enough. I’ll rip you to shreds!" |Rat King Demon
 144|"Your father...he always was too stubborn for his own good. He should’ve known better than to challenge me. But now you’re here, and you’ll be the one to meet the same fate." |Rat King
 145|"Victory...it slips through my paws like sand. I can’t let it go! You’ve ruined everything!" |Rat King
-146|"No, this can’t be happening! I’m supposed to be invincible!" |Rat King
-147|"YOU HAVE DEFEATED ME! BUT THIS IS NOT OVER! I WILL RETURN!" |Rat King
+146|"No, this can’t be happening! I’m supposed to be invincible!" |Rat King Demon
+147|"YOU HAVE DEFEATED ME! BUT THIS IS NOT OVER! I WILL RETURN!" |Rat King Demon
 148|"You have won, mouse. I was too prideful, too foolish. Take what you came for. Leave, and never return!" |Rat King
 149|"Im sure you meant to say 'Yes'."|Ben
 150|"Its a gate - you cant really do much at the moment. Go become a great warrior before venturing to 'Rat King City'."|Narrator
@@ -153,4 +153,5 @@
 153|"Who dares stumble into my swamp? Tiny thing, you smell of fear... and lunch."|Troll
 154|"You make your way back to Cheese City"|Narrator
 155|"You flee back to Cheese City"|Narrator
+156|"The gates creak open, revealing a shadowy figure in a tattered cloak. His jagged crown glints as piercing red eyes lock onto you. The Rat King has arrived."|Narrator
 

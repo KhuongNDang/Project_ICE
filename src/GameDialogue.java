@@ -68,6 +68,7 @@ public class GameDialogue {
   }
   storyVendor(player);
  }
+
  public void storyVendor(Player player) {
   ArrayList<String> options = new ArrayList<>();
   options.add("Vendor nr 1");
@@ -445,10 +446,10 @@ public class GameDialogue {
   int choice2 = ui.promptNumericChoice(optionsTwo, "What do you want to do?");
   switch (choice2) {
    case 1:
-    int[] creatureID = {5, 9, 10,11};
+    int[] creatureID = {5, 9, 10, 11};
     int randomCreatureID = random.nextInt(creatureID.length);
     int forestCreatureID = creatureID[randomCreatureID];
-     combat.fight(player, dbConnector.getCreatureById(forestCreatureID));
+    combat.fight(player, dbConnector.getCreatureById(forestCreatureID));
 
     break;
    case 2:
@@ -458,9 +459,9 @@ public class GameDialogue {
     input.nextLine();
     cheeseCity(player);
     break;
-    case 3:
-     //Check your gear
-     break;
+   case 3:
+    //Check your gear
+    break;
    default:
     ui.Msg("The forest is too dense - just like your brain.");
   }
@@ -484,7 +485,7 @@ public class GameDialogue {
   int choice2 = ui.promptNumericChoice(optionsTwo, "What do you want to do?");
   switch (choice2) {
    case 1:
-    int[] creatureID = {2,7,8,13,17};
+    int[] creatureID = {2, 7, 8, 13, 17};
     int randomCreatureID = random.nextInt(creatureID.length);
     int desertCreatureID = creatureID[randomCreatureID];
     combat.fight(player, dbConnector.getCreatureById(desertCreatureID));
@@ -609,8 +610,134 @@ public class GameDialogue {
   }
  }
 
- public void ratKingCity(Player player) {
+ public void sewerEntrance(Player player) {
+  TextUI ui = new TextUI();
+  Scanner input = new Scanner(System.in);
 
+  for (int i = 127; i <= 128; i++) {
+   Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+   ui.Msg(String.valueOf(dialog1));
+   System.out.println("Press enter to continue...");
+   input.nextLine();
+  }
+  ArrayList<String> optionsSewerOne = new ArrayList<>();
+  optionsSewerOne.add("Enter the Rat Kings domain");
+  optionsSewerOne.add("Return to Cheese City");
+  int choice1 = ui.promptNumericChoice(optionsSewerOne, "What do you want to do?");
+  switch (choice1) {
+   case 1:
+    sewerfights(player);
+    break;
+   case 2:
+    cheeseCity(player);
+    break;
+   case 3:
+    //todo Check inventory
+    break;
+   default:
+    ui.Msg("Are you too scared to make the right decision? ");
+  }
+ }
+
+ public void sewerfights(Player player) {
+  TextUI ui = new TextUI();
+  Scanner input = new Scanner(System.in);
+  Combat combat = new Combat();
+  DBConnector dbConnector = new DBConnector();
+  Random random = new Random();
+
+  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 129, player);
+  ui.Msg(String.valueOf(dialog1));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+
+  ArrayList<String> optionsSewerOne = new ArrayList<>();
+  optionsSewerOne.add("Push further into the sewers");
+  optionsSewerOne.add("Return to Cheese City");
+  optionsSewerOne.add("Check your gear");
+  int choice1 = ui.promptNumericChoice(optionsSewerOne, "What do you want to do?");
+  switch (choice1) {
+   case 1:
+    for (int i = 129; i <= 131; i++) {
+     Dialog dialogSewerFight = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+     ui.Msg(String.valueOf(dialogSewerFight));
+     System.out.println("Press enter to continue...");
+     input.nextLine();
+     int[] creatureID = {1,4,6,14,19};
+     int randomCreatureID = random.nextInt(creatureID.length);
+     int sewerCreatureID = creatureID[randomCreatureID];
+     combat.fight(player, dbConnector.getCreatureById(sewerCreatureID));
+    }
+    break;
+   case 2:
+    cheeseCity(player);
+    break;
+   case 3:
+    // todo Check inventory
+    break;
+   default:
+    ui.Msg("Are you too scared to make the right decision? ");
+  }
+ }
+
+ public void ratKingCity(Player player) {
+  TextUI ui = new TextUI();
+  Scanner input = new Scanner(System.in);
+  Combat combat = new Combat();
+  DBConnector dbConnector = new DBConnector();
+  Random random = new Random();
+
+  Dialog dialogRTCIntro = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 132, player);
+  ui.Msg(String.valueOf(dialogRTCIntro));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+  Dialog dialogRTCGate = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 156, player);
+  ui.Msg(String.valueOf(dialogRTCGate));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+  Dialog dialogRTCKing = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 133, player);
+  ui.Msg(String.valueOf(dialogRTCKing));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+  ArrayList<String> optionsSewerOne = new ArrayList<>();
+  optionsSewerOne.add("Listen to what the Rat King has to say");
+  optionsSewerOne.add("Interrupt the Rat King");
+  int choice1 = ui.promptNumericChoice(optionsSewerOne, "What do you want to do?");
+  switch (choice1) {
+   case 1:
+    for (int i = 134; i <= 137; i++) {
+     Dialog dialogSewerFight = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+     ui.Msg(String.valueOf(dialogSewerFight));
+     System.out.println("Press enter to continue...");
+     input.nextLine();
+     combat.fight(player, dbConnector.getCreatureById(2)); //todo ratking ID
+    }
+    break;
+   case 2:
+    Dialog dialogSewerFight = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 138, player);
+    ui.Msg(String.valueOf(dialogSewerFight));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    combat.fight(player, dbConnector.getCreatureById(2)); //todo rat king ID
+    break;
+   default:
+    ui.Msg("Are you too scared to make the right decision? ");
+  }
+  //Rat King Demon
+  Dialog dialogRTD = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 139, player);
+  ui.Msg(String.valueOf(dialogRTD));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+  //todo ascii art rat king demon
+  Dialog dialogRTD2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 141, player);
+  ui.Msg(String.valueOf(dialogRTD2));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+  combat.fight(player, dbConnector.getCreatureById(3)); //todo Rat King Demon ID
+  Dialog dialogRTD3 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 147, player);
+  ui.Msg(String.valueOf(dialogRTD3));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
  }
 }
 
