@@ -401,18 +401,55 @@ public class GameDialogue {
  }
 
  public void roadOut(Player player) {
-
+  ArrayList<String> optionsTwo = new ArrayList<>();
+  optionsTwo.add("Explore the forrest");
+  optionsTwo.add("Explore the dessert");
+  optionsTwo.add("Explore the swamp");
+  int choice2 = ui.promptNumericChoice(optionsTwo, "Where do you want to explore?");
+  switch (choice2) {
+   case 1:
+    GameDialogue.forrest(player);
+    break;
+   case 2:
+    GameDialogue.dessert(player);
+    break;
+   case 3:
+    GameDialogue.swamp(player);
+   default:
+    ui.Msg("The cute mouse at the end of the bar  - does not exist");
+  }
  }
 
  public void forrest(Player player) {
-
+  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 151, player);
+  ui.Msg(String.valueOf(dialog1));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
  }
 
  public void dessert(Player player) {
-
+  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 117, player);
+  ui.Msg(String.valueOf(dialog1));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
  }
 
  public void swamp(Player player) {
+  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 118, player);
+  ui.Msg(String.valueOf(dialog1));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+ }
+
+ public void ruins(Player player) {
+  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 119, player);
+  ui.Msg(String.valueOf(dialog1));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+ }
+
+
+ public void ratKingCity(Player player) {
 
  }
 }
