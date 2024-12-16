@@ -386,7 +386,19 @@ public class GameDialogue {
   // hvis type af Quest Item så give Quest til næste quest Item
 
   // if (player.QuestItem == OK)
+  for (int i = 108; i <= 109; i++) {
+   Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+   ui.Msg(String.valueOf(dialog2));
+   System.out.println("Press enter to continue...");
+   input.nextLine();
+  }
   //else if (player.QuestItem 2 == OK)
+  for (int i = 110; i <= 109; i++) {
+   Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+   ui.Msg(String.valueOf(dialog2));
+   System.out.println("Press enter to continue...");
+   input.nextLine();
+  }
    //else if (player.QuestItem3 == OK)
    // else if(playerQuestItem4 == OK)
     // else
@@ -400,7 +412,7 @@ public class GameDialogue {
   int choice1 = ui.promptNumericChoice(optionsTwo, "Fuzzy Wumpus: Aren’t you a little young to be in here?");
   switch (choice1) {
    case 1:
-    for (int i = 106; i <= 107; i++) { //Giver map om Fontina sværdet
+    for (int i = 106; i <= 107; i++) {
      Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
      ui.Msg(String.valueOf(dialog2));
      System.out.println("Press enter to continue...");
@@ -408,7 +420,7 @@ public class GameDialogue {
     }
     break;
    case 2:
-    ui.Msg("Narrator: You really dont have time for that right now...");
+    // todo indsæt shop
     break;
    default:
     ui.Msg("The cute mouse at the end of the bar  - does not exist");
