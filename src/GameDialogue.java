@@ -384,6 +384,35 @@ public class GameDialogue {
   //todo: tjek efter quest items
   // hvis ingen Quest items - så intro snak
   // hvis type af Quest Item så give Quest til næste quest Item
+
+  // if (player.QuestItem == OK)
+  //else if (player.QuestItem 2 == OK)
+   //else if (player.QuestItem3 == OK)
+   // else if(playerQuestItem4 == OK)
+    // else
+  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 103, player);
+  ui.Msg(String.valueOf(dialog1));
+  System.out.println("Press enter to continue...");
+  input.nextLine();
+  ArrayList<String> optionsTwo = new ArrayList<>();
+  optionsTwo.add("Tell Fuzzy Wumpus everything that happened.");
+  optionsTwo.add("Check the gear for sale.");
+  int choice1 = ui.promptNumericChoice(optionsTwo, "Fuzzy Wumpus: Aren’t you a little young to be in here?");
+  switch (choice1) {
+   case 1:
+    for (int i = 106; i <= 107; i++) { //Giver map om Fontina sværdet
+     Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+     ui.Msg(String.valueOf(dialog2));
+     System.out.println("Press enter to continue...");
+     input.nextLine();
+    }
+    break;
+   case 2:
+    ui.Msg("Narrator: You really dont have time for that right now...");
+    break;
+   default:
+    ui.Msg("The cute mouse at the end of the bar  - does not exist");
+  }
  }
 
  public void sewerGate(Player player) {
