@@ -18,17 +18,17 @@ public class Main {
         Bag bag = new Bag(dbConnector, inventory, textUI, player);
 
 
-        bag.addItemFromDB(1);
-        bag.addItemFromDB(20);
-        bag.addItemFromDB(3);
-        bag.addPotionFromDB(1);
-        bag.addPotionFromDB(5);
+     //   bag.addItemFromDB(1);
+      //  bag.addItemFromDB(20);
+       // bag.addItemFromDB(3);
+       // bag.addPotionFromDB(1);
+       // bag.addPotionFromDB(5);
         Creature creature1 = dbConnector.getCreatureById(1);
         Creature creature2 = dbConnector.getCreatureById(2);
         Creature creature3 = dbConnector.getCreatureById(3);
 
 
-        bag.displayBag();
+      //  bag.displayBag();
 
         Combat combat = new Combat(bag);
         combat.fight(player, creature1, bag);
@@ -36,14 +36,14 @@ public class Main {
         System.out.println();
         System.out.println();
 
-        bag.useBag();
-        player.displayStats();
+       // bag.useBag();
+       // player.displayStats();
 
 
         System.out.println();
         System.out.println();
 
-        inventory.displayInventory();
+     //   inventory.displayInventory();
 
         System.out.println();
         System.out.println();

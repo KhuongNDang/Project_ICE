@@ -19,16 +19,20 @@ public class Combat {
         for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
             System.out.println();
 
+
+
             ArrayList<String> options = new ArrayList<>();
             options.add("Proceed to fight");
             options.add("Consume item");
             options.add("Flee");
-
+            ui.Msg(player.getName() + " and " + creature.getName() + " will now fight");
+            ui.displayList(options,"");
             int choice = ui.promptNumericChoice(options, "What's your next move?");
 
             switch (choice) {
 
                 case 1:
+
                     proceedTofight(player, creature);
                     break;
                 case 2:
