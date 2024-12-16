@@ -472,13 +472,18 @@ public class GameDialogue {
   System.out.println("Press enter to continue...");
   input.nextLine();
   int chance = random.nextInt(100);
-  int [] creatureID = {12,4,18};
+  int[] creatureID = {12, 4, 18};
   int randomCreatureID = random.nextInt(creatureID.length);
   int swampCreatureID = creatureID[randomCreatureID];
-  if(chance < 80) {
+  if (chance < 70) {
    combat.fight(player, dbConnector.getCreatureById(swampCreatureID));
-  }else{ruins(player);}
+  } else if (chance > 70 && chance < 80) {
+   combat.fight(player, dbConnector.getCreatureById(3));
+  } else {
+   ruins(player);
+  }
  }
+
 
  public void ruins(Player player) {
   TextUI ui = new TextUI();
