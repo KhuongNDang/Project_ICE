@@ -9,7 +9,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        String url = "jdbc:sqlite:creature.db";
+        String url = "jdbc:sqlite:database";
         TextUI ui = new TextUI();
         DBConnector dbConnector = new DBConnector();
         dbConnector.connect(url);
@@ -26,7 +26,6 @@ public class Main {
         bag.addItemFromDB(1);
 
 
-        combat.fight(player,creature,bag);
 
 
 
