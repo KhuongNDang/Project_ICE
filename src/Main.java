@@ -1,10 +1,4 @@
-import org.w3c.dom.Text;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
