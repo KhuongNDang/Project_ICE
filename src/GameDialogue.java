@@ -26,6 +26,34 @@ public class GameDialogue {
         }
     }
 
+    public void mainMenu(Player player) {
+        Ascii ascii = Ascii.getAsciiById(217);
+        ui.Msg(String.valueOf(ascii));
+        ui.Msg("");
+
+        ArrayList<String> optionsMM = new ArrayList<>();
+        optionsMM.add("Start game");
+        optionsMM.add("Load game");
+        optionsMM.add("Exit game");
+        ui.displayList(optionsMM, "");
+        int choiceMM = ui.promptNumericChoice(optionsMM, "Which Vendor do you want to visit?");
+        switch (choiceMM) {
+            case 1:
+                storyPartUncleBen(player);
+                break;
+            case 2:
+                ui.displayList(optionsMM, "No load file");
+                break;
+            case 3:
+                System.exit(0);
+                return;
+
+            default:
+                ui.Msg("You Dum DUM - play the game!");
+
+        }
+
+    }
     public void storyPartUncleBen(Player player) {
         Ascii ascii = Ascii.getAsciiById(202);
         ui.Msg(String.valueOf(ascii));
@@ -114,7 +142,7 @@ public class GameDialogue {
         ui.Msg(String.valueOf(dialog));
 
         ArrayList<String> ynOptions = new ArrayList<>();
-        ynOptions.add("Do you have (QUEST ITEM)?");
+        ynOptions.add("Do you have 'Cheese Powder'?");
         ynOptions.add("I'm not looking for Apples.");
         ui.displayList(ynOptions, "");
         int vendorYN = ui.promptNumericChoice(ynOptions, "What do you ask the vendor?");
@@ -136,7 +164,7 @@ public class GameDialogue {
         ui.Msg(String.valueOf(dialog));
 
         ArrayList<String> ynOptions = new ArrayList<>();
-        ynOptions.add("Do you have (QUEST ITEM)?");
+        ynOptions.add("Do you have 'Cheese Powder'?");
         ynOptions.add("I'm not looking for fish");
         ui.displayList(ynOptions, "");
         int vendorYN = ui.promptNumericChoice(ynOptions, "What do you ask the vendor?");
@@ -158,8 +186,8 @@ public class GameDialogue {
         ui.Msg(String.valueOf(dialog));
 
         ArrayList<String> ynOptions = new ArrayList<>();
-        ynOptions.add("Do you have (QUEST ITEM)?");
-        ynOptions.add("I'm not looking for Apples.");
+        ynOptions.add("Do you have 'Cheese Powder'?");
+        ynOptions.add("I'm not looking for that stuff");
         ui.displayList(ynOptions, "");
         int vendorYN = ui.promptNumericChoice(ynOptions, "What do you ask the vendor?");
 
@@ -168,10 +196,10 @@ public class GameDialogue {
                 Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 32, player);
                 ui.Msg(String.valueOf(dialog1));
                 player.deductCurrency(20);
-                // todo Tag penge
                 break;
             case 2:
-                ui.Msg("The vendor shrugs and says, 'Suit yourself.'");
+                ui.Msg("We have other stuff too");
+                ChoiceVendor3(player);
                 break;
             default:
                 ui.Msg("The vendor doesn't understand your question.");
@@ -448,8 +476,11 @@ public class GameDialogue {
         //todo: tjek efter quest items
         // hvis ingen Quest items - så intro snak
         // hvis type af Quest Item så give Quest til næste quest Item
+        DBConnector dbConnector = new DBConnector();
+        Item itemQ1 = dbConnector.getItemById(23);
+        Bag bag = new Bag(dbConnector, inventory, ui, player);
 
-        // if (player.QuestItem == OK)
+        if (bag.containsItemById(23)) {
             ArrayList<String> optionsQ1 = new ArrayList<>();
             optionsQ1.add("I've completet the quest!");
             optionsQ1.add("Check the gear for sale.");
@@ -469,105 +500,84 @@ public class GameDialogue {
                     break;
                 default:
                     ui.Msg("He lookes kinda cute though.");
-        }
-
-        //else if (player.QuestItem 2 == OK)
-        ArrayList<String> optionsQ2 = new ArrayList<>();
-        optionsQ2.add("I've completet the quest!");
-        optionsQ2.add("Check the gear for sale.");
-        ui.displayList(optionsQ2, "");
-        int choiceQ2 = ui.promptNumericChoice(optionsQ2, "What do you say to Fuzzy Wumpus");
-        switch (choiceQ2) {
-            case 1:
-                for (int i = 110; i <= 112; i++) {
-                    Dialog dialogQ2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-                    ui.Msg(String.valueOf(dialogQ2));
+            }
+        } else if (bag.containsItemById(25)) {
+            ArrayList<String> optionsQ2 = new ArrayList<>();
+            optionsQ2.add("I've completet the quest!");
+            optionsQ2.add("Check the gear for sale.");
+            ui.displayList(optionsQ2, "");
+            int choiceQ2 = ui.promptNumericChoice(optionsQ2, "What do you say to Fuzzy Wumpus");
+            switch (choiceQ2) {
+                case 1:
+                    for (int i = 110; i <= 112; i++) {
+                        Dialog dialogQ2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+                        ui.Msg(String.valueOf(dialogQ2));
+                        System.out.println("Press enter to continue...");
+                        input.nextLine();
+                    }
+                    break;
+                case 2:
+                    // todo indsæt shop
+                    break;
+                default:
+                    ui.Msg("He lookes kinda cute though.");
+            }
+        } else if (bag.containsItemById(24)) {
+            ArrayList<String> optionsQ3 = new ArrayList<>();
+            optionsQ3.add("I've completet the quest!");
+            optionsQ3.add("Check the gear for sale.");
+            ui.displayList(optionsQ3, "");
+            int choiceQ3 = ui.promptNumericChoice(optionsQ3, "What do you say to Fuzzy Wumpus");
+            switch (choiceQ3) {
+                case 1:
+                    Dialog dialogQ3 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 113, player);
+                    ui.Msg(String.valueOf(dialogQ3));
                     System.out.println("Press enter to continue...");
                     input.nextLine();
-                }
-                break;
-            case 2:
-                // todo indsæt shop
-                break;
-            default:
-                ui.Msg("He lookes kinda cute though.");
+                    Dialog dialogQ32 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 157, player);
+                    ui.Msg(String.valueOf(dialogQ32));
+                    System.out.println("Press enter to continue...");
+                    input.nextLine();
+
+                    break;
+                case 2:
+                    // todo indsæt shop
+                    break;
+                default:
+                    ui.Msg("He lookes kinda cute though.");
+            }
+        } else {
+            Ascii asciiBarrack = Ascii.getAsciiById(208);
+            ui.Msg(String.valueOf(asciiBarrack));
+            ui.Msg("");
+
+            Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 103, player);
+            ui.Msg(String.valueOf(dialog1));
+            System.out.println("Press enter to continue...");
+            input.nextLine();
+
+            ArrayList<String> optionsTwo = new ArrayList<>();
+            optionsTwo.add("Tell Fuzzy Wumpus everything that happened.");
+            optionsTwo.add("Check the gear for sale.");
+            ui.displayList(optionsTwo, "");
+            int choice1 = ui.promptNumericChoice(optionsTwo, "Fuzzy Wumpus: Aren’t you a little young to be in here?");
+            switch (choice1) {
+                case 1:
+                    for (int i = 106; i <= 107; i++) {
+                        Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+                        ui.Msg(String.valueOf(dialog2));
+                        System.out.println("Press enter to continue...");
+                        input.nextLine();
+                    }
+                    break;
+                case 2:
+                    // todo indsæt shop
+                    break;
+                default:
+                    ui.Msg("The cute mouse at the end of the bar  - does not exist");
+            }
         }
-
-
-        //else if (player.QuestItem3 == OK)
-        ArrayList<String> optionsQ3 = new ArrayList<>();
-        optionsQ3.add("I've completet the quest!");
-        optionsQ3.add("Check the gear for sale.");
-        ui.displayList(optionsQ3, "");
-        int choiceQ3 = ui.promptNumericChoice(optionsQ3, "What do you say to Fuzzy Wumpus");
-        switch (choiceQ3) {
-            case 1:
-                Dialog dialogQ3 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 157, player);
-                ui.Msg(String.valueOf(dialogQ3));
-                System.out.println("Press enter to continue...");
-                input.nextLine();
-
-                break;
-            case 2:
-                // todo indsæt shop
-                break;
-            default:
-                ui.Msg("He lookes kinda cute though.");
-        }
-
-        // else if(playerQuestItem4 == OK)
-        ArrayList<String> optionsQ4 = new ArrayList<>();
-        optionsQ4.add("I've completet the quest!");
-        optionsQ4.add("Check the gear for sale.");
-        ui.displayList(optionsQ4, "");
-        int choiceQ4 = ui.promptNumericChoice(optionsQ4, "What do you say to Fuzzy Wumpus");
-        switch (choiceQ4) {
-            case 1:
-                Dialog dialogQ4 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 157, player);
-                ui.Msg(String.valueOf(dialogQ4));
-                System.out.println("Press enter to continue...");
-                input.nextLine();
-
-        break;
-        case 2:
-        // todo indsæt shop
-        break;
-        default:
-        ui.Msg("He lookes kinda cute though.");
     }
-
-    // else
-
-     Ascii asciiBarrack = Ascii.getAsciiById(208);
-     ui.Msg(String.valueOf(asciiBarrack));
-     ui.Msg("");
-
-  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 103, player);
-  ui.Msg(String.valueOf(dialog1));
-  System.out.println("Press enter to continue...");
-  input.nextLine();
-
-  ArrayList<String> optionsTwo = new ArrayList<>();
-  optionsTwo.add("Tell Fuzzy Wumpus everything that happened.");
-  optionsTwo.add("Check the gear for sale.");
-     ui.displayList(optionsTwo, "");
-  int choice1 = ui.promptNumericChoice(optionsTwo, "Fuzzy Wumpus: Aren’t you a little young to be in here?");
-  switch (choice1) {
-   case 1:
-    for (int i = 106; i <= 107; i++) {
-     Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-     ui.Msg(String.valueOf(dialog2));
-     System.out.println("Press enter to continue...");
-     input.nextLine();
-    }
-    break;
-   case 2:
-    // todo indsæt shop
-    break;
-   default:
-    ui.Msg("The cute mouse at the end of the bar  - does not exist");
-  }
- }
 
  public void sewerGate(Player player) {
   //todo: lav en if statement til at tjekke efter QUEST item - eller fontina
@@ -581,6 +591,7 @@ public class GameDialogue {
   System.out.println("Press enter to continue...");
   input.nextLine();
 //todo If(player.getItemID == FW Potion
+            if(bag.containsItemById(27)){
   ArrayList<String> optionsTwo = new ArrayList<>();
   optionsTwo.add("Throw Elexir on the gate");
   optionsTwo.add("Go back");
@@ -599,26 +610,25 @@ public class GameDialogue {
     break;
    default:
     ui.Msg("This is not the time to be a silly mouse.");
-  } //else if (player.getItemID == Fontina){
-  //ArrayList<String> optionsFontina = new ArrayList<>();
-  //optionsFontina.add("Strike the gate with Fontina");
-  //optionsFontina.add("Go back");
-  //int choice2 = ui.promptNumericChoice(optionsFontina, "What do you want to do");
-//  switch (choice2) {
-//   case 1:
-//    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 126, player);
-//    ui.Msg(String.valueOf(dialog1));
-//    System.out.println("Press enter to continue...");
-//    input.nextLine();
-//    sewerEntrance(player);
-//    break;
-//   case 2:
-//    cheeseCity(player);
-//    break;
-//   default:
-//    ui.Msg("This is not the time to be a silly mouse.");
-//  }
-  // else{cheeseCity(player);}
+  } }else if (bag.containsItemById(22)){
+  ArrayList<String> optionsFontina = new ArrayList<>();
+  optionsFontina.add("Strike the gate with Fontina");
+  optionsFontina.add("Go back");
+  int choice2 = ui.promptNumericChoice(optionsFontina, "What do you want to do");
+  switch (choice2) {
+   case 1:
+    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 126, player);
+    ui.Msg(String.valueOf(dialog1));
+    System.out.println("Press enter to continue...");
+    input.nextLine();
+    sewerEntrance(player);
+    break;
+   case 2:
+    cheeseCity(player);
+    break;
+   default:
+    ui.Msg("This is not the time to be a silly mouse.");
+  }} else{cheeseCity(player);}
 
  }
 

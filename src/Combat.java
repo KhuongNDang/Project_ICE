@@ -68,40 +68,31 @@ public class Combat {
 
 
     public void proceedTofight (Player player, Creature creature){
+        int playerAttack = player.getAttack();
+        int creatureAttack = creature.getAttack();
 
-            int playerAttack = player.getAttack();
-            int creatureAttack = creature.getAttack();
+        int playerDefense = player.getDefense();
+        int creatureDefense = creature.getDefense();
 
-            int playerDefense = player.getDefense();
-            int creatureDefense = creature.getDefense();
+        int playerDamage = Math.max(creatureAttack - playerDefense, 0); // Prevent negative damage
+        int creatureDamage = Math.max(playerAttack - creatureDefense, 0);
 
-            int playerHealth = player.getHealth();
-            int creatureHealth = creature.getHealth();
+        System.out.println(player.getName() + " attacks with " + playerAttack + " attack "+ player.getName() + " blocks with " + player.getDefense() + " defense ");
+        System.out.println();
+        System.out.println(creature.getName() + " attacks with " + creatureAttack + " attack " + "and " + creature.getName() + " blocks with " + creature.getDefense() + " defense ");
+// pænere med player defence tekst
+        System.out.println();
+        player.setHealth(player.getHealth() - playerDamage);
+        creature.setHealth(creature.getHealth() - creatureDamage);
+// betydning af tal
+        System.out.println(player.getName() + "'s remaining health: " + player.getHealth());
+        System.out.println(creature.getName() + "'s remaining health: " + creature.getHealth());
+        System.out.println();
 
-            System.out.println(player.getName() + " attacks with " + playerAttack + " attack ");
-            System.out.println();
-            System.out.println(creature.getName() + " attacks with " + creatureAttack + " attack " + "and " + player.getName() + " blocks with " + player.getDefense() + " defense ");
-
-            System.out.println();
-            int newPlayerHealth = playerHealth - Math.max(0, creatureAttack - playerDefense);
-            int newCreatureHealth = creatureHealth - Math.max(0, playerAttack - creatureDefense);
-
-            player.setHealth(newPlayerHealth);
-            creature.setHealth(newCreatureHealth);
-
-            //  System.out.println("Remaning health: ");
-            System.out.println(player.getName() + "'s remaning health: ");
-            System.out.println(newPlayerHealth);
-            //System.out.println("Remaning health: ");
-            System.out.println(creature.getName() + "'s remaning health:  ");
-            System.out.println(newCreatureHealth);
-            //System.out.println("Enemys remaning health:  ");
-
-
-            System.out.println();
-            System.out.println();
-
-        }
+        System.out.println();
+        System.out.println();
+        //System.out.println();
+    }
     }
 
 

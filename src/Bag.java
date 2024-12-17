@@ -22,6 +22,18 @@ public class Bag {
 
 
 
+    public boolean containsItemById(int itemId) {
+        for (Object obj : bag) {
+            if (obj instanceof Item) {
+                Item item = (Item) obj;
+                if (item.getId() == itemId) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    }
 
 
     public boolean addItemFromDB(int itemId) {
