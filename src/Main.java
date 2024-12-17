@@ -2,11 +2,36 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+            Player player = new Player("FartMaster2000", 10, 5, 100, 0, 50); // Eksempel på spilleroprettelse
+            GameDialogue dialogue = new GameDialogue();
+
+            // Opret player() // todo: lav metode til at oprette spiller
+            dialogue.storyPartIntro(player);
+            //Titelscreen// todo: lav titel screen
+            // Main Menu // todo: Lav main menu
+            dialogue.storyPartUncleBen(player); //Samtale med Uncle Ben
+            dialogue.storyPartMarket(player);
+
+            //dialogue.storyPartDarkAlley(player);
+
+            //dialogue.storyPartDarkAlleyResult(player);
+            dialogue.cheeseCity(player);
+            //todo sørg for man kommer ud af CheeseCity metoden så spillet også slutter.
 
 
-        String url = "jdbc:sqlite:database/database";
+        }
+    }
+
+
+
+
+
+        String url = "jdbc:sqlite:creature.db";
+
         DBConnector dbConnector = new DBConnector();
         dbConnector.connect(url);
 
@@ -56,7 +81,8 @@ public class Main {
 
 
     }
-}
+
+    }
 
 
 
