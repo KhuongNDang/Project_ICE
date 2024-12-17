@@ -19,6 +19,7 @@ public class Main {
 
             //dialogue.storyPartDarkAlleyResult(player);
             dialogue.cheeseCity(player);
+            //todo sørg for man kommer ud af CheeseCity metoden så spillet også slutter.
 
 
         }
