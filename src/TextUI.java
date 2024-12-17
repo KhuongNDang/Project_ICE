@@ -35,6 +35,7 @@ private Scanner scan = new Scanner(System.in);
         System.out.println(); //h
         int choice = this.promptNumeric("Choose an option (1-" + options.size() + "):");
         System.out.println();
+        System.out.println();
         if (choice >= 1 && choice <= options.size()) {
             return choice;
         } else {

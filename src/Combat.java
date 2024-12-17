@@ -6,14 +6,21 @@ public class Combat {
     private int health;
     TextUI ui = new TextUI();
     private Bag bag;
+    private Inventory inventory;
 
 
     // Update constructor to accept a Bag
-    public Combat(Bag bag) {
+    public Combat(Bag bag, Inventory inventory) {
         this.bag = bag;  // Initialize the bag
+        this.inventory = inventory;
     }
 
     public void fight(Player player, Creature creature, Bag bag) {
+        // Step 1: Save player's original attack and defense
+
+        int originalAttack = player.getAttack();
+        int originalDefense = player.getDefense();
+
 
         for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
             System.out.println();
@@ -27,41 +34,41 @@ public class Combat {
             int choice = ui.promptNumericChoice(options, "What's your next move?");
 
             switch (choice) {
-
                 case 1:
-
                     proceedTofight(player, creature);
                     break;
                 case 2:
                     bag.useBag();
                     break;
                 case 3:
-                    // flee(player, creature);
-                    return;
+                    return; // Exit the fight, player flees
             }
-
         }
+
         if (player.getHealth() <= 0) {
             ui.Msg(player.getName() + " has been defeated.");
+            System.out.println();
         } else if (creature.getHealth() <= 0) {
             ui.Msg(creature.getName() + " has been defeated.");
-            ui.Msg(" ");
-            ui.Msg("you have gained " + creature.getXp() + " XP.");
-            int playerXp = player.getXp();
-            player.setXp(playerXp + creature.getXp());
-            ui.Msg(" ");
+            System.out.println();
+            ui.Msg("You have gained " + creature.getXp() + " XP.");
+            player.setXp(player.getXp() + creature.getXp());
             player.levelUp();
-            ui.Msg(" ");
-            ui.Msg("your currrent xp is now: " + player.getXp());
-
-
         }
+
+        // Step 2: Restore original stats after the fight is over
+        player.setAttack(originalAttack);
+        player.setDefense(originalDefense);
+
+        player.updateStatsFromInventory(inventory);
 
         player.levelUp();
     }
 
 
-        public void proceedTofight (Player player, Creature creature){
+
+    public void proceedTofight (Player player, Creature creature){
+
             int playerAttack = player.getAttack();
             int creatureAttack = creature.getAttack();
 
@@ -69,28 +76,31 @@ public class Combat {
             int creatureDefense = creature.getDefense();
 
             int playerHealth = player.getHealth();
+            int creatureHealth = creature.getHealth();
 
             System.out.println(player.getName() + " attacks with " + playerAttack + " attack ");
             System.out.println();
             System.out.println(creature.getName() + " attacks with " + creatureAttack + " attack " + "and " + player.getName() + " blocks with " + player.getDefense() + " defense ");
-// pænere med player defence tekst
-            System.out.println();
-            playerHealth -= creatureAttack - playerDefense;
-            creature.health -= playerAttack - creatureDefense;
 
-// betydning af tal
+            System.out.println();
+            int newPlayerHealth = playerHealth - Math.max(0, creatureAttack - playerDefense);
+            int newCreatureHealth = creatureHealth - Math.max(0, playerAttack - creatureDefense);
+
+            player.setHealth(newPlayerHealth);
+            creature.setHealth(newCreatureHealth);
+
             //  System.out.println("Remaning health: ");
-            System.out.println("player's remaning health: ");
-            System.out.println(player.getHealth());
+            System.out.println(player.getName() + "'s remaning health: ");
+            System.out.println(newPlayerHealth);
             //System.out.println("Remaning health: ");
-            System.out.println("Enemy's remaning health:  ");
-            System.out.println(creature.getHealth());
+            System.out.println(creature.getName() + "'s remaning health:  ");
+            System.out.println(newCreatureHealth);
             //System.out.println("Enemys remaning health:  ");
 
 
             System.out.println();
             System.out.println();
-            //System.out.println();
+
         }
     }
 
