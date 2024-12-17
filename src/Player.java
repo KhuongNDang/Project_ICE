@@ -61,7 +61,7 @@ public class Player {
 
     public void createUsername() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Type your username: ");
+        System.out.print("Type your mouse name: ");
         this.name = scanner.nextLine();
         System.out.println("Welcome, " + name + "!");
     }

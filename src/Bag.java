@@ -22,6 +22,23 @@ public class Bag {
 
 
 
+    public boolean containsItemById(int itemId) {
+        for (Object obj : bag) {
+            if (obj instanceof Item) {
+                Item item = (Item) obj;
+                if (item.getId() == itemId) {
+                    return true;
+                }
+            } else if (obj instanceof Potion) {
+                Potion potion = (Potion) obj;
+                if (potion.getId() == itemId) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
 
     public boolean addItemFromDB(int itemId) {

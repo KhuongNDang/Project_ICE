@@ -9,10 +9,10 @@
 9|"Ben was an older mouse, his fur slightly scruffy and worn by time."|Narrator
 10|"(PLAYER NAME)! It's so good to see you. It's been far too long!"|Ben
 11|"I'd love to sit and chat, but I need to start preparing dinner."|Ben
-12|"Could you do me a favor and run to the market to pick up some (QUEST ITEM)?"|Ben
+12|"Could you do me a favor and run to the market to pick up some 'Cheese powder'?"|Ben
 13|"Ben adjusted his tiny spectacles and smiled warmly."|Narrator
-14|"You're a lifesaver! Here’s (CURRENCY). That should be enough to cover it."|Ben
-15|"As i said, you'll find (QUEST ITEM) at the market."|Ben
+14|"You're a lifesaver! Here’s 20 coins. That should be enough to cover it."|Ben
+15|"As i said, you'll find 'Cheese powder' at the market."|Ben
 16|"There might even be some new sights at the market—you’ll see!"|Ben
 17|"Clutching the money tightly, (PLAYER NAME) made their way to the market."|Narrator
 18|"The path to the market led (PLAYER NAME) through the heart of the little village."|Narrator
@@ -29,27 +29,27 @@
 29|"Ahoy, little one! Fresh fish straight from the river—best catch of the day!"|Vendor2
 30|"Sorry, I don’t deal in that sort of thing. Maybe try the dry goods vendor over there."|Vendor2
 31|"Greetings, traveler! You’ve come to the right place for all your needs."|Vendor3
-32|"Ah, you’re in luck! I’ve got just the (QUEST ITEM) you’re looking for. That’ll be (CURRENCY), please."|Vendor3
-33|"Thats not what you wanted! Take (QUEST ITEM) instead!"|Vendor3
-34|"With the (QUEST ITEM) in hand, (PLAYER NAME) made their way back home."|Narrator
+32|"Ah, you’re in luck! I’ve got just the 'Cheese powder' you’re looking for. That’ll be 20 coins, please."|Vendor3
+33|"Thats not what you wanted! Take 'Cheese powder' instead!"|Vendor3
+34|"With the 'Cheese powder' in hand, (PLAYER NAME) made their way back home."|Narrator
 35|"The streets were quiet now, save for the soft rustle of leaves in the breeze."|Narrator
 36|"Suddenly, a faint sound came from a nearby alley."|Narrator
 37|"You hear a noise from the alley. Do you want to check it out?"|Narrator
 38|"Curious, (PLAYER NAME) stepped into the shadowy alley."|Narrator
 39|"Before they could react, a rough-looking mouse emerged from the darkness, blocking the way."|Narrator
-40|"Ah, so you came to me? Smart move. Now hand over the (QUEST ITEM), and no one gets hurt."|Bandit
+40|"Ah, so you came to me? Smart move. Now hand over the 'Cheese powder', and no one gets hurt."|Bandit
 41|"(PLAYER NAME) decided to ignore the noise and kept walking."|Narrator
 42|"But just as they rounded the next corner, the same rough-looking mouse stepped into their path."|Narrator
-43|"Trying to avoid me, huh? Won’t work. Now give me the (QUEST ITEM), or you’ll regret it."|Bandit
+43|"Trying to avoid me, huh? Won’t work. Now give me the 'Cheese powder', or you’ll regret it."|Bandit
 44|"Damnit, I didnt think a little mouse-ling like you could beat me!"|Bandit
-45|"Hah! Now hand over the (QUEST ITEM)!"|Bandit
+45|"Hah! Now hand over the 'Cheese powder'!"|Bandit
 46|"After the encounter, (PLAYER NAME) made their way back to Uncle Ben’s cozy home, the familiar scent of a warm meal wafting through the air."|Narrator
-47|"Oh, wonderful! You got the (QUEST ITEM)! I knew I could count on you, (PLAYER NAME)."|Ben
-48|"Oh no, you lost the (QUEST ITEM)? Don’t worry, we’ll figure something out. Are you alright, (PLAYER NAME)?"|Ben
+47|"Oh, wonderful! You got the 'Cheese powder'! I knew I could count on you, (PLAYER NAME)."|Ben
+48|"Oh no, you lost the 'Cheese powder'? Don’t worry, we’ll figure something out. Are you alright, (PLAYER NAME)?"|Ben
 49|"Uncle Ben, scooped up two portions of the dish and waddled over to the table."|Narrator
 50|"He placed two bowls on an old worn down table."|Narrator
 51|"Sounds like you ran into trouble out there. Maybe you need something to protect yourself."|Ben
-52|"It's dangerous to go alone. Here, take this (SWORD ITEM) and (SHIELD ITEM)."|Ben
+52|"It's dangerous to go alone. Here, take this 'Fathers Sword' and 'Mothers Shield'."|Ben
 53|"They belonged to your mom and dad, you know."|Ben
 54|"Your mom was the finest shield-maiden in all of Cheese City."|Ben
 55|"And your dad—my brother—was a master swordsman."|Ben
@@ -104,13 +104,13 @@
 104|"Tell Fuzzy Wumpus everything that happened." |Choice
 105|"Check the gear for sale." |Choice
 106|"Those bastards! We’ll get back at them! You don’t seem like much of a fighter—yet. We’ll build you up, and when the time is right, you’ll lead the assault on Rat King City." |Fuzzy Wumpus
-107|"Head to the forest and (QUEST)." |Fuzzy Wumpus
+107|"Head to the forest and get me 4 'Forest Essence'." |Fuzzy Wumpus
 108|"Great job, soldier! But we’re not done yet. Steel yourself!" |Fuzzy Wumpus
-109|"I need you to go to the desert to collect (QUEST) from (Creature)." |Fuzzy Wumpus
+109|"I need you to go to the desert to collect 3 'Oasis Water' from the monsters." |Fuzzy Wumpus
 110|"Great Scott! Word has gotten out that I’m training you. Keep a lookout for Rat soldiers on your travels." |Fuzzy Wumpus
-111|"Next step is the swamp. We need (QUEST) to finalize a mixture to melt the sewer gate and storm Rat King City!" |Fuzzy Wumpus
+111|"Next step is the swamp. We need 5 'Magic Moss' to finalize a mixture to melt the sewer gate and storm Rat King City!" |Fuzzy Wumpus
 112|"Through the swamp, you’ll find the old ruins. There’s talk of an ancient dragon there. Not sure if there’s anything valuable, though." |Fuzzy Wumpus
-113|"You’ve done it! But we’re not finished yet, soldier! Gather yourself, stock up on potions and gear—tonight, the Rat King falls!" |Fuzzy Wumpus
+113|"You’ve done it! But we’re not finished yet, soldier! Gather yourself, stock up on potions and gear — tonight, the Rat King falls!" |Fuzzy Wumpus
 114|"You found the sword?! Amazing! This will aid us and ensure the Rat King’s demise!" |Fuzzy Wumpus
 115|"Snifflesworth was working for the Rat King? If that’s true, I’m glad you handled it—forward!" |Fuzzy Wumpus
 116|"Take a look at the gear we’ve got for sale! All made in-house...if that’s a selling point." |Fuzzy Wumpus
@@ -154,4 +154,4 @@
 154|"You make your way back to Cheese City"|Narrator
 155|"You flee back to Cheese City"|Narrator
 156|"The gates creak open, revealing a shadowy figure in a tattered cloak. His jagged crown glints as piercing red eyes lock onto you. The Rat King has arrived."|Narrator
-
+157|"Fuzzy Wompus hands over a newly made elixir to throw at the 'Sewer Gate'"|Narrator

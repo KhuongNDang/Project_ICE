@@ -78,7 +78,8 @@ VALUES ('MoonBed'),
        ('Dessert'),
        ('Sewer'),
        ('Rat King City'),
-       ('Whisker Doodle Shop');
+       ('Whisker Doodle Shop'),
+       ('Main Logo');
 
 
 
@@ -87,30 +88,30 @@ VALUES ('MoonBed'),
 
 
 INSERT INTO Creature (name, attack, defense, health, xp, currency)
-VALUES ('Rat Scout', 15, 10, 50, 20, '30% (Coins, basic gear)'),
-       ('Frenzied Wolf', 20, 12, 80, 35, '25% (wolf pelts, potions)'),
-       ('Forest Troll', 30, 25, 200, 100, '50% (Troll booger, Gem)'),
-       ('Mushroom Man', 17, 14, 60, 25, '25% (Healing Potion, spores)'),
-       ('Vampire Bat', 40, 20, 100, 60, '45% (Bat wings, Crystal)'),
-       ('Zombie Mouse', 8, 2, 30, 25, '40% (Rotten Flesh)'),
-       ('Thorn Beetle', 5, 8, 20, 10, '30% (Beetle Horn)'),
-       ('Dust Gremlin', 4, 5, 15, 8, '60% (Dust)'),
-       ('Long Leg Spider', 8, 6, 25, 15, '25% (Spider Silk)'),
-       ('Lazy Lizard', 6, 10, 35, 20, '35% (Moss Scale)'),
-       ('Shadow Cricket', 12, 8, 40, 25, '60% (Shadow Shard)'),
-       ('Lantern Firefly', 15, 5, 30, 35, '40% (Glowstone)'),
-       ('Venom Serpent', 20, 10, 70, 50, '50% (Venom Gland)'),
-       ('Feral Rat', 30, 15, 100, 80, '40% (Rat fang, gear)'),
-       ('Cat Commander', 40, 20, 150, 120, '50% (Cat Claw)'),
-       ('Killer Kitten', 25, 13, 90, 70, '60% (Cat Fur)'),
-       ('Storm Crow', 50, 30, 130, 110, '50% (Crow Eye)'),
-       ('Owl Mage', 50, 35, 150, 150, '45% (Mana Crystals, Owl feathers)'),
-       ('Royal Rat Guard', 30, 25, 130, 120, '40% (Steel, Item)'),
-       ('King Rat', 60, 40, 300, 500, '100% (Rat Crown)'),
-       ('Mouse Assassin', 20, 20, 100, 100, 0),
-       ('Demon Rat King',90,50,400,1000,'100% (Rat Kings Head)'),
-       ('Dragon',50,40,200,350,'100% (Fontina)'),
-       ('Snifflesworth', 30,30,80,150,'0% (No Item, only death)');
+VALUES ('Rat Scout', 15, 0, 50, 20, '30% (Coins, basic gear)'),
+       ('Frenzied Wolf', 20, 0, 80, 35, '25% (wolf pelts, potions)'),
+       ('Forest Troll', 30, 0, 200, 100, '50% (Troll booger, Gem)'),
+       ('Mushroom Man', 17, 0, 60, 25, '25% (Healing Potion, spores)'),
+       ('Vampire Bat', 40, 0, 100, 60, '45% (Bat wings, Crystal)'),
+       ('Zombie Mouse', 8, 0, 30, 25, '40% (Rotten Flesh)'),
+       ('Thorn Beetle', 5, 0, 20, 10, '30% (Beetle Horn)'),
+       ('Dust Gremlin', 4, 0, 15, 8, '60% (Dust)'),
+       ('Long Leg Spider', 8, 0, 25, 15, '25% (Spider Silk)'),
+       ('Lazy Lizard', 6, 0, 35, 20, '35% (Moss Scale)'),
+       ('Shadow Cricket', 12, 0, 40, 25, '60% (Shadow Shard)'),
+       ('Lantern Firefly', 15, 0, 30, 35, '40% (Glowstone)'),
+       ('Venom Serpent', 20, 0, 70, 50, '50% (Venom Gland)'),
+       ('Feral Rat', 30, 0, 100, 80, '40% (Rat fang, gear)'),
+       ('Cat Commander', 40, 0, 150, 120, '50% (Cat Claw)'),
+       ('Killer Kitten', 25, 0, 90, 70, '60% (Cat Fur)'),
+       ('Storm Crow', 50, 0, 130, 110, '50% (Crow Eye)'),
+       ('Owl Mage', 50, 0, 150, 150, '45% (Mana Crystals, Owl feathers)'),
+       ('Royal Rat Guard', 30, 0, 130, 120, '40% (Steel, Item)'),
+       ('King Rat', 60, 0, 300, 500, '100% (Rat Crown)'),
+       ('Mouse Assassin', 5, 0, 10, 20, 0),
+       ('Demon Rat King',90,0,400,1000,'100% (Rat Kings Head)'),
+       ('Dragon',50,0,200,350,'100% (Fontina)'),
+       ('Snifflesworth', 30,0,80,150,'0% (No Item, only death)');
 
 
 
@@ -140,7 +141,8 @@ VALUES ('Uncle Shield', 0, 15, 0, 'shield'),
        ('Forest Essence',0,0,0,0),
        ('Magic Moss', 0, 0,0,0),
        ('Oasis Water',0,0,0,0),
-       ('Cheese Powder',0,0,0,0);
+       ('Cheese Powder',0,0,0,0),
+       ('Elixir',0,0,0,0);
 
 
 
@@ -1773,5 +1775,23 @@ Values ('                                                             ██
  █████████████ █████ █ █  █  █████████      █ █  ██ ████
   █ █        █ ██ █  █ █  █ ██    ██ █████ █ █ ███ ██████
  ████████ ████ ██ █ ██ █  ████  █ █  ███   ██     ██████
-            ███        █████ ████ ████ █  █ █   █ █    █ ');
+            ███        █████ ████ ████ █  █ █   █ █    █ '),
+
+    ('████████████████████████████████████████████████████████████████████████████
+█   ███   ██    ██  ██   █      █      ██    ██  ██  █       █     █
+█         █  ██  █  ██     ██   █  ████   ██  █  ██  █  █████  ██   ██  ████
+█         █  ██  █  ██     ██████  ████   ██  █  ██  █  █████  ███████   ██
+█   █     █  ██  █  ██   █    ███     █   ██  █  ██  █      █     ████   ██
+█   █  █  █  ██  █  ██   ██     █     █   ██  █  ██  █      ██      ██   ██
+█   ████  █  ██  █  ██   ████   █  ████   ██  █  ██  █  █████████   ██   ██
+█   ███   █  ██     ██     ██   █  ████       █  ██  █  █████  ██   ██   ██
+█   ███   ██    ████   ████   ███      ██   █████   ██      ██    ████   ██
+ ██████████████████████████████████████████████████████████████████████████
+ ██████████████████████  █████████████  █  ██████  █ ██████████████████████
+ ███████████████████████ ███████     █  ██   ████     █████████████████████
+ ██████████████████████   ██████        ██      ███ ███████████████████████
+ ██████████████████████   ████             ██     █████████████████████████
+ ████████████████████████                      ████████████████████████████
+ ██████████████████████████    ██            ██████████████████████████████
+                          ███████     ████   █');
 

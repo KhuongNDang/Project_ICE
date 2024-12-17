@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/creature1.db" dialect="SQLite" />
-    <file url="file://$PROJECT_DIR$/database" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/creature.db" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/creature.txt" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/geardatabase" dialect="SQLite" />
   </component>
 </project>

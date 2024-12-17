@@ -9,6 +9,8 @@ public class Ascii {
 
     private static final Map<Integer, Ascii> creatures = new HashMap<>();
     private static final Map<Integer, Ascii> gear = new HashMap<>();
+    private static final Map<Integer, Ascii> location = new HashMap<>();
+
 
     public Ascii( String picture) {
 
@@ -41,7 +43,7 @@ public class Ascii {
     }
 
     public static Ascii getAsciiById(int id) {
-        if (creatures.isEmpty() || gear.isEmpty()) {
+        if (creatures.isEmpty() || gear.isEmpty() || location.isEmpty()) {
             System.err.println("Error: Ascii data has not been initialized. Call Ascii.initialize(url) first.");
             return null;
         }
@@ -50,6 +52,8 @@ public class Ascii {
             return creatures.get(id);
         } else if (id >= 101 && id <= 122) { // Gear IDs
             return gear.get(id);
+        } else if (id >= 201 && id <= 217) {
+            return location.get(id);
         } else {
             System.err.println("Invalid ID: " + id);
             return null;
@@ -72,6 +76,14 @@ public class Ascii {
                 gear.put(i + 100, ascii);
             }
         }
+        for (int i = 1; i <= 17; i++) {
+            Ascii ascii = dbConnector.getAsciiLocationById(i);
+            if (ascii != null) {
+                location.put(i + 200, ascii);
+            }
+        }
+
+
 
 
 
