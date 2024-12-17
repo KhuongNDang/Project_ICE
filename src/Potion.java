@@ -1,5 +1,3 @@
-import java.io.Serializable;
-
 public class Potion{
 
     private int id; // Add an ID field
@@ -7,14 +5,15 @@ public class Potion{
     private int attack;
     private int defense;
     private int health;
+    private int currency;
 
-
-    public Potion(String name, int attack, int defense, int health) {
+    public Potion(String name, int attack, int defense, int health, int currency) {
         this.id = id;
         this.name = name;
         this.attack = attack;
         this.defense = defense;
         this.health = health;
+        this.currency = currency;
 
     }
 
@@ -58,5 +57,8 @@ public class Potion{
     public int getAddHealth() {
         return health;
     }
-
+    public int getCurrency() {
+        return currency;
+    }
+    public int setCurrency(int currency) {return currency;}
 }

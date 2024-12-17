@@ -59,7 +59,8 @@ public class DBConnector {
                             rs.getString("name"),
                             rs.getInt("attack"),
                             rs.getInt("defense"),
-                            rs.getInt("health")
+                            rs.getInt("health"),
+                            rs.getInt("currency")
                     );
                 } else {
                     System.out.println("No potion found with ID " + id);
@@ -87,7 +88,8 @@ public class DBConnector {
                             rs.getInt("attack"),
                             rs.getInt("defense"),
                             rs.getInt("health"),
-                            rs.getString("slot")
+                            rs.getString("slot"),
+                            rs.getInt("currency")
                     );
                 } else {
                     System.out.println("No item found with ID " + id);

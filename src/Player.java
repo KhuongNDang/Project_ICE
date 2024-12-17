@@ -66,7 +66,12 @@ public class Player {
 
 
 
-
+public String getUsername() {
+        return name;
+}
+public String setUsername() {
+        return name;
+}
     public int getAttack() {
         return attack;
     }
@@ -102,6 +107,8 @@ public class Player {
     public int getMaxHealth(){ return maxHealth; }
 
     public int getLevel() {return level;}
+    public int getCurrency() {return currency;}
+    public void setCurrency(int i) { currency = i;}
 }
 
 

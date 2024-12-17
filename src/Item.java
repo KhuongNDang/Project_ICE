@@ -1,12 +1,7 @@
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
 
-
-
-    public class Item {
+public class Item {
         private int id;
         private String name;
         private int attack;
@@ -14,16 +9,21 @@ import java.sql.Statement;
         private int health;
         private String slot;
         private Connection conn;
+        private int currency;
 
-
-        public Item(int id, String name, int attack, int defense, int health, String slot) {
+        public Item(int id, String name, int attack, int defense, int health, String slot, int currency) {
             this.id = id;
             this.name = name;
             this.slot = slot;
             this.attack = attack;
             this.defense = defense;
             this.health = health;
+            this.currency = currency;
+            this.conn = conn;
 
+        }
+
+        public Item(String name, int price) {
         }
 
         public int getId() {
@@ -48,8 +48,9 @@ import java.sql.Statement;
         public String getSlot() {
             return slot;
         }
-    }
 
+        public int getCurrency() {return currency;}
+    }
 
 
 

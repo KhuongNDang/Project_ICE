@@ -1,16 +1,23 @@
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Currency;
 import java.util.List;
 
 
 public class Bag {
     private List<Object> bag;
+
+    private List<Object> gearItem;
     private static final int MAX_CAPACITY = 10;
     private DBConnector dbConnector;
     private Inventory inventory;
     private TextUI textUI;
     private Player player;
-
+    static Connection conn;
 
     public Bag(DBConnector dbConnector, Inventory inventory, TextUI textUI, Player player) {
         this.dbConnector = dbConnector;
@@ -23,7 +30,6 @@ public class Bag {
     public int getBagSize() {
         return bag.size();
     }
-
 
 
     public boolean addItemFromDB(int itemId) {
@@ -61,9 +67,9 @@ public class Bag {
     }
 
 
-
     public void displayBag() {
         System.out.println("Items in your bag:");
+        System.out.println("currency:" + player.getCurrency());
         System.out.println();
 
         if (bag.isEmpty()) {
@@ -82,7 +88,8 @@ public class Bag {
                         i.getName() + ": Attack: " + i.getAttack() +
                                 ": Defense: " + i.getDefense() +
                                 ": Health: " + i.getHealth() +
-                                ": Slot: " + i.getSlot()
+                                ": Slot: " + i.getSlot() +
+                                ": Currency: " + i.getCurrency()
                 );
             } else if (item instanceof Potion) {
                 Potion p = (Potion) item;
@@ -90,13 +97,12 @@ public class Bag {
                         p.getName() + ": Attack: " + p.getAddAttack() +
                                 ": Defense: " + p.getAddDefense() +
                                 ": Health: " + p.getAddHealth() +
-                                ": Slot: potion"
+                                ": Currency: " + p.getCurrency()
                 );
             }
             index++;
         }
     }
-
 
 
     public void useBag() {
@@ -163,13 +169,13 @@ public class Bag {
     }
 
 
-
     public boolean addItemToBag(Item item) {
 
         if (bag.size() >= MAX_CAPACITY) {
             System.out.println("The bag is full. Cannot add item: " + item.getName());
             return false;
         }
+
 
 
         bag.add(item);
@@ -197,4 +203,117 @@ public class Bag {
             }
         }
     }
+
+    public void sellItem() {
+
+        // Initialize a list to store item names
+        ArrayList<String> itemNames = new ArrayList<>();
+
+        // Add names of items and  potions to the list
+        for (Object obj : bag) {
+            if (obj instanceof Item) {
+                Item item = (Item) obj;
+                itemNames.add(item.getName() + " price: " + item.getCurrency());
+            } else if (obj instanceof Potion) {
+                Potion potion = (Potion) obj;
+                itemNames.add(potion.getName() +  " price: " + potion.getCurrency());
+            }
+        }
+
+        System.out.println("my currency:" + player.getCurrency());// Displays the currency of the player
+        System.out.println("");
+        textUI.displayList(itemNames, "Select an item to sell:");
+
+        // Prompt the user to select an item
+        int selectedItemIndex = textUI.promptNumericChoice(itemNames, "Select an item to sell");
+
+        // Get the selected object from the bag
+        Object selectedObj = bag.get(selectedItemIndex - 1);
+
+        boolean itemFound = false;  // Flag to track if the item is found
+
+        // Check if the selected object is an item
+        if (selectedObj instanceof Item) {
+            Item selectedItem = (Item) selectedObj;
+
+            // Check if the item ID matches the passed itemId
+            if (selectedItem.getId() == selectedItem.getId()) {
+                // Remove the item from the bag
+                bag.remove(selectedObj);
+
+                // Add the price to the player's currency (assuming you have a getCurrency method)
+                player.setCurrency((player.getCurrency()) + selectedItem.getCurrency());
+
+                System.out.println(selectedItem.getName() + " sold and removed from the bag.");
+                System.out.println("");
+                System.out.println("you have gained : " + selectedItem.getCurrency());
+                System.out.println("");
+                System.out.println("my currency : " + player.getCurrency());
+                itemFound = true;  // Set flag to true if the item was sold
+            }
+        } else if (selectedObj instanceof Potion) {
+            Potion selectedPotion = (Potion) selectedObj;
+
+            // Check if the item ID matches the passed itemId
+            if (selectedPotion.getId() == selectedPotion.getId()) {
+                // Remove the item from the bag
+                bag.remove(selectedObj);
+
+
+                // Add the price to the player's currency (assuming you have a getCurrency method)
+                player.setCurrency((player.getCurrency()) + selectedPotion.getCurrency());
+
+                System.out.println( selectedPotion.getName() + " sold and removed from the bag.");
+                System.out.println("");
+                System.out.println("you have gained : " + selectedPotion.getCurrency());
+                System.out.println("");
+                System.out.println("my currency : " + player.getCurrency());
+                itemFound = true;  // Set flag to true if the item was sold
+            }
+        }
+
+        // If the item with the specified ID was not found
+        if (!itemFound) {
+            Item selectedItem = (Item) selectedObj;
+            System.out.println("Item with ID " + selectedItem.getId() + " not found in your bag.");
+        }
+        if(bag.isEmpty()){
+            System.out.println("The bag is Empty, come back soon!");
+        }
+    }
+
+    public void pawnShopMenu() {
+    boolean keepGoing = true;
+
+        while (keepGoing) {
+
+            ArrayList<String> options = new ArrayList<>();
+            options.add("Sell Items");
+            options.add("Exit");
+            textUI.displayList(options,"");
+            int choice = textUI.promptNumericChoice(options, "pick one");
+
+            switch (choice) {
+
+                case 1:
+                    sellItem();
+                    break;
+                case 2:
+                    keepGoing = false;
+                    break;
+
+
+            }
+
+        }
+
+
+    }
 }
+
+
+
+
+
+
+
