@@ -232,239 +232,310 @@ public class GameDialogue {
     }
 
 
- public void storyPartDarkAlleyResult(Player player) {
-  Dialog dialog;
-  if (player.getHealth() >= 0) {
-   dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 44, player);
-  } else {
-   dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 45, player);
-  }
-  ui.Msg(String.valueOf(dialog));
- }
-
- public void storyPartVillageBurn(Player player) {
-  Combat combat = new Combat(bag, inventory);
-  DBConnector dbConnector = new DBConnector();
-  for (int i = 46; i <= 47; i++) {
-   Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-   ui.Msg(String.valueOf(dialog));
-   System.out.println("Press enter to continue...");
-   input.nextLine();
-  }
-  //todo: Potentiel tjekke om Quest Item er til stede
-
-  for (int i = 49; i <= 63; i++) { //Billeder af Fontina, Village i brænd osv.
-   Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-   ui.Msg(String.valueOf(dialog));
-   System.out.println("Press enter to continue...");
-   input.nextLine();
-  }
-
-     Ascii asciiFire = Ascii.getAsciiById(205);
-     ui.Msg(String.valueOf(asciiFire));
-     ui.Msg("");
-
-     for (int i = 64; i <= 72; i++) { //Billeder af Fontina, Village i brænd osv.
-         Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-         ui.Msg(String.valueOf(dialog));
-         System.out.println("Press enter to continue...");
-         input.nextLine();
-
-     }
-     Ascii asciiRR = Ascii.getAsciiById(19);
-     ui.Msg(String.valueOf(asciiRR));
-     ui.Msg("");
-
-  ArrayList<String> options = new ArrayList<>();
-  options.add("Fight the rat");
-  options.add("Try to escape!");
-     ui.displayList(options, "");
-  int choice = ui.promptNumericChoice(options, "What would like to do?");
-  switch (choice) {
-   case 1:
-    Dialog dialogFight = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 73, player);
-    ui.Msg(String.valueOf(dialogFight));
-    combat.fight(player, dbConnector.getCreatureById(19), bag);
-    break;
-   case 2:
-    Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 74, player);
-    ui.Msg(String.valueOf(dialog2));
-    break;
-   default:
-    ui.Msg("Where do you think your going?");
-  }
- }
-
- public void arrivalCheeseCity(Player player) {
-
-     Ascii asciiCC = Ascii.getAsciiById(206);
-     ui.Msg(String.valueOf(asciiCC));
-     ui.Msg("");
-
-  for (int i = 75; i <= 78; i++) {
-   Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-   ui.Msg(String.valueOf(dialog));
-   System.out.println("Press enter to continue...");
-   input.nextLine();
-  }
- }
-
- public void cheeseCity(Player player) {
-  ArrayList<String> options = new ArrayList<>();
-  options.add("Go to the Tavern");
-  options.add("Go to the Barracks");
-  options.add("Go to the Potion Shop");
-  options.add("Go to the Sewer Gate");
-  options.add("Go to the road out of town");
-     ui.displayList(options, "");
-  int choice = ui.promptNumericChoice(options, "What would like to do?");
-  switch (choice) {
-   case 1:
-    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 79, player);
-    ui.Msg(String.valueOf(dialog1));
-    System.out.println("Press enter to continue...");
-    input.nextLine();
-    // todo if(Player.getItemID == fontina)
-    //swTavernFight
-    //else swTavern(player);
-    break;
-   case 2:
-    Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 82, player);
-    ui.Msg(String.valueOf(dialog2));
-    System.out.println("Press enter to continue...");
-    input.nextLine();
-    fwBarracks(player);
-    break;
-   case 3:
-    Dialog dialog3 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 81, player);
-    ui.Msg(String.valueOf(dialog3));
-    System.out.println("Press enter to continue...");
-    input.nextLine();
-    wdShop(player);
-    break;
-   case 4:
-    Dialog dialog4 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 80, player);
-    ui.Msg(String.valueOf(dialog4));
-    System.out.println("Press enter to continue...");
-    input.nextLine();
-    sewerGate(player);
-    break;
-   case 5:
-    Dialog dialog5 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 84, player);
-    ui.Msg(String.valueOf(dialog5));
-    System.out.println("Press enter to continue...");
-    input.nextLine();
-    roadOut(player);
-    break;
-   default:
-    ui.Msg("Where do you think your going?");
-  }
- }
-
- public void swTavern(Player player) {
-
-     Ascii asciiTavern = Ascii.getAsciiById(207);
-     ui.Msg(String.valueOf(asciiTavern));
-     ui.Msg("");
-
-  Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 85, player);
-  ui.Msg(String.valueOf(dialog));
-  System.out.println("Press enter to continue...");
-  input.nextLine();
-
-  ArrayList<String> options = new ArrayList<>();
-  options.add("HEY! I'm 8 months old - which is 42 in human years ");
-  options.add("Im not - but im not here to drink");
-     ui.displayList(options, "");
-  int choice = ui.promptNumericChoice(options, "Snifflesworth: Aren’t you a little young to be in here?");
-  switch (choice) {
-   case 1:
-    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 87, player);
-    ui.Msg(String.valueOf(dialog1));
-    System.out.println("Press enter to continue...");
-    input.nextLine();
-    break;
-   case 2:
-    Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 88, player);
-    ui.Msg(String.valueOf(dialog2));
-    System.out.println("Press enter to continue...");
-    input.nextLine();
-    break;
-   default:
-    ui.Msg("You mumble something incomprehensible");
-  }
-  ArrayList<String> optionsTwo = new ArrayList<>();
-  optionsTwo.add("Tell Snifflesworth everything that happened.");
-  optionsTwo.add("Order something from the bar");
-     ui.displayList(optionsTwo, "");
-  int choice2 = ui.promptNumericChoice(optionsTwo, "Snifflesworth: Aren’t you a little young to be in here?");
-  switch (choice2) {
-   case 1:
-    for (int i = 91; i <= 94; i++) { //Giver map om Fontina sværdet
-     Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-     ui.Msg(String.valueOf(dialog1));
-     System.out.println("Press enter to continue...");
-     input.nextLine();
+    public void storyPartDarkAlleyResult(Player player) {
+        Dialog dialog;
+        if (player.getHealth() >= 0) {
+            dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 44, player);
+        } else {
+            dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 45, player);
+        }
+        ui.Msg(String.valueOf(dialog));
     }
-    break;
-   case 2:
-    ui.Msg("Narrator: You really dont have time for that right now...");
-    System.out.println("Press enter to continue...");
-    input.nextLine();
-    for (int i = 91; i <= 94; i++) { //Giver map om Fontina sværdet
-     Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-     ui.Msg(String.valueOf(dialog1));
-     System.out.println("Press enter to continue...");
-     input.nextLine();
+
+    public void storyPartVillageBurn(Player player) {
+        Combat combat = new Combat(bag, inventory);
+        DBConnector dbConnector = new DBConnector();
+        for (int i = 46; i <= 47; i++) {
+            Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+            ui.Msg(String.valueOf(dialog));
+            System.out.println("Press enter to continue...");
+            input.nextLine();
+        }
+        //todo: Potentiel tjekke om Quest Item er til stede
+
+        for (int i = 49; i <= 63; i++) { //Billeder af Fontina, Village i brænd osv.
+            Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+            ui.Msg(String.valueOf(dialog));
+            System.out.println("Press enter to continue...");
+            input.nextLine();
+        }
+
+        Ascii asciiFire = Ascii.getAsciiById(205);
+        ui.Msg(String.valueOf(asciiFire));
+        ui.Msg("");
+
+        for (int i = 64; i <= 72; i++) { //Billeder af Fontina, Village i brænd osv.
+            Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+            ui.Msg(String.valueOf(dialog));
+            System.out.println("Press enter to continue...");
+            input.nextLine();
+
+        }
+        Ascii asciiRR = Ascii.getAsciiById(19);
+        ui.Msg(String.valueOf(asciiRR));
+        ui.Msg("");
+
+        ArrayList<String> options = new ArrayList<>();
+        options.add("Fight the rat");
+        options.add("Try to escape!");
+        ui.displayList(options, "");
+        int choice = ui.promptNumericChoice(options, "What would like to do?");
+        switch (choice) {
+            case 1:
+                Dialog dialogFight = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 73, player);
+                ui.Msg(String.valueOf(dialogFight));
+                combat.fight(player, dbConnector.getCreatureById(19), bag);
+                break;
+            case 2:
+                Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 74, player);
+                ui.Msg(String.valueOf(dialog2));
+                break;
+            default:
+                ui.Msg("Where do you think your going?");
+        }
     }
-    break;
-   default:
-    ui.Msg("The cute mouse at the end of the bar  - does not exist");
-  }
+
+    public void arrivalCheeseCity(Player player) {
+
+        Ascii asciiCC = Ascii.getAsciiById(206);
+        ui.Msg(String.valueOf(asciiCC));
+        ui.Msg("");
+
+        for (int i = 75; i <= 78; i++) {
+            Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+            ui.Msg(String.valueOf(dialog));
+            System.out.println("Press enter to continue...");
+            input.nextLine();
+        }
+    }
+
+    public void cheeseCity(Player player) {
+        ArrayList<String> options = new ArrayList<>();
+        options.add("Go to the Tavern");
+        options.add("Go to the Barracks");
+        options.add("Go to the Potion Shop");
+        options.add("Go to the Sewer Gate");
+        options.add("Go to the road out of town");
+        ui.displayList(options, "");
+        int choice = ui.promptNumericChoice(options, "What would like to do?");
+        switch (choice) {
+            case 1:
+                Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 79, player);
+                ui.Msg(String.valueOf(dialog1));
+                System.out.println("Press enter to continue...");
+                input.nextLine();
+                // todo if(Player.getItemID == fontina)
+                //swTavernFight
+                //else swTavern(player);
+                break;
+            case 2:
+                Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 82, player);
+                ui.Msg(String.valueOf(dialog2));
+                System.out.println("Press enter to continue...");
+                input.nextLine();
+                fwBarracks(player);
+                break;
+            case 3:
+                Dialog dialog3 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 81, player);
+                ui.Msg(String.valueOf(dialog3));
+                System.out.println("Press enter to continue...");
+                input.nextLine();
+                wdShop(player);
+                break;
+            case 4:
+                Dialog dialog4 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 80, player);
+                ui.Msg(String.valueOf(dialog4));
+                System.out.println("Press enter to continue...");
+                input.nextLine();
+                sewerGate(player);
+                break;
+            case 5:
+                Dialog dialog5 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 84, player);
+                ui.Msg(String.valueOf(dialog5));
+                System.out.println("Press enter to continue...");
+                input.nextLine();
+                roadOut(player);
+                break;
+            default:
+                ui.Msg("Where do you think your going?");
+        }
+    }
+
+    public void swTavern(Player player) {
+
+        Ascii asciiTavern = Ascii.getAsciiById(207);
+        ui.Msg(String.valueOf(asciiTavern));
+        ui.Msg("");
+
+        Dialog dialog = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 85, player);
+        ui.Msg(String.valueOf(dialog));
+        System.out.println("Press enter to continue...");
+        input.nextLine();
+
+        ArrayList<String> options = new ArrayList<>();
+        options.add("HEY! I'm 8 months old - which is 42 in human years ");
+        options.add("Im not - but im not here to drink");
+        ui.displayList(options, "");
+        int choice = ui.promptNumericChoice(options, "Snifflesworth: Aren’t you a little young to be in here?");
+        switch (choice) {
+            case 1:
+                Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 87, player);
+                ui.Msg(String.valueOf(dialog1));
+                System.out.println("Press enter to continue...");
+                input.nextLine();
+                break;
+            case 2:
+                Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 88, player);
+                ui.Msg(String.valueOf(dialog2));
+                System.out.println("Press enter to continue...");
+                input.nextLine();
+                break;
+            default:
+                ui.Msg("You mumble something incomprehensible");
+        }
+        ArrayList<String> optionsTwo = new ArrayList<>();
+        optionsTwo.add("Tell Snifflesworth everything that happened.");
+        optionsTwo.add("Order something from the bar");
+        ui.displayList(optionsTwo, "");
+        int choice2 = ui.promptNumericChoice(optionsTwo, "Snifflesworth: Aren’t you a little young to be in here?");
+        switch (choice2) {
+            case 1:
+                for (int i = 91; i <= 94; i++) { //Giver map om Fontina sværdet
+                    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+                    ui.Msg(String.valueOf(dialog1));
+                    System.out.println("Press enter to continue...");
+                    input.nextLine();
+                }
+                break;
+            case 2:
+                ui.Msg("Narrator: You really dont have time for that right now...");
+                System.out.println("Press enter to continue...");
+                input.nextLine();
+                for (int i = 91; i <= 94; i++) { //Giver map om Fontina sværdet
+                    Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+                    ui.Msg(String.valueOf(dialog1));
+                    System.out.println("Press enter to continue...");
+                    input.nextLine();
+                }
+                break;
+            default:
+                ui.Msg("The cute mouse at the end of the bar  - does not exist");
+        }
 
 
- }
+    }
 
- public void swTavernFight(Player player) {
-  Combat combat = new Combat(bag, inventory);
-  DBConnector dbConnector = new DBConnector();
-  for (int i = 95; i <= 97; i++) {
-   Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-   ui.Msg(String.valueOf(dialog1));
-   System.out.println("Press enter to continue...");
-   input.nextLine();
-  }
-  combat.fight(player, dbConnector.getCreatureById(21), bag); //todo Ændre creature til Snifflesworth
+    public void swTavernFight(Player player) {
+        Combat combat = new Combat(bag, inventory);
+        DBConnector dbConnector = new DBConnector();
+        for (int i = 95; i <= 97; i++) {
+            Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+            ui.Msg(String.valueOf(dialog1));
+            System.out.println("Press enter to continue...");
+            input.nextLine();
+        }
+        combat.fight(player, dbConnector.getCreatureById(21), bag); //todo Ændre creature til Snifflesworth
 
-  Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 98, player);
-  ui.Msg(String.valueOf(dialog1));
-  System.out.println("Press enter to continue...");
-  input.nextLine();
-  cheeseCity(player);
- }
+        Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 98, player);
+        ui.Msg(String.valueOf(dialog1));
+        System.out.println("Press enter to continue...");
+        input.nextLine();
+        cheeseCity(player);
+    }
 
 
- public void fwBarracks(Player player) {
-  //todo: tjek efter quest items
-  // hvis ingen Quest items - så intro snak
-  // hvis type af Quest Item så give Quest til næste quest Item
+    public void fwBarracks(Player player) {
+        //todo: tjek efter quest items
+        // hvis ingen Quest items - så intro snak
+        // hvis type af Quest Item så give Quest til næste quest Item
 
-  // if (player.QuestItem == OK)
-  for (int i = 108; i <= 109; i++) {
-   Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-   ui.Msg(String.valueOf(dialog2));
-   System.out.println("Press enter to continue...");
-   input.nextLine();
-  }
-  //else if (player.QuestItem 2 == OK)
-  for (int i = 110; i <= 109; i++) {
-   Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
-   ui.Msg(String.valueOf(dialog2));
-   System.out.println("Press enter to continue...");
-   input.nextLine();
-  }
-   //else if (player.QuestItem3 == OK)
-   // else if(playerQuestItem4 == OK)
+        // if (player.QuestItem == OK)
+            ArrayList<String> optionsQ1 = new ArrayList<>();
+            optionsQ1.add("I've completet the quest!");
+            optionsQ1.add("Check the gear for sale.");
+            ui.displayList(optionsQ1, "");
+            int choiceQ1 = ui.promptNumericChoice(optionsQ1, "What do you say to Fuzzy Wumpus");
+            switch (choiceQ1) {
+                case 1:
+                    for (int i = 108; i <= 109; i++) {
+                        Dialog dialogQ1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+                        ui.Msg(String.valueOf(dialogQ1));
+                        System.out.println("Press enter to continue...");
+                        input.nextLine();
+                    }
+                    break;
+                case 2:
+                    // todo indsæt shop
+                    break;
+                default:
+                    ui.Msg("He lookes kinda cute though.");
+        }
+
+        //else if (player.QuestItem 2 == OK)
+        ArrayList<String> optionsQ2 = new ArrayList<>();
+        optionsQ2.add("I've completet the quest!");
+        optionsQ2.add("Check the gear for sale.");
+        ui.displayList(optionsQ2, "");
+        int choiceQ2 = ui.promptNumericChoice(optionsQ2, "What do you say to Fuzzy Wumpus");
+        switch (choiceQ2) {
+            case 1:
+                for (int i = 110; i <= 112; i++) {
+                    Dialog dialogQ2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), i, player);
+                    ui.Msg(String.valueOf(dialogQ2));
+                    System.out.println("Press enter to continue...");
+                    input.nextLine();
+                }
+                break;
+            case 2:
+                // todo indsæt shop
+                break;
+            default:
+                ui.Msg("He lookes kinda cute though.");
+        }
+
+
+        //else if (player.QuestItem3 == OK)
+        ArrayList<String> optionsQ3 = new ArrayList<>();
+        optionsQ3.add("I've completet the quest!");
+        optionsQ3.add("Check the gear for sale.");
+        ui.displayList(optionsQ3, "");
+        int choiceQ3 = ui.promptNumericChoice(optionsQ3, "What do you say to Fuzzy Wumpus");
+        switch (choiceQ3) {
+            case 1:
+                Dialog dialogQ3 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 157, player);
+                ui.Msg(String.valueOf(dialogQ3));
+                System.out.println("Press enter to continue...");
+                input.nextLine();
+
+                break;
+            case 2:
+                // todo indsæt shop
+                break;
+            default:
+                ui.Msg("He lookes kinda cute though.");
+        }
+
+        // else if(playerQuestItem4 == OK)
+        ArrayList<String> optionsQ4 = new ArrayList<>();
+        optionsQ4.add("I've completet the quest!");
+        optionsQ4.add("Check the gear for sale.");
+        ui.displayList(optionsQ4, "");
+        int choiceQ4 = ui.promptNumericChoice(optionsQ4, "What do you say to Fuzzy Wumpus");
+        switch (choiceQ4) {
+            case 1:
+                Dialog dialogQ4 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 157, player);
+                ui.Msg(String.valueOf(dialogQ4));
+                System.out.println("Press enter to continue...");
+                input.nextLine();
+
+        break;
+        case 2:
+        // todo indsæt shop
+        break;
+        default:
+        ui.Msg("He lookes kinda cute though.");
+    }
+
     // else
 
      Ascii asciiBarrack = Ascii.getAsciiById(208);
