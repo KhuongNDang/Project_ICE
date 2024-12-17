@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 
 public class Combat {
-    private int attack;
-    private int defense;
-    private int health;
     TextUI ui = new TextUI();
     private Bag bag;
 
@@ -14,7 +11,10 @@ public class Combat {
     }
 
     public void fight(Player player, Creature creature, Bag bag) {
-
+        //gemmer spillerens originale dataer
+        int originalAttack = player.getAttack();
+        int originalDefense = player.getDefense();
+        int originalHealth = player.getHealth();
 
         for (int c = 1; player.getHealth() > 0 && creature.getHealth() > 0; c++) {
             System.out.println();
@@ -22,6 +22,7 @@ public class Combat {
 
 
             ArrayList<String> options = new ArrayList<>();
+
             options.add("Proceed to fight");
             options.add("Consume item");
             options.add("Flee");
@@ -46,6 +47,7 @@ public class Combat {
         }
         if (player.getHealth() <= 0) {
             ui.Msg(player.getName() + " has been defeated.");
+
         } else if (creature.getHealth() <= 0) {
             ui.Msg(creature.getName() + " has been defeated.");
             ui.Msg(" ");
@@ -56,11 +58,12 @@ public class Combat {
             player.levelUp();
             ui.Msg(" ");
             ui.Msg("your currrent xp is now: " + player.getXp());
-
+            resetStats(player, originalAttack,  originalDefense);
 
         }
 
         player.levelUp();
+
     }
 
 
@@ -71,30 +74,30 @@ public class Combat {
             int playerDefense = player.getDefense();
             int creatureDefense = creature.getDefense();
 
-            int playerHealth = player.getHealth();
+            int playerDamage = Math.max(creatureAttack - playerDefense, 0); // Prevent negative damage
+            int creatureDamage = Math.max(playerAttack - creatureDefense, 0);
 
-            System.out.println(player.getName() + " attacks with " + playerAttack + " attack ");
+            System.out.println(player.getName() + " attacks with " + playerAttack + " attack "+ player.getName() + " blocks with " + player.getDefense() + " defense ");
             System.out.println();
-            System.out.println(creature.getName() + " attacks with " + creatureAttack + " attack " + "and " + player.getName() + " blocks with " + player.getDefense() + " defense ");
+            System.out.println(creature.getName() + " attacks with " + creatureAttack + " attack " + "and " + creature.getName() + " blocks with " + creature.getDefense() + " defense ");
 // pænere med player defence tekst
             System.out.println();
-            playerHealth -= creatureAttack - playerDefense;
-            creature.health -= playerAttack - creatureDefense;
-
+            player.setHealth(player.getHealth() - playerDamage);
+            creature.setHealth(creature.getHealth() - creatureDamage);
 // betydning af tal
-            //  System.out.println("Remaning health: ");
-            System.out.println("player's remaning health: ");
-            System.out.println(player.getHealth());
-            //System.out.println("Remaning health: ");
-            System.out.println("Enemy's remaning health:  ");
-            System.out.println(creature.getHealth());
-            //System.out.println("Enemys remaning health:  ");
-
+            System.out.println(player.getName() + "'s remaining health: " + player.getHealth());
+            System.out.println(creature.getName() + "'s remaining health: " + creature.getHealth());
+            System.out.println();
 
             System.out.println();
             System.out.println();
             //System.out.println();
         }
+    public void resetStats(Player player, int originalAttack, int originalDefense) {
+        player.setAttack(originalAttack);
+        player.setDefense(originalDefense);
+        ui.Msg("Your stats have been reset to their original values.");
+    }
     }
 
 

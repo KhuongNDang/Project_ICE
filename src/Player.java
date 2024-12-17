@@ -11,7 +11,11 @@ public class Player {
     private int maxHealth = 100;
     private int level = 1;
     private int xpLimit = 50;
-     TextUI ui = new TextUI();
+    private int tempAttackBoost = 0;
+    private int tempDefenseBoost = 0;
+    private int tempHealthBoost = 0;
+
+    TextUI ui = new TextUI();
 
 
     public Player(String name,int health, int attack, int defense, int xp, int currency) {
@@ -29,7 +33,10 @@ public class Player {
         System.out.println("Health: " + health);
         System.out.println("Attack: " + attack);
         System.out.println("Defense: " + defense);
-    }       public void equipItem () { }
+    }
+
+
+    public void equipItem () { }
 
 
     public String getName() {
@@ -67,8 +74,9 @@ public class Player {
 
 
 
+
     public int getAttack() {
-        return attack;
+        return attack ;
     }
 
     public int getDefense() {
@@ -81,7 +89,7 @@ public class Player {
     }
 
     public int getHealth() {
-        return health;
+        return health ;
     }
 
     public void setAttack(int attack) {
@@ -102,6 +110,7 @@ public class Player {
     public int getMaxHealth(){ return maxHealth; }
 
     public int getLevel() {return level;}
+
 }
 
 
