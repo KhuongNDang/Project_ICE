@@ -21,14 +21,13 @@ public class Main {
         GameDialogue gamedialogue = new GameDialogue();
 
         player.createUsername();
-//        gamedialogue.storyPartIntro(player);
-//        gamedialogue.mainMenu(player);
-//        gamedialogue.storyPartMarket(player);
-//        gamedialogue.storyPartDarkAlley(player);
-//        gamedialogue.storyPartVillageBurn(player);
-//        gamedialogue.arrivalCheeseCity(player);
-        //gamedialogue.cheeseCity(player);
-        gamedialogue.ratKingCity(player);
+        gamedialogue.storyPartIntro(player);
+        gamedialogue.mainMenu(player);
+        gamedialogue.storyPartMarket(player);
+        gamedialogue.storyPartDarkAlley(player);
+        gamedialogue.storyPartVillageBurn(player);
+        gamedialogue.arrivalCheeseCity(player);
+        gamedialogue.cheeseCity(player);
 
 
         }
