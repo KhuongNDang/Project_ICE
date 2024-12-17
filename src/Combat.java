@@ -7,6 +7,7 @@ public class Combat {
     TextUI ui = new TextUI();
     private Bag bag;
     private Inventory inventory;
+    GameDialogue gameDialogue = new GameDialogue();
 
 
     // Update constructor to accept a Bag
@@ -47,6 +48,8 @@ public class Combat {
 
         if (player.getHealth() <= 0) {
             ui.Msg(player.getName() + " has been defeated.");
+            gameDialogue.cheeseCity(player);
+            player.setHealth(player.getMaxHealth());
             System.out.println();
         } else if (creature.getHealth() <= 0) {
             ui.Msg(creature.getName() + " has been defeated.");

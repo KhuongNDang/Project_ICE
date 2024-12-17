@@ -3,17 +3,23 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import static java.lang.Math.random;
 
 public class GameDialogue {
     TextUI ui = new TextUI();
     Scanner input = new Scanner(System.in);
-    private Bag bag;
-    private Inventory inventory;
     String picture;
     Ascii ascii = new Ascii(picture);
+    DBConnector db = new DBConnector();
+    Player player;
+    Inventory inventory = new Inventory();
+    Bag bag = new Bag(db,inventory,ui,player);
+
+
+
+
 
     public void storyPartIntro(Player player) {
+
         Ascii ascii = Ascii.getAsciiById(201);
         ui.Msg(String.valueOf(ascii));
         ui.Msg("");
@@ -196,6 +202,8 @@ public class GameDialogue {
                 Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 32, player);
                 ui.Msg(String.valueOf(dialog1));
                 player.deductCurrency(20);
+                bag.addItemFromDB(26);
+                bag.displayBag();
                 break;
             case 2:
                 ui.Msg("We have other stuff too");
@@ -434,6 +442,7 @@ public class GameDialogue {
                     System.out.println("Press enter to continue...");
                     input.nextLine();
                 }
+                cheeseCity(player);
                 break;
             case 2:
                 ui.Msg("Narrator: You really dont have time for that right now...");
@@ -445,6 +454,7 @@ public class GameDialogue {
                     System.out.println("Press enter to continue...");
                     input.nextLine();
                 }
+                cheeseCity(player);
                 break;
             default:
                 ui.Msg("The cute mouse at the end of the bar  - does not exist");
@@ -704,7 +714,8 @@ public class GameDialogue {
     int randomCreatureID = random.nextInt(creatureID.length);
     int forestCreatureID = creatureID[randomCreatureID];
     combat.fight(player, dbConnector.getCreatureById(forestCreatureID), bag);
-
+    bag.addItemFromDB(23);
+    forrest(player);
     break;
    case 2:
     Dialog dialogReturn = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 154, player);
@@ -714,7 +725,8 @@ public class GameDialogue {
     cheeseCity(player);
     break;
    case 3:
-    //Check your gear
+    inventory.displayInventory();
+    forrest(player);
     break;
    default:
     ui.Msg("The forest is too dense - just like your brain.");
@@ -748,6 +760,8 @@ public class GameDialogue {
     int randomCreatureID = random.nextInt(creatureID.length);
     int desertCreatureID = creatureID[randomCreatureID];
     combat.fight(player, dbConnector.getCreatureById(desertCreatureID), bag);
+    bag.addItemFromDB(25);
+    dessert(player);
     break;
    case 2:
     Dialog dialogReturn = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 154, player);
@@ -757,7 +771,7 @@ public class GameDialogue {
     cheeseCity(player);
     break;
    case 3:
-    //Check your gear
+   inventory.displayInventory();
     break;
    default:
     ui.Msg("If you do that, you might end up in quicksand");
@@ -785,6 +799,8 @@ public class GameDialogue {
   switch (choice2) {
    case 1:
     swampExplore(player);
+    bag.addItemFromDB(24);
+    swamp(player);
     break;
    case 2:
     Dialog dialogReturn = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 154, player);
@@ -794,7 +810,7 @@ public class GameDialogue {
     cheeseCity(player);
     break;
    case 3:
-    //Check inventory
+    inventory.displayInventory();
     break;
    default:
     ui.Msg("The swamp gasses must have gotten to your mouse brain. You cant do that silly.");
@@ -878,7 +894,7 @@ public class GameDialogue {
        ui.Msg(String.valueOf(asciiFontina));
        ui.Msg("");
 
-    //todo Add Fontina
+    bag.addItemFromDB(22);
     cheeseCity(player);
     break;
    case 2:

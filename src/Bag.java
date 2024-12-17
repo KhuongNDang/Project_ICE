@@ -28,12 +28,17 @@ public class Bag {
                 Item item = (Item) obj;
                 if (item.getId() == itemId) {
                     return true;
-                } else {
-                    return false;
+                }
+            } else if (obj instanceof Potion) {
+                Potion potion = (Potion) obj;
+                if (potion.getId() == itemId) {
+                    return true;
                 }
             }
         }
+        return false;
     }
+
 
 
     public boolean addItemFromDB(int itemId) {

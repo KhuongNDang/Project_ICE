@@ -17,20 +17,19 @@ public class Main {
         Inventory inventory = new Inventory();
         Player player = new Player("FartMaster2000", 100, 10, 0, 0, 0, inventory);
 
-        Bag bag = new Bag(dbConnector, inventory, ui, player);
-        Combat combat = new Combat(bag, inventory);
 
-        Creature creature = dbConnector.getCreatureById(2);
         GameDialogue gamedialogue = new GameDialogue();
 
         player.createUsername();
-        gamedialogue.storyPartIntro(player);
-        gamedialogue.mainMenu(player);
-        gamedialogue.storyPartMarket(player);
-        gamedialogue.storyPartDarkAlley(player);
-        gamedialogue.storyPartVillageBurn(player);
-        gamedialogue.arrivalCheeseCity(player);
-        gamedialogue.cheeseCity(player);
+//        gamedialogue.storyPartIntro(player);
+//        gamedialogue.mainMenu(player);
+//        gamedialogue.storyPartMarket(player);
+//        gamedialogue.storyPartDarkAlley(player);
+//        gamedialogue.storyPartVillageBurn(player);
+//        gamedialogue.arrivalCheeseCity(player);
+        //gamedialogue.cheeseCity(player);
+        gamedialogue.ratKingCity(player);
+
 
         }
     }
