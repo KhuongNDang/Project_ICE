@@ -1,0 +1,157 @@
+1|"Dad, I can't sleep... I keep thinking about (PLAYER NAME)."|Daughter
+2|"I know, sweetheart. It's hard not to worry when (PLAYER NAME) got out of their cage."|Father
+3|"What if something bad happened?"|Daughter
+4|"I know you're upset, darling. But I have a feeling (PLAYER NAME) is on a big adventure."|Father
+5|"Really? What kind of adventure?"|Daughter
+6|"How about I tell you a bedtime story about what (PLAYER NAME) is up to?"|Father
+7|"In a little quaint village, with cobblestone streets and colorful stalls lining the market square."|Narrator
+8|"(PLAYER NAME) found their uncle Ben."|Narrator
+9|"Ben was an older mouse, his fur slightly scruffy and worn by time."|Narrator
+10|"(PLAYER NAME)! It's so good to see you. It's been far too long!"|Ben
+11|"I'd love to sit and chat, but I need to start preparing dinner."|Ben
+12|"Could you do me a favor and run to the market to pick up some (QUEST ITEM)?"|Ben
+13|"Ben adjusted his tiny spectacles and smiled warmly."|Narrator
+14|"You're a lifesaver! Here’s (CURRENCY). That should be enough to cover it."|Ben
+15|"As i said, you'll find (QUEST ITEM) at the market."|Ben
+16|"There might even be some new sights at the market—you’ll see!"|Ben
+17|"Clutching the money tightly, (PLAYER NAME) made their way to the market."|Narrator
+18|"The path to the market led (PLAYER NAME) through the heart of the little village."|Narrator
+19|"Cobbled streets wound between quaint, weathered cottages with ivy creeping up their stone walls."|Narrator
+20|"The scent of fresh bread drifted from a nearby bakery,"|Narrator
+21|"mingling with the soft murmur of villagers exchanging morning greetings."|Narrator
+22|"As (PLAYER NAME) approached the market square, the quiet gave way to a lively hum."|Narrator
+23|"Stalls brimming with colorful produce, shiny trinkets,"|Narrator
+24|"and freshly caught fish lined the area, their owners calling out to passersby in cheerful tones."|Narrator
+25|"Somewhere nearby, a musician plucked at a lute, adding a gentle melody to the bustling scene."|Narrator
+26|"It was a place of warmth, life, and endless possibilities."|Narrator
+27|"Hello there, young adventurer! Care for some of the juiciest apples in the village?"|Vendor1
+28|"Oh, I'm afraid I don't stock that. Perhaps try one of the other stalls?"|Vendor1
+29|"Ahoy, little one! Fresh fish straight from the river—best catch of the day!"|Vendor2
+30|"Sorry, I don’t deal in that sort of thing. Maybe try the dry goods vendor over there."|Vendor2
+31|"Greetings, traveler! You’ve come to the right place for all your needs."|Vendor3
+32|"Ah, you’re in luck! I’ve got just the (QUEST ITEM) you’re looking for. That’ll be (CURRENCY), please."|Vendor3
+33|"Thats not what you wanted! Take (QUEST ITEM) instead!"|Vendor3
+34|"With the (QUEST ITEM) in hand, (PLAYER NAME) made their way back home."|Narrator
+35|"The streets were quiet now, save for the soft rustle of leaves in the breeze."|Narrator
+36|"Suddenly, a faint sound came from a nearby alley."|Narrator
+37|"You hear a noise from the alley. Do you want to check it out?"|Narrator
+38|"Curious, (PLAYER NAME) stepped into the shadowy alley."|Narrator
+39|"Before they could react, a rough-looking mouse emerged from the darkness, blocking the way."|Narrator
+40|"Ah, so you came to me? Smart move. Now hand over the (QUEST ITEM), and no one gets hurt."|Bandit
+41|"(PLAYER NAME) decided to ignore the noise and kept walking."|Narrator
+42|"But just as they rounded the next corner, the same rough-looking mouse stepped into their path."|Narrator
+43|"Trying to avoid me, huh? Won’t work. Now give me the (QUEST ITEM), or you’ll regret it."|Bandit
+44|"Damnit, I didnt think a little mouse-ling like you could beat me!"|Bandit
+45|"Hah! Now hand over the (QUEST ITEM)!"|Bandit
+46|"After the encounter, (PLAYER NAME) made their way back to Uncle Ben’s cozy home, the familiar scent of a warm meal wafting through the air."|Narrator
+47|"Oh, wonderful! You got the (QUEST ITEM)! I knew I could count on you, (PLAYER NAME)."|Ben
+48|"Oh no, you lost the (QUEST ITEM)? Don’t worry, we’ll figure something out. Are you alright, (PLAYER NAME)?"|Ben
+49|"Uncle Ben, scooped up two portions of the dish and waddled over to the table."|Narrator
+50|"He placed two bowls on an old worn down table."|Narrator
+51|"Sounds like you ran into trouble out there. Maybe you need something to protect yourself."|Ben
+52|"It's dangerous to go alone. Here, take this (SWORD ITEM) and (SHIELD ITEM)."|Ben
+53|"They belonged to your mom and dad, you know."|Ben
+54|"Your mom was the finest shield-maiden in all of Cheese City."|Ben
+55|"And your dad—my brother—was a master swordsman."|Ben
+56|"The king himself once granted him the title of 'Custodian of the Realm.'"|Ben
+57|"He wielded the legendary sword Fontina. Sadly, it was lost when the Rat King rose to power."|Ben
+58|"As (PLAYER NAME) enjoyed the meal, a sudden, unsettling sound broke the calm evening air."|Narrator
+59|"Shouts and clangs of metal could be heard outside."|Narrator
+60|"Panic spread through the village as villagers rushed to their homes, and the peaceful night was shattered by the distant sound of marching feet."|Narrator
+61|"Suddenly, the ground trembled as if shaken by some unseen force."|Narrator
+62|"A massive army of rats, led by the ominous figure of the Rat King, poured into the village from all sides."|Narrator
+63|"It was an invasion, and the once-sleepy village was now on the brink of chaos."|Narrator
+64|"You need to run (PLAYER NAME)! The Rat Kings army has come to claim the village!"|Ben
+65|"Go to Cheese City! Find my old buddy 'Snifflesworth' She will help you."|Ben
+66|"In the midst of chaos, (PLAYER NAME) grabbed their belongings and darted out of the house."|Narrator
+67|"The air was thick with panic; villagers were screaming and scrambling for safety."|Narrator
+68|"A cacophony of sounds—clanging armor, squeaking rats, and desperate cries—filled the night."|Narrator
+69|"(PLAYER NAME) pushed through the throngs of panicked villagers, dodging falling debris and the snapping jaws of rats that seemed to be everywhere."|Narrator
+70|"The village was a battlefield, and escape was the only goal."|Narrator
+71|"As (PLAYER NAME) neared the village’s edge, they saw the dark, looming shapes of the Rat King's army advancing fast."|Narrator
+72|"A large, mangy rat blocked their path, snarling menacingly."|Narrator
+73|"(PLAYER NAME) gripped their sword tightly and charged at the rat. With a swift, decisive strike, they took it down. Breathing heavily, they dashed toward the forest that marked the path to safety."|Narrator
+74|"(PLAYER NAME) tried to flee the fight, but the rat was too quick and ferocious. (PLAYER NAME) barely managed to fend it off before stumbling away, battered but still alive. They continued their flight, determined to reach Cheese City."|Narrator
+75|"The journey through the forest was treacherous, but (PLAYER NAME) finally emerged on the outskirts of Cheese City."|Narrator
+76|"A sense of relief washed over them as they saw the familiar skyline—an old city wall, gates flanked by wooden watchtowers, and the scent of melted cheese in the air."|Narrator
+77|"Welcome to Cheese City—a bustling, maze-like city filled with cheese vendors, and all sorts of colorful characters. It’s the heart of this region, and you’re here just in time."|Narrator
+78|"Your uncle told you to locate someone called 'Snifflesworth' - but you could take a walk through this new bustling city."|Narrator
+79|"Sniffleworth's Tavern sits at the heart of Cheese City, with a crooked sign of a frothy mug swinging outside. Inside, the warm glow of lanterns lights up wooden tables, and the scent of cheese fills the air. Behind the counter, Sniffleworth, a cheerful mouse, greets all with a friendly smile."|Narrator
+80|"Hidden in a shadowy alley, the sewer gate stands rusted and foreboding. A warning sign reads, 'Authorized Access Only—Beware of Vermin.' Beyond the bars lies a dark path rumored to lead to the Rat King’s city." |Narrator
+81|"Whisker Doodle’s Shop, with its bright yellow paint and cheese-shaped sign, is hard to miss. Inside, shelves are packed with potions and trinkets, and Whisker Doodle, a sharp-eyed mouse with oversized glasses, eagerly waits behind the counter." |Narrator
+82|"The barracks are a stone fortress in the town square, its walls lined with weapons and shields. Inside, armored mouse soldiers stand at attention, their sharp eyes scanning for trouble. Their leader, Commander Fuzzy Wumpus, is a towering mouse with a battle-worn scar over one eye and a voice like thunder. He commands respect with every word." |Narrator
+83|"Just beyond the city lies a small forest, its dark trees hiding strange creatures. The air is cool and quiet, but danger lurks among the shadows for those who dare to explore." |Narrator
+84|"The city gate stands tall, guarded and secure. Beyond it lies a forked path: to the east, the scorching desert; to the west, the swamp’s twisted waters. Both lead to adventure." |Narrator
+85|"You approach the bar counter and greet Snifflesworth with a polite smile." |Narrator
+86|"Aren’t you a little young to be in here?" |Snifflesworth
+87|"Ah—sorry, my mistake! What do you need?" |Snifflesworth
+88|"Hmm—I can’t serve you anything. Anything else I can do for you?" |Snifflesworth
+89|"Tell Snifflesworth everything that happened." |Choice
+90|"Order something from the bar." |Choice
+91|"Oh my! I knew Ben — He once saved me from the Rat King!" |Snifflesworth
+92|"I see he gave you your parents’ gear. Sorry, but you don’t look quite ready yet. Maybe head over to the Barracks—Fuzzy Wumpus could train you." |Snifflesworth
+93|"Before you go, I have this map! It might lead to your dad’s legendary sword—Fontina. They say it’s hidden in the swamp ruins, guarded by an ancient dragon." |Snifflesworth
+94|"When you find Fontina, bring it back to me!" |Snifflesworth
+95|"You found the sword?! Hand it over! The Rat King demands it!" |Snifflesworth
+96|"That’s right, the Rat King is my master. Yes, Ben saved me once—but he left me here, alone. The Rat King granted me power in exchange for loyalty." |Snifflesworth
+97|"Now witness my power, (PLAYER NAME)!" |Snifflesworth
+98|"Nooo...I’ve failed. My power...has failed me." |Snifflesworth
+99|"Hello, young one! Welcome to my humble shop. How can I help you today?" |Whisker Doodle
+100|"Have a nice day!" |Whisker Doodle
+101|"Happy adventuring, young one!" |Whisker Doodle
+102|"Viva la revolutio—oh, shhh." |Whisker Doodle
+103|"YOU! What are you doing here? Come over!" |Fuzzy Wumpus
+104|"Tell Fuzzy Wumpus everything that happened." |Choice
+105|"Check the gear for sale." |Choice
+106|"Those bastards! We’ll get back at them! You don’t seem like much of a fighter—yet. We’ll build you up, and when the time is right, you’ll lead the assault on Rat King City." |Fuzzy Wumpus
+107|"Head to the forest and (QUEST)." |Fuzzy Wumpus
+108|"Great job, soldier! But we’re not done yet. Steel yourself!" |Fuzzy Wumpus
+109|"I need you to go to the desert to collect (QUEST) from (Creature)." |Fuzzy Wumpus
+110|"Great Scott! Word has gotten out that I’m training you. Keep a lookout for Rat soldiers on your travels." |Fuzzy Wumpus
+111|"Next step is the swamp. We need (QUEST) to finalize a mixture to melt the sewer gate and storm Rat King City!" |Fuzzy Wumpus
+112|"Through the swamp, you’ll find the old ruins. There’s talk of an ancient dragon there. Not sure if there’s anything valuable, though." |Fuzzy Wumpus
+113|"You’ve done it! But we’re not finished yet, soldier! Gather yourself, stock up on potions and gear—tonight, the Rat King falls!" |Fuzzy Wumpus
+114|"You found the sword?! Amazing! This will aid us and ensure the Rat King’s demise!" |Fuzzy Wumpus
+115|"Snifflesworth was working for the Rat King? If that’s true, I’m glad you handled it—forward!" |Fuzzy Wumpus
+116|"Take a look at the gear we’ve got for sale! All made in-house...if that’s a selling point." |Fuzzy Wumpus
+117|"Beyond the city gate stretches an endless sea of golden sand, where the scorching sun beats down mercilessly. Strange, burrowing creatures stalk the dunes, and their piercing cries echo through the dry air. Only the brave dare venture here." |Narrator
+118|"The swamp is a murky, tangled maze of twisted trees and dark waters. The air is thick with mist, and the buzzing of unseen insects fills your ears. Shadows ripple under the surface, hinting at lurking monsters ready to strike." |Narrator
+119|"Deep within the swamp lies a crumbling ruin of ancient stone, its cracked walls overtaken by creeping vines. In the shattered halls, monsters guard their dark secrets, and atop the highest peak rests an ancient dragon, its scales gleaming like tarnished gold, watching over the decaying world it once ruled." |Narrator
+120|"Another visitor... Tell me, do you come seeking glory, or will fear drive you away?" |Ancient Dragon
+121|"So, you choose to stand and face me. Bold, just like your father. He came here long ago, and we made a pact. I swallowed the blade Fontina, hiding it within me until a worthy warrior appeared. If you seek it, prove you are worthy in battle!" |Ancient Dragon
+122|"You have proven yourself, little warrior. The blade is yours. Wield Fontina with honor, and let it serve only to vanquish evil in this world." |Ancient Dragon
+123|"Fontina, the legendary blade, shimmers with ancient runes and a sharp, radiant edge. Its power pulses in your hands, destined to shape the world's fate." |Narrator
+124|"You approach the sewer gate—ready to take on the Rat King." |Narrator
+125|"You throw the mixture Fuzzy Wumpus created onto the gate. It begins to react with the metal, slowly boiling away the gate—opening it!" |Narrator
+126|"You strike the gate with Fontina. It shatters from the sheer force of the blade—the gate is open!" |Narrator
+127|"Do you think (PLAYER NAME) is ready, Dad?" |Daughter
+128|"There is only one way to find out—but I’m sure (PLAYER NAME) will prevail!" |Father
+129|"As you descend into the sewers, the air grows dank and heavy with the stench of rot and decay. The flickering light from your torch casts eerie shadows on the wet walls. The path ahead is narrow, barely large enough to squeeze through. It’s clear this is no ordinary sewer—it’s the lifeblood of the Rat King’s forces." |Narrator
+130|"Further in, the tunnels widen, revealing ancient stonework overgrown with slime and fungus. Water drips incessantly from the ceiling, pooling on the uneven ground. The atmosphere is thick with danger as you hear faint scuttling noises echoing around you—Rat King’s minions are watching, waiting." |Narrator
+131|"You push through yet another narrow passage, deeper into the Rat King’s domain. The walls close in around you, suffocating. The sound of rushing water ahead signifies an impending danger—perhaps a rat ambush. You brace yourself for what’s to come." |Narrator
+132|"You arrive at the final chamber—the entrance to Rat King City. The door here is a massive iron gate, reinforced with chains and barred shut. It looks as though it was designed to keep something very powerful inside. Now, it stands as a barrier between you and the Rat King’s domain." |Narrator
+133|"The time has come, my minions, for our final triumph! We will not be satisfied with merely ruling these stinking sewers. No, we aim higher! We shall march out of this squalid city and take control of the entire world. We will stand tall as a kingdom of vermin, an empire that stretches from city to city, across continents, and beyond! No more shadows—no more hiding. We will dominate, we will conquer, we will reign supreme!" |Rat King
+134|"Ah, my dear little adventurer. I knew you would come eventually. You have the courage of a thousand rats—but it’s not enough. My kingdom shall not be torn down by a single mouse or even a thousand of them! This is MY domain, MY city, MY destiny!" |Rat King
+135|"So, you thought you could take my city, did you? You’re welcome to try, but you’ll find it’s not so easy. I have guards, traps, and magic on my side. You’ll need more than just a sword to beat me." |Rat King
+136|"You really think you can challenge me? Well, you’d better come prepared because I’m not going down without a fight!" |Rat King
+137|"I can smell the fear on you, mouse. You’re scared—but that’s good. I need you to be scared. It makes it more fun when I crush you." |Rat King
+138|"Ah, so it’s a battle of wits, is it? Very well. Show me what you’ve got, mouse." |Rat King
+139|"Impressive, (PLAYER NAME). I didn’t expect a mouse to stand up to me. But this is MY city, and you’ll have to pry it from my cold, dead paws!" |Rat King
+140|"I have prepared for this moment! You won’t leave here alive—no one does." |Rat King
+141|"I am the Rat King Demon! You will bow to me or die trying!" |Rat King Demon
+142|"No, you can’t take my city! I’ll destroy it myself before I let you have it!" |Rat King Demon
+143|"You are strong, mouse, but you’re not strong enough. I’ll rip you to shreds!" |Rat King Demon
+144|"Your father...he always was too stubborn for his own good. He should’ve known better than to challenge me. But now you’re here, and you’ll be the one to meet the same fate." |Rat King
+145|"Victory...it slips through my paws like sand. I can’t let it go! You’ve ruined everything!" |Rat King
+146|"No, this can’t be happening! I’m supposed to be invincible!" |Rat King Demon
+147|"YOU HAVE DEFEATED ME! BUT THIS IS NOT OVER! I WILL RETURN!" |Rat King Demon
+148|"You have won, mouse. I was too prideful, too foolish. Take what you came for. Leave, and never return!" |Rat King
+149|"Im sure you meant to say 'Yes'."|Ben
+150|"Its a gate - you cant really do much at the moment. Go become a great warrior before venturing to 'Rat King City'."|Narrator
+151|"The forest outside Cheese City is a shadowy maze of towering trees and thick undergrowth. Sunlight barely pierces the canopy, leaving an air of mystery. The hum of strange life and whispers of old secrets make it clear this is no ordinary woodland."| Narrator
+152|"As you venture deeper into the swamp, the air grows heavy, and the ground shifts beneath your feet. The thick mist coils around gnarled trees, and strange calls echo in the distance. Somewhere ahead lies the ruins... or perhaps something lurking, ready to strike."|Narrator
+153|"Who dares stumble into my swamp? Tiny thing, you smell of fear... and lunch."|Troll
+154|"You make your way back to Cheese City"|Narrator
+155|"You flee back to Cheese City"|Narrator
+156|"The gates creak open, revealing a shadowy figure in a tattered cloak. His jagged crown glints as piercing red eyes lock onto you. The Rat King has arrived."|Narrator
+
