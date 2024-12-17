@@ -1,71 +1,90 @@
+import java.util.Scanner;
+
 public class Player {
 
     private String name;
     private int attack;
     private int defense;
-    public int health;
+    private int health = 100;
     private int xp;
     private int currency;
-
+    private int maxHealth = 100;
+    private int level = 1;
+    private int xpLimit = 50;
     TextUI ui = new TextUI();
+    private Inventory inventory;
 
 
-    public Player(String name, int attack, int defense, int health, int xp, int currency) {
+    public Player(String name, int health, int attack, int defense, int xp, int currency, Inventory inventory) {
         this.name = name;
         this.defense = defense;
         this.health = health;
         this.attack = attack;
         this.xp = xp;
         this.currency = currency;
+        this.inventory = inventory;
+    }
 
-        }
+    public void displayStats() {
 
+        updateStatsFromInventory(inventory);
+        System.out.println("Player Stats:");
+        System.out.println("Health: " + health);
+        System.out.println("Attack: " + attack);
+        System.out.println("Defense: " + defense);
+        System.out.println("XP: " + xp);
+        System.out.println("Currency: " + currency);
+        System.out.println("Level: " + level);
 
-    //        public void equipItem () { }
+    }
 
 
     public String getName() {
-        return name;}
+        return name;
+    }
 
+    public void levelUp() {
+        while (xp >= xpLimit) {
+            level += 1;
+            xp -= xpLimit;
+            maxHealth += 10;
+            health = maxHealth;
+            xpLimit *= 1.1;
 
-
-
-    public void consume(Player player) {
-        // Prompt the user to choose an item ID to consume
-        int itemId = ui.promptNumeric("Enter the ID of the item you want to consume:");
-
-        // Get the item from the database
-        Item item = DBConnector.getPotionId(itemId);
-
-        if (item != null) {
-            ui.Msg("You consumed " + item.getName() + ".");
-
-            // Check which attribute the item adds and apply it to the player
-            if (item.getAddHealth() > 0) {
-                player.health += item.getAddHealth();
-                ui.Msg("Player's health increased by " + item.getAddHealth() + ".");
-                ui.Msg("Player's new health is: " + player.health);
-
-            }
-            if (item.getAddAttack() > 0) {
-                player.attack += item.getAddAttack();
-                ui.Msg("Player's attack increased by " + item.getAddAttack() + ".");
-                ui.Msg("Player's new attack is: " + player.attack);
-            }
-            if (item.getAddDefense() > 0) {
-                player.defense += item.getAddDefense();
-                ui.Msg("Player's defense increased by " + item.getAddDefense() + ".");
-                ui.Msg("Player's new defense is: " + player.defense);
-            }
-            if (item.getAddXp() > 0) {
-                player.xp += item.getAddXp();
-                ui.Msg("Player's XP increased by " + item.getAddXp() + ".");
-                ui.Msg("Player's new XP is: " + player.xp);
-            }
-
-        } else {
-            ui.Msg("No item with ID " + itemId + " found.");
+            ui.Msg("You have reached level " + getLevel() + ".");
+            ui.Msg(" ");
+            ui.Msg("Your max Health has risen to " + getMaxHealth() + ".");
+            ui.Msg(" ");
+            ui.Msg("You need to reach " + xpLimit + " XP to reach the next level!");
         }
+    }
+
+    public void createUsername() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Type your username: ");
+        this.name = scanner.nextLine();
+        System.out.println("Welcome, " + name + "!");
+    }
+
+
+    public void updateStatsFromInventory(Inventory inventory) {
+        int totalAttack = getAttack(); // Start with player's base attack
+        int totalDefense = getDefense(); // Start with player's base defense
+        int totalHealth = getHealth(); // Start with player's base health
+
+        for (String slot : inventory.getSlots()) {
+            Item item = inventory.getItemFromSlot(slot);
+            if (item != null) {
+                totalAttack += item.getAttack(); // Add only the item's attack
+                totalDefense += item.getDefense(); // Add only the item's defense
+                totalHealth += item.getHealth(); // Add only the item's health
+            }
+        }
+
+        setAttack(totalAttack);
+        setDefense(totalDefense);
+        setHealth(Math.min(totalHealth, maxHealth)); // Ensure health does not exceed maxHealth
+
     }
 
 
@@ -77,27 +96,59 @@ public class Player {
         return defense;
     }
 
-    public int getHealth() { return health; }
-
-    public int getCurrency(){
-        return currency;
-    }
-
     public int getXp() {
         return xp;
     }
 
-    public int setAttack(int i){ return attack; }
+    public int getHealth() {
+        return health;
+    }
 
-    public int setDefense(int i){ return defense; }
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
 
-    public int setHealth(){ return health; }
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
 
-    public int setCurrency(){return currency; }
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
-    public int setXp(int i){ return xp; }
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public int getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(int currency) {
+        this.currency = currency;
+    }
+
+    public void addCurrency(int amount) {
+        this.currency += amount;
+        ui.Msg("You have gained " + amount + " currency. Total currency: " + this.currency);
+    }
+
+    public boolean deductCurrency(int amount) {
+        if (this.currency >= amount) {
+            this.currency -= amount;
+            ui.Msg("You have spent " + amount + " currency. Remaining currency: " + this.currency);
+            return true;
+        } else {
+            ui.Msg("Insufficient currency. You have " + this.currency + " currency.");
+            return false;
+        }
+    }
 }
-
-

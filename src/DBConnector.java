@@ -1,7 +1,8 @@
 import java.sql.*;
 
 public class DBConnector {
-    Connection conn;
+    static Connection conn;
+
     public void connect(String url) {
 
 
@@ -17,7 +18,7 @@ public class DBConnector {
         }
 
     }
-    
+
 
     public Creature getCreatureById(int id) {
         String query = "SELECT * FROM Creature WHERE id = " + id;
@@ -46,30 +47,47 @@ public class DBConnector {
         }
     }
 
+    public static Potion getPotionById(int id) {
+        String query = "SELECT * FROM Potion WHERE id = ?";
 
-    public static Item getPotionId(int id) {
-        // Connection string to the database (update the database name, user, and password)
-        String url = "jdbc:sqlite:C:\\Users\\khnda\\IdeaProjects\\Project_ICE\\creature.db";
-
-        // SQL query to fetch the item
-        String query = "SELECT * FROM Item WHERE id = ?";
-
-        try (Connection conn = DriverManager.getConnection(url);
-             PreparedStatement stmt = conn.prepareStatement(query)) {
-
-            // Set the ID parameter to prevent SQL injection
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setInt(1, id);
-
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    // Create and return an Item object using data from the database
-                    return new Item(
+                    // Assuming Ascii is a subclass of Creature
+                    return new Potion(
                             rs.getString("name"),
-                            rs.getInt("addAttack"),
-                            rs.getInt("addDefense"),
-                            rs.getInt("addHealth"),
-                            rs.getInt("addXp"),
-                            rs.getInt("addCurrency")
+                            rs.getInt("attack"),
+                            rs.getInt("defense"),
+                            rs.getInt("health")
+                    );
+                } else {
+                    System.out.println("No potion found with ID " + id);
+                    return null; // Optionally return Optional.empty() instead
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Item getItemById(int id) {
+        String query = "SELECT * FROM Item WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    // Create and return an Item object
+                    return new Item(
+                            rs.getInt("id"),
+                            rs.getString("name"),
+                            rs.getInt("attack"),
+                            rs.getInt("defense"),
+                            rs.getInt("health"),
+                            rs.getString("slot")
                     );
                 } else {
                     System.out.println("No item found with ID " + id);
@@ -83,4 +101,76 @@ public class DBConnector {
         }
     }
 
+
+    public Ascii getCreatureAsciiById(int id) {
+        String query = "SELECT * FROM AsciiCreature WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    // Assuming Ascii is a subclass of Creature
+                    return new Ascii(
+                            rs.getString("picture")
+                    );
+                } else {
+                    System.out.println("No creature found with ID " + id);
+                    return null; // Optionally return Optional.empty() instead
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Ascii getAsciiGearById(int id) {
+        String query = "SELECT * FROM AsciiGear WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    // Assuming Ascii is a subclass of Creature
+                    return new Ascii(
+                            rs.getString("picture")
+                    );
+                } else {
+                    System.out.println("No gear found with ID " + id);
+                    return null; // Optionally return Optional.empty() instead
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Ascii getAsciiLocationById(int id) {
+        String query = "SELECT * FROM AsciiLocation WHERE id = ?";
+
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    // Assuming Ascii is a subclass of Creature
+                    return new Ascii(
+                            rs.getString("picture")
+                    );
+                } else {
+                    System.out.println("No gear found with ID " + id);
+                    return null; // Optionally return Optional.empty() instead
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Database error: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public Connection getConnection() {
+        return conn;
+    }
 }

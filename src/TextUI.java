@@ -32,8 +32,10 @@ private Scanner scan = new Scanner(System.in);
     }
 
     public int promptNumericChoice(ArrayList<String> options, String msg) {
-        this.displayList(options, msg);
+        System.out.println(); //h
         int choice = this.promptNumeric("Choose an option (1-" + options.size() + "):");
+        System.out.println();
+        System.out.println();
         if (choice >= 1 && choice <= options.size()) {
             return choice;
         } else {
@@ -42,10 +44,8 @@ private Scanner scan = new Scanner(System.in);
         }
     }
 
-    public void displayList(ArrayList<String> options, String msg) {
-        System.out.println("*******");
+    public void displayList(ArrayList<String> options,String msg) {
         System.out.println(msg);
-        System.out.println("*******");
         int i = 1;
 
         for(String option : options) {
