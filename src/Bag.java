@@ -20,9 +20,7 @@ public class Bag {
         this.player = player;
     }
 
-    public int getBagSize() {
-        return bag.size();
-    }
+
 
 
 
@@ -32,7 +30,7 @@ public class Bag {
             return false;
         }
 
-        Item item = dbConnector.getItemById(itemId); // Returns a BagItem
+        Item item = dbConnector.getItemById(itemId);
         if (item == null) {
             System.out.println("Item with ID " + itemId + " does not exist in the database.");
             return false;
@@ -49,7 +47,7 @@ public class Bag {
             return false;
         }
 
-        Potion potion = dbConnector.getPotionById(potionId); // Returns a BagItem
+        Potion potion = dbConnector.getPotionById(potionId);
         if (potion == null) {
             System.out.println("Potion with ID " + potionId + " does not exist in the database.");
             return false;
@@ -100,66 +98,93 @@ public class Bag {
 
 
     public void useBag() {
-        ArrayList<String> itemNames = new ArrayList<>();
-        for (Object obj : bag) {
-            if (obj instanceof Item) {
-                Item item = (Item) obj;
-                itemNames.add(item.getName());
-            } else if (obj instanceof Potion) {
-                Potion potion = (Potion) obj;
-                itemNames.add(potion.getName());
-            }
-        }
+        while (true) {
+            ArrayList<String> itemNames = new ArrayList<>();
 
-
-        textUI.displayList(itemNames, "Select an item to transfer to your inventory:");
-        int selectedItemIndex = textUI.promptNumericChoice(itemNames, "Select an item to transfer to your inventory");
-
-
-        Object selectedObj = bag.get(selectedItemIndex - 1);
-
-        for (String slot : inventory.getSlots()) {
-            if (selectedObj instanceof Item) {
-                Item selectedItem = (Item) selectedObj;
-
-                if (selectedItem.getSlot().equals(slot)) {
-
-                    Item itemInSlot = inventory.getItemFromSlot(slot);
-                    if (itemInSlot == null) {
-
-                        inventory.setItemInSlot(slot, selectedItem);
-                        removeItemById(selectedItem.getId());
-                        textUI.Msg("Item " + selectedItem.getName() + " transferred to " + slot + " slot in inventory.");
-                        return;
-                    } else {
-
-                        textUI.Msg("The " + slot + " slot is already occupied by " + itemInSlot.getName() + ". Replacing it.");
-                        inventory.removeItemFromSlot(slot);
-                        addItemToBag(itemInSlot);
-                        inventory.setItemInSlot(slot, selectedItem);
-                        removeItemById(selectedItem.getId());
-                        textUI.Msg("Item " + selectedItem.getName() + " transferred to " + slot + " slot in inventory.");
-                        return;
-                    }
+            // Step 1: Populate itemNames with all items (potions and items) from the bag
+            for (Object obj : bag) {
+                if (obj instanceof Item) {
+                    Item item = (Item) obj;
+                    itemNames.add(item.getName());
+                } else if (obj instanceof Potion) {
+                    Potion potion = (Potion) obj;
+                    itemNames.add(potion.getName());
                 }
-            } else if (selectedObj instanceof Potion) {  // If it's a Potion
-                Potion selectedPotion = (Potion) selectedObj;
+            }
 
-                // Step 5: Add the potion's stats to the player's attributes
-                player.setHealth(player.getHealth() + selectedPotion.getAddHealth());
-                player.setAttack(player.getAttack() + selectedPotion.getAddAttack());
-                player.setDefense(player.getDefense() + selectedPotion.getAddDefense());
+            // Step 2: Add "Exit" option at the end of the list
+            itemNames.add("Exit");
 
+            // Step 3: Display the bag's contents and allow player to select an item to use
+            textUI.displayList(itemNames, "Select an item to use:");
+            int selectedItemIndex = textUI.promptNumericChoice(itemNames, "Select an item to use:");
 
-                removeItemById(selectedPotion.getId());
-
-                textUI.Msg("Potion " + selectedPotion.getName() + " used. Stats added to player.");
+            // Step 4: Handle "Exit" selection
+            if (selectedItemIndex == itemNames.size()) {
+                textUI.Msg("Exiting the bag.");
+                System.out.println();
+                System.out.println();
                 return;
             }
-        }
 
-        // If no slot matched the item's slot type (shouldn't happen if slots are correctly defined)
-        textUI.Msg("No matching slot found for item.");
+            // Step 5: Get the selected item from the bag (adjust for 0-based index)
+            Object selectedObj = bag.get(selectedItemIndex - 1);
+
+            // Step 6: Handle Item selection
+            if (selectedObj instanceof Item) {
+                Item selectedItem = (Item) selectedObj;
+                boolean itemEquipped = false;
+
+                for (String slot : inventory.getSlots()) {
+                    if (selectedItem.getSlot().equals(slot)) {
+                        Item itemInSlot = inventory.getItemFromSlot(slot);
+                        if (itemInSlot != null) {
+                            // Remove previous item's stats from player
+                            updatePlayerStatsOnRemove(itemInSlot);
+                            inventory.removeItemFromSlot(slot);
+                            addItemToBag(itemInSlot);
+                            System.out.println("Item: " + itemInSlot.getName() + " removed from inventory and added back to bag.");
+                        }
+
+                        // Equip the new item and update player stats
+                        inventory.setItemInSlot(slot, selectedItem);
+                        updatePlayerStatsOnEquip(selectedItem);
+                        removeItemById(selectedItem.getId());
+                        System.out.println("Item: " + selectedItem.getName() + " has been equipped to your inventory.");
+                        System.out.println();
+                        inventory.displayInventory();
+                        System.out.println();
+                        player.displayStats();
+                        System.out.println();
+                        System.out.println();
+                        itemEquipped = true;
+                        break;
+                    }
+                }
+
+                if (!itemEquipped) {
+                    textUI.Msg("No matching slot found for item: " + selectedItem.getName() + ". Item remains in bag.");
+                }
+            }
+            // Step 7: Handle Potion selection
+            else if (selectedObj instanceof Potion) {
+                Potion selectedPotion = (Potion) selectedObj;
+
+                // Apply potion effects directly to player stats
+                player.setAttack(player.getAttack() + selectedPotion.getAddAttack());
+                player.setDefense(player.getDefense() + selectedPotion.getAddDefense());
+                player.setHealth(player.getHealth() + selectedPotion.getAddHealth());
+
+                removeItemById(selectedPotion.getId());
+                System.out.println();
+                player.displayStats();
+                System.out.println();
+            }
+            // Step 8: Handle unknown objects
+            else {
+                textUI.Msg("Unrecognized item. Unable to use it.");
+            }
+        }
     }
 
 
@@ -173,7 +198,7 @@ public class Bag {
 
 
         bag.add(item);
-        System.out.println("Item " + item.getName() + " added back to the bag.");
+        System.out.println("Item: " + item.getName() + " added back to the bag.");
         return true;
     }
 
@@ -183,18 +208,45 @@ public class Bag {
             if (obj instanceof Item) {
                 Item item = (Item) obj;
                 if (item.getId() == itemId) {
+                    System.out.println("Item: " + item.getName() + " removed from the bag.");
                     bag.remove(obj);
-                    System.out.println("Item with ID " + itemId + " removed from the bag.");
                     break;
                 }
             } else if (obj instanceof Potion) {
                 Potion potion = (Potion) obj;
                 if (potion.getId() == itemId) {
+                    System.out.println("Potion: " + potion.getName() + " removed from the bag.");
                     bag.remove(obj);
-                    System.out.println("Potion with ID " + itemId + " removed from the bag.");
                     break;
                 }
             }
         }
     }
+
+
+    public int getBagSize() {
+        return bag.size();
+    }
+
+    private void updatePlayerStatsOnRemove(Item item) {
+        player.setAttack(player.getAttack() - item.getAttack());
+        player.setDefense(player.getDefense() - item.getDefense());
+        player.setHealth(player.getHealth() - item.getHealth());
+        System.out.println("Removed stats from " + item.getName() + ":");
+        System.out.println("- Attack: -" + item.getAttack());
+        System.out.println("- Defense: -" + item.getDefense());
+        System.out.println("- Health: -" + item.getHealth());
+    }
+
+    private void updatePlayerStatsOnEquip(Item item) {
+        player.setAttack(player.getAttack() + item.getAttack());
+        player.setDefense(player.getDefense() + item.getDefense());
+        player.setHealth(player.getHealth() + item.getHealth());
+        System.out.println("Added stats from " + item.getName() + ":");
+        System.out.println("+ Attack: +" + item.getAttack());
+        System.out.println("+ Defense: +" + item.getDefense());
+        System.out.println("+ Health: +" + item.getHealth());
+    }
+
+
 }
