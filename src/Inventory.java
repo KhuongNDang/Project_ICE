@@ -8,11 +8,11 @@ public class Inventory {
 
     public Inventory() {
         this.slots = new HashMap<>();
-        slots.put("Head", null);
-        slots.put("Top", null);
-        slots.put("Bottom", null);
-        slots.put("Weapon", null);
-        slots.put("Shield", null);
+        slots.put("head", null);
+        slots.put("top", null);
+        slots.put("bottom", null);
+        slots.put("weapon", null);
+        slots.put("shield", null);
     }
 
 
@@ -50,6 +50,6 @@ public class Inventory {
 
 
     public String[] getSlots() {
-        return new String[] { "Head", "Top", "Bottom", "Weapon", "Shield" };
+        return new String[] { "head", "top", "bottom", "weapon", "shield" };
     }
 }
