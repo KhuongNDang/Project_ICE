@@ -141,7 +141,8 @@ VALUES ('Uncle Shield', 0, 15, 0, 'shield'),
        ('Forest Essence',0,0,0,0),
        ('Magic Moss', 0, 0,0,0),
        ('Oasis Water',0,0,0,0),
-       ('Cheese Powder',0,0,0,0);
+       ('Cheese Powder',0,0,0,0),
+       ('Elixir',0,0,0,0);
 
 
 

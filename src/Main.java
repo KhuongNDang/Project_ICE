@@ -23,27 +23,14 @@ public class Main {
         Creature creature = dbConnector.getCreatureById(2);
         GameDialogue gamedialogue = new GameDialogue();
 
-        gamedialogue.fwBarracks(player);
         player.createUsername();
         gamedialogue.storyPartIntro(player);
         gamedialogue.mainMenu(player);
-        //gamedialogue.storyPartMarket(player);
+        gamedialogue.storyPartMarket(player);
         gamedialogue.storyPartDarkAlley(player);
         gamedialogue.storyPartVillageBurn(player);
         gamedialogue.arrivalCheeseCity(player);
         gamedialogue.cheeseCity(player);
-
-
-        bag.addItemFromDB(1);
-        bag.addItemFromDB(1);
-        bag.addItemFromDB(1);
-        bag.addItemFromDB(1);
-
-
-        combat.fight(player,creature,bag);
-
-
-
 
         }
     }

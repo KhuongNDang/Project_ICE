@@ -352,9 +352,9 @@ public class GameDialogue {
                 ui.Msg(String.valueOf(dialog1));
                 System.out.println("Press enter to continue...");
                 input.nextLine();
-                // todo if(Player.getItemID == fontina)
-                //swTavernFight
-                //else swTavern(player);
+                if (bag.containsItemById(22)) {
+                    swTavernFight(player);
+                } else swTavern(player);
                 break;
             case 2:
                 Dialog dialog2 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 82, player);
@@ -462,7 +462,11 @@ public class GameDialogue {
             System.out.println("Press enter to continue...");
             input.nextLine();
         }
-        combat.fight(player, dbConnector.getCreatureById(21), bag); //todo Ændre creature til Snifflesworth
+        Ascii asciiShop = Ascii.getAsciiById(24);
+        ui.Msg(String.valueOf(asciiShop));
+        ui.Msg("");
+
+        combat.fight(player, dbConnector.getCreatureById(24), bag); //todo Ændre creature til Snifflesworth
 
         Dialog dialog1 = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 98, player);
         ui.Msg(String.valueOf(dialog1));
@@ -976,8 +980,8 @@ public class GameDialogue {
   Combat combat = new Combat(bag, inventory);
   DBConnector dbConnector = new DBConnector();
 
-     Ascii asciiDragon = Ascii.getAsciiById(215);
-     ui.Msg(String.valueOf(asciiDragon));
+     Ascii asciiRTC = Ascii.getAsciiById(215);
+     ui.Msg(String.valueOf(asciiRTC));
      ui.Msg("");
 
   Dialog dialogRTCIntro = Dialog.getDialogById(Dialog.loadDialog("files/Dialog.txt"), 132, player);
